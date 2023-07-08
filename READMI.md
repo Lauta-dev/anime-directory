@@ -1,5 +1,7 @@
 # Lista de como seguir la app
 
+[Enlace](https://anime-directory-five.vercel.app) 
+
 ## Cuando se ve la informacion de una serie
 
 - [ ] Que los enlaces de category (gender) lleven a una lista de anime relacionado
