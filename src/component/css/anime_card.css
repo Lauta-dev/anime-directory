@@ -1,0 +1,26 @@
+.anime_card {
+  background-color: #000;
+  border-radius: .5rem;
+}
+
+.anime_card>a {
+  display: flex;
+  gap: 1rem;
+  padding: .5rem;
+}
+
+.conteiner_info>p,
+.conteiner_info>div>p {
+  filter: opacity(70%);
+}
+
+.conteiner_info>div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cover_small {
+  width: 4rem;
+  border-radius: .5rem;
+}

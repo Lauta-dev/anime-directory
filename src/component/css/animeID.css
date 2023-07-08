@@ -1,0 +1,67 @@
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cover>img {
+  width: 100%;
+}
+
+.sfw_conteiner_title_anime {
+  background-color: #0087a9;
+  padding: 1rem;
+  border-radius: .6rem;
+}
+
+.sfw_conteiner_title_animel>li>h2 {
+  color: #fff;
+}
+
+/* Si el contenido es para mayores de edad */
+.nsfw_conteiner_title_anime {
+  background-color: #7b00a9;
+  padding: 1rem;
+  border-radius: .6rem;
+}
+
+.con_p {
+  height: 13rem;
+}
+
+.con_p_c {}
+
+.descri {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+  white-space: break-spaces;
+}
+
+.descri>h2 {
+  color: #ff8700;
+}
+
+.buttonShowInfo {
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: transparent;
+  border: none;
+}
+
+.description_conteiner {
+  margin: .5rem 0;
+  background: #0087a9;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.lista_description {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  align-items: center;
+  margin: 10px 0;
+  gap: 1rem;
+}
