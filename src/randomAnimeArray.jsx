@@ -7,7 +7,7 @@ const animes = [
   'Hunter X Hunter'
 ]
 
-export function AnimeRandomArray() {
+export default function AnimeRandomArray() {
   return (
     <ul>
       {animes.map(anime => (

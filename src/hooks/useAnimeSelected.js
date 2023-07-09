@@ -22,7 +22,11 @@ export function useAnimeSelected({ data }) {
         smallImageUrl: data.images.webp.small_image_url,
         largeImageUrl: data.images.webp.large_image_url,
       }
-    }
+    },
+    episodes: data.episodes,
+    studios: data.studios, // []
+    status: data.status,
+    aired: data.aired.string
   }
 
   const titles = [{

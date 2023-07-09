@@ -1,25 +1,32 @@
-import { Header } from './component/Header'
-import { TopAnimes } from './component/topAnime'
+import { lazy, Suspense } from 'react'
 
-import { GetAnimes } from './component/getAnime'
-import { GetAnimeForID } from './component/getAnimeForID'
+import { Header } from './component/Header'
+
+
 import { Footer } from './component/Footer'
 import { Routers } from './Routers/router'
-import { AnimeRandomArray } from './randomAnimeArray'
 import { Input } from './component/Input'
+
+// lasy - Carga los archivos cuando lo necesite
+const TopAnimes = lazy(() => import('./component/topAnime'))
+const GetAnimeForID = lazy(() => import('./component/getAnimeForID'))
+const GetAnimes = lazy(() => import('./component/getAnime'))
+
+
 
 export function App() {
   return (
-    <section>
-      <Header />
-      <Input />
-      <AnimeRandomArray />
-      <Routers
-        GetAnimeForID={GetAnimeForID}
-        GetAnimes={GetAnimes}
-        TopAnimes={TopAnimes}
-      />
-      <Footer />
-    </section>
+    <>
+      <Suspense fallback={() => <h1>Cargando...</h1>}>
+        <Header />
+        <Input />
+        <Routers
+          GetAnimeForID={GetAnimeForID}
+          GetAnimes={GetAnimes}
+          TopAnimes={TopAnimes}
+        />
+        <Footer />
+      </Suspense>
+    </>
   )
 }

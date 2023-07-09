@@ -1,9 +1,21 @@
 import { Link } from 'wouter'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import getCharacter from '../logic/getCharacters'
+
+import './css/a.css'
 
 export function SelecteAnimeSynopsis({ genres, synopsis }) {
   const [hideDescription, setHideDescription] = useState(false)
+  const [animes, setAnimes] = useState([])
   const className = hideDescription ? 'con_p_c' : 'con_p'
+
+  useEffect(() => {
+    getCharacter(11061)
+      .then(({ data }) => {
+        setAnimes(data.slice(0, 4))
+      })
+  }, [])
+
 
   return (
     <>
@@ -18,7 +30,7 @@ export function SelecteAnimeSynopsis({ genres, synopsis }) {
       <button
         onClick={() => setHideDescription(!hideDescription)}
         className='buttonShowInfo'
-      >Mostrar mas
+      >Show more
       </button>
       <div className='description_conteiner'>
         <h2>Genres</h2>
@@ -31,6 +43,24 @@ export function SelecteAnimeSynopsis({ genres, synopsis }) {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className='slider'>
+        {animes && animes.map((data) => {
+          const { character } = data
+          const { name, images } = character
+          const { jpg } = images
+          const { image_url } = jpg
+
+          return (
+            <>
+              <div>
+                <img id='img' src={image_url} alt={name} />
+                <p>{name}</p>
+              </div>
+            </>
+          )
+        })}
       </div>
 
     </>

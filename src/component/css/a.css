@@ -1,0 +1,7 @@
+.slider {
+  text-align: center;
+  position: relative;
+  display: flex;
+  overflow: scroll;
+  gap: 20px;
+}

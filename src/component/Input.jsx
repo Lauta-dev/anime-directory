@@ -10,7 +10,7 @@ export function Input() {
       <input
         className='input_search'
         type='text'
-        placeholder='Search anime'
+        placeholder='Dragon Ball, Hunter X Hunter, Vinland Saga...'
         onChange={(evet) => setAnime(evet.target.value)}
       />
 

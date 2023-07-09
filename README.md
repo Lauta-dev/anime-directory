@@ -1,6 +1,6 @@
 # Lista de como seguir la app
 
-[Enlace](https://anime-directory-five.vercel.app) 
+[Enlace](https://anime-directory-five.vercel.app)
 
 ## Cuando se ve la informacion de una serie
 
@@ -8,6 +8,7 @@
 - [ ] Agregar informacion de
   - [ ] Capitulos totales
   - [ ] Estudio de animacion
+  - [ ] Estado la serie actualmente
   - [ ] Fecha de inicio y finalizacion
   - [ ] Personajes de la serie y su raza
   - [ ] popularidad
@@ -16,9 +17,11 @@
 ---
 
 # Pagina principal ' / '
+
 ## Hacer un boton para que cambie entre anime y manga
 
 - [ ] Animes populares
+
   - [ ] Agreagar un h2 que lleve a su repectiva pagina
   - [ ] Mostrar la puntuacion
 
@@ -26,7 +29,7 @@
   - [ ] Shonen
   - [ ] Romance
   - [ ] Comedia
-  - [ ] Horror 
+  - [ ] Horror
 
 ---
 
@@ -45,5 +48,3 @@
 - [x] Agregar un icono
 - [x] Input
   - [x] Usar el valor del input para realizar una busqueda de anime
-
-
