@@ -3,6 +3,7 @@ import { useAnimeSelected } from '../hooks/useAnimeSelected'
 import { getGenrenAnime } from '../logic/getGenrenAnime'
 import './css/animeID.css'
 import { SelecteAnimeSynopsis } from './SelectedAnimeSynopsis'
+import Asd from './Slice'
 
 export function Order({ data }) {
   const { newObj, titles } = useAnimeSelected({ data })
@@ -23,6 +24,8 @@ export function Order({ data }) {
           genres={newObj.genres}
           synopsis={newObj.synopsis}
         />
+
+        <Asd malId={newObj.id} />
       </section>
     </section>
   )

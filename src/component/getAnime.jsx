@@ -1,6 +1,9 @@
 import { useGetAnime } from '../hooks/getAnime'
 import { ListOfAnimes } from './ListOfAnimes'
 
+import './css/a.css'
+
+
 export default function GetAnimes({ params }) {
   const { animeData } = useGetAnime({ params })
   console.log(animeData)
