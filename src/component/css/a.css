@@ -5,3 +5,8 @@
   overflow: scroll;
   gap: 20px;
 }
+
+.slider div img {
+  width: 200px;
+  height: auto;
+}

@@ -10,7 +10,7 @@
   - [ ] Estudio de animacion
   - [ ] Estado la serie actualmente
   - [ ] Fecha de inicio y finalizacion
-  - [ ] Personajes de la serie y su raza
+  - [x] Personajes de la serie y su raza
   - [ ] popularidad
   - [ ] Anime relacionado
 

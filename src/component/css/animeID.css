@@ -64,4 +64,5 @@ section {
   align-items: center;
   margin: 10px 0;
   gap: 1rem;
+  flex-wrap: wrap;
 }

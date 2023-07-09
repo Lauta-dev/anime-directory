@@ -25,6 +25,9 @@ export function App() {
           GetAnimes={GetAnimes}
           TopAnimes={TopAnimes}
         />
+
+        <TopAnimes slice={true} />
+
         <Footer />
       </Suspense>
     </>

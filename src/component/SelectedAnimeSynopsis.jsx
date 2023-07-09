@@ -5,6 +5,8 @@ import { useState } from 'react'
 export function SelecteAnimeSynopsis({ genres, synopsis }) {
   const [hideDescription, setHideDescription] = useState(false)
   const className = hideDescription ? 'con_p_c' : 'con_p'
+  const titleButton = hideDescription ? 'Show less -' : 'Show more +'
+
 
   return (
     <>
@@ -19,7 +21,7 @@ export function SelecteAnimeSynopsis({ genres, synopsis }) {
       <button
         onClick={() => setHideDescription(!hideDescription)}
         className='buttonShowInfo'
-      >Show more
+      >{titleButton}
       </button>
       <div className='description_conteiner'>
         <h2>Genres</h2>
