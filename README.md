@@ -5,13 +5,13 @@
 ## Cuando se ve la informacion de una serie
 
 - [ ] Que los enlaces de category (gender) lleven a una lista de anime relacionado
-- [ ] Agregar informacion de
-  - [ ] Capitulos totales
-  - [ ] Estudio de animacion
-  - [ ] Estado la serie actualmente
-  - [ ] Fecha de inicio y finalizacion
+- [x] Agregar informacion de
+  - [x] Capitulos totales
+  - [x] Estudio de animacion
+  - [x] Estado la serie actualmente
+  - [x] Fecha de inicio y finalizacion
   - [x] Personajes de la serie y su raza
-  - [ ] popularidad
+  - [x] popularidad
 
 ---
 
@@ -19,10 +19,8 @@
 
 ## Hacer un boton para que cambie entre anime y manga
 
-- [ ] Animes populares
-
-  - [ ] Agreagar un h2 que lleve a su repectiva pagina
-  - [ ] Mostrar la puntuacion
+- [x] Animes populares
+- [x] Agreagar un h2 que lleve a su repectiva pagina
 
 - [ ] Agregar diferentes generos
   - [ ] Shonen

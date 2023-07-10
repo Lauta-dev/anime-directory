@@ -26,7 +26,8 @@ export function useAnimeSelected({ data }) {
     episodes: data.episodes,
     studios: data.studios, // []
     status: data.status,
-    aired: data.aired.string
+    aired: data.aired.string,
+    popularity: data.popularity
   }
 
   const titles = [{

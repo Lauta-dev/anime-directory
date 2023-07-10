@@ -25,7 +25,7 @@ function AnimeCharacter({ animeArray }) {
           const id = character.mal_id
 
           return (
-            <img key={id} src={character.images.webp.image_url} />
+            <img key={id} src={character.images.webp.image_url} alt={`Character: ${character.name}`} />
           )
         })
       }
