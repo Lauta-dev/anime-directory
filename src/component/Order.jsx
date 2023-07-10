@@ -11,6 +11,7 @@ import { AnimeCard } from './TopAnimeCard'
 export function Order({ data }) {
   const { newObj, titles } = useAnimeSelected({ data })
   const { getAnimeCharacters } = UseAnimeCharacter({ id: newObj.id })
+
   return (
     <section>
       <div className='cover'>

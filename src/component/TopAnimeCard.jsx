@@ -4,7 +4,7 @@ function TopAnime({ animeArray }) {
   return (
     <Slice>
       {
-        animeArray && animeArray.slice(0, 5).map((data) => {
+        animeArray && animeArray.slice(0, 6).map((data) => {
           const id = data.mal_id
           const { images, title } = data
           const { webp } = images
@@ -25,7 +25,11 @@ function AnimeCharacter({ animeArray }) {
           const id = character.mal_id
 
           return (
-            <img key={id} src={character.images.webp.image_url} alt={`Character: ${character.name}`} />
+            <img
+              key={id}
+              src={character.images.webp.image_url}
+              alt={`Character: ${character.name}`}
+            />
           )
         })
       }
