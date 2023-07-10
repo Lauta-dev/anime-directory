@@ -12,7 +12,6 @@
   - [ ] Fecha de inicio y finalizacion
   - [x] Personajes de la serie y su raza
   - [ ] popularidad
-  - [ ] Anime relacionado
 
 ---
 

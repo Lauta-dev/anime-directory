@@ -6,7 +6,7 @@
   gap: 20px;
 }
 
-.slider div img {
+.slider>img {
   width: 200px;
-  height: auto;
+  height: 200px;
 }

@@ -1,12 +1,15 @@
 import { tipos } from '../const'
+import { UseAnimeCharacter } from '../hooks/useAnimeCharacter'
 import { useAnimeSelected } from '../hooks/useAnimeSelected'
 import { getGenrenAnime } from '../logic/getGenrenAnime'
 import './css/animeID.css'
 import { SelecteAnimeSynopsis } from './SelectedAnimeSynopsis'
-import Asd from './Slice'
+import { AnimeCard } from './TopAnimeCard'
+
 
 export function Order({ data }) {
   const { newObj, titles } = useAnimeSelected({ data })
+  const { getAnimeCharacters } = UseAnimeCharacter({ id: newObj.id })
   return (
     <section>
       <div className='cover'>
@@ -24,8 +27,8 @@ export function Order({ data }) {
           genres={newObj.genres}
           synopsis={newObj.synopsis}
         />
-
-        <Asd malId={newObj.id} />
+        <h2>Characters</h2>
+        <AnimeCard isCharacterAnime={true} animeArray={getAnimeCharacters} />
       </section>
     </section>
   )
