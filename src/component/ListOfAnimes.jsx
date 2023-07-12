@@ -17,7 +17,6 @@ export function ListOfAnimes({ animeArray, nARenderizar, section }) {
               title={globalInfo.title}
               score={globalInfo.score}
               type={globalInfo.type}
-              genres={globalInfo.genres}
             />
           )
         })

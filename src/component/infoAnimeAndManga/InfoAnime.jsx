@@ -9,11 +9,9 @@ import { Synopsis } from "./Synopsis";
 import '../css/animeID.css'
 import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
 
-export function InfoAnime({ globalInfo: animeInfo, image, titles, ch }) {
+export function InfoAnime({ globalInfo: animeInfo, image, titles }) {
   const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo })
   const { getAnimeCharacters } = useAnimeCharacter({ id: infoAnimeFormatter.id, type: 'anime' })
-  console.log(getAnimeCharacters)
-
   return (
     <section>
       <Image imageURL={image.jpg.imageURL} />
