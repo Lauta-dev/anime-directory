@@ -7,9 +7,12 @@ import { Titles } from "./Title";
 import { Synopsis } from './Synopsis'
 
 import '../css/animeID.css'
+import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
 
-export function InfoManga({ infoManga, image, titles, ch }) {
+export function InfoManga({ infoManga, image, titles }) {
   const { infoMangaFormatter } = useInfoManga({ data: infoManga })
+  const { getAnimeCharacters } = useAnimeCharacter({ id: infoMangaFormatter.id, type: 'manga' })
+
   return (
     <section>
       <Image imageURL={image.jpg.imageURL} />
@@ -32,7 +35,7 @@ export function InfoManga({ infoManga, image, titles, ch }) {
         aired={infoMangaFormatter.publishing}
       />
       <h2>Characters</h2>
-      <AnimeCard isCharacterAnime={true} animeArray={ch} />
+      <AnimeCard isCharacterAnime={true} animeArray={getAnimeCharacters} />
     </section>
   )
 }

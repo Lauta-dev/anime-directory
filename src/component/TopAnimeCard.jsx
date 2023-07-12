@@ -37,8 +37,11 @@ function AnimeCharacter({ animeArray }) {
   )
 }
 
+/**
+ * @param {Array} param1.animeArray 
+ * @param {string} param2.isCharacterAnime 
+ * */
 export function AnimeCard({ animeArray, isCharacterAnime }) {
-
   return isCharacterAnime
     ? <AnimeCharacter animeArray={animeArray} />
     : <TopAnime animeArray={animeArray} />

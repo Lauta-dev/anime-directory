@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
-import getCharacter from "../logic/getCharacters";
+import { JIKAN_API_ANIME_CHARACTERS } from "../const";
 
-export function useAnimeCharacter({ id }) {
+/**
+ *
+ * @param {number} param1.id Id del Anime/Manga
+ * @param {string} param2.type Especificar de que medio es: anime o manga
+ **/
+export function useAnimeCharacter({ id, type }) {
   const [getAnimeCharacters, setGetAnimesCharacters] = useState([])
 
   useEffect(() => {
-    getCharacter(id).then(({ data }) => setGetAnimesCharacters(data))
+    if (getAnimeCharacters.length > 0) return
+    const llamada = setTimeout(() => {
+      return fetch(JIKAN_API_ANIME_CHARACTERS({ type, id }))
+        .then(res => res.json())
+        .then(({ data }) => setGetAnimesCharacters(data));
+    }, 2000)
+
+    return () => {
+      clearInterval(llamada)
+    }
   }, [])
 
   return { getAnimeCharacters }

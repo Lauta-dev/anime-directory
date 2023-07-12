@@ -1,15 +1,18 @@
 import { useInfoAnime } from "../../hooks/infoAnime";
-import { AnimeCard } from "../TopAnimeCard";
 import { Image } from "./Image";
 import { InfoMangaAndAnime } from "./Information";
 import { Status } from "./Status";
 import { Titles } from "./Title";
+import { Characters } from './Characters'
+import { Synopsis } from "./Synopsis";
 
 import '../css/animeID.css'
-import { Synopsis } from "./Synopsis";
+import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
 
 export function InfoAnime({ globalInfo: animeInfo, image, titles, ch }) {
   const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo })
+  const { getAnimeCharacters } = useAnimeCharacter({ id: infoAnimeFormatter.id, type: 'anime' })
+  console.log(getAnimeCharacters)
 
   return (
     <section>
@@ -32,8 +35,7 @@ export function InfoAnime({ globalInfo: animeInfo, image, titles, ch }) {
         status={infoAnimeFormatter.status}
         aired={infoAnimeFormatter.publishing}
       />
-      <h2>Characters</h2>
-      <AnimeCard isCharacterAnime={true} animeArray={ch} />
+      <Characters getAnimeCharacters={getAnimeCharacters} />
     </section>
   )
 }

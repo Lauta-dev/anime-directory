@@ -1,0 +1,25 @@
+.base {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #00000061;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #ffffff80;
+}
+
+.base > h2 {
+  margin-bottom: 1rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.loading > h2 {
+  color: #ffffff73;
+}
+
