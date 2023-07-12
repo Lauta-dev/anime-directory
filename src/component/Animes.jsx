@@ -5,7 +5,7 @@ import './css/anime_card.css'
 export function Animes({ malId, imagen, title, type, score, genres }) {
   return (
     <div className='anime_card'>
-      <Link to={`/manga/selected/one/${malId}`}>
+      <Link to={`/anime/selected/one/${malId}`}>
         <img className='cover_small' src={imagen} alt={tipos(type, title)} />
         <div className='conteiner_info'>
           <strong>{title}</strong>
