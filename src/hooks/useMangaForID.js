@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { getMangaForId } from "../logic/getMangaForID";
+import { getMangaForId as GetMangaForId } from "../logic/getMangaForID";
 
 export function useMangaForId({ id }) {
-  const [getMangaForId, setMangaForId] = useState([])
+  const [getMangaForId, setMangaForId] = useState(null)
 
   useEffect(() => {
-    getMangaForId(id).then(data => setMangaForId(data))
-
+    GetMangaForId(id)
+      .then(data => {
+        return setMangaForId(data)
+      })
   }, [])
 
   return { getMangaForId }

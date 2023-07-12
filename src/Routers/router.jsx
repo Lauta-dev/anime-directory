@@ -16,10 +16,8 @@ export function Routers() {
       <Route path='/manga/top' component={TopManga} />
       <Route path='/manga/selected/one/:malId' component={GetMangaForID} />
 
-
       <Route path='/anime/top' component={TopAnimes} />
       <Route path='/anime/selected/:anime' component={GetAnimes} />
-
       <Route path='/anime/selected/one/:malId' component={GetAnimeForID} />
     </>
   )

@@ -1,8 +1,7 @@
 import { Link } from 'wouter'
 import { useState } from 'react'
 
-
-export function SelecteAnimeSynopsis({ genres, synopsis }) {
+export function Synopsis({ genres, synopsis }) {
   const [hideDescription, setHideDescription] = useState(false)
   const className = hideDescription ? 'con_p_c' : 'con_p'
   const titleButton = hideDescription ? 'Show less -' : 'Show more +'
@@ -27,7 +26,7 @@ export function SelecteAnimeSynopsis({ genres, synopsis }) {
           {genres.map(({ name, mal_id }) => (
             <li className='links' key={mal_id}>
               <Link to={`/anime/category/${name}/${mal_id}`}>
-                {`#${name}`}
+                {`# ${name}`}
               </Link>
             </li>
           ))}

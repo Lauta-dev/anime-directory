@@ -78,7 +78,7 @@ section {
   flex-direction: row;
 }
 
-#info>p {
+#info>li {
   border: 1px solid #9b9b9b61;
   padding: .4rem;
   border-radius: 20px;

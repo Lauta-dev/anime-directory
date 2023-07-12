@@ -8,12 +8,12 @@ export function ListOfAnimes({ animeArray, nARenderizar, section }) {
       <h2> {section} </h2>
       {
         newArray && newArray.map((data) => {
-          const { newObj } = useAnimeSelected({ data: data })
+          const { newObj, image } = useAnimeSelected({ data })
 
           return (
             <Animes
               key={newObj.id}
-              imagen={newObj.images.webp.largeImageUrl}
+              imagen={image.webp.imageURL}
               malId={newObj.id}
               title={newObj.title}
               score={newObj.score}

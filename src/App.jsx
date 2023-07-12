@@ -7,14 +7,14 @@ import { Input } from './component/Input'
 
 export function App() {
   return (
-    <div>
+    <>
       <Suspense fallback={() => <h1>Cargando...</h1>}>
         <Header />
         <Input />
         <Routers />
         <Footer />
       </Suspense>
-    </div>
+    </>
 
   )
 }

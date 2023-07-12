@@ -1,6 +1,6 @@
 import { JIKAN_API_ANIME_ID } from '../const'
 
-export async function getAnimeForID (id) {
+export async function getAnimeForID(id) {
   try {
     const getAnimeForID = await fetch(JIKAN_API_ANIME_ID(id))
     const data = await getAnimeForID.json()

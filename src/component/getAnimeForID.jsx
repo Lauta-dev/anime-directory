@@ -3,6 +3,7 @@ import { useGetAnime } from '../hooks/getAnimeForID'
 
 export default function GetAnimeForID({ params }) {
   const { animeID } = useGetAnime({ params })
+  console.log(animeID)
 
   return (
     <>

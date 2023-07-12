@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import getCharacter from "../logic/getCharacters";
 
-export function UseAnimeCharacter({ id }) {
+export function useAnimeCharacter({ id }) {
   const [getAnimeCharacters, setGetAnimesCharacters] = useState([])
 
   useEffect(() => {
