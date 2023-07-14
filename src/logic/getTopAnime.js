@@ -1,6 +1,6 @@
 import { JIKAN_API_TOP_ANIME } from '../const'
 
-export async function getTopAnime() {
+export async function getTopAnime () {
   try {
     const getData = await fetch(JIKAN_API_TOP_ANIME)
 

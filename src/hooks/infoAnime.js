@@ -1,6 +1,6 @@
-import { useAnimeSelected } from "./useAnimeSelected"
+import { useAnimeSelected } from './useAnimeSelected'
 
-export function useInfoAnime({ data }) {
+export function useInfoAnime ({ data }) {
   const { globalInfo } = useAnimeSelected({ data })
 
   const infoAnimeFormatter = {
@@ -9,7 +9,7 @@ export function useInfoAnime({ data }) {
     episodes: data.episodes,
     studios: data.studios, // []
     duration: data.duration,
-    rating: data.rating,
+    rating: data.rating
   }
 
   return { infoAnimeFormatter }

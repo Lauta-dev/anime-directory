@@ -1,6 +1,6 @@
-import { JIKAN_API_TOP_MANGA } from "../const"
+import { JIKAN_API_TOP_MANGA } from '../const'
 
-export async function getTopManga() {
+export async function getTopManga () {
   try {
     const manga = await fetch(JIKAN_API_TOP_MANGA)
     const res = await manga.json()

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import { getTopAnime } from "../logic/getTopAnime"
+import { useEffect, useState } from 'react'
+import { getTopAnime } from '../logic/getTopAnime'
 
-export function useTopAnime() {
+export function useTopAnime () {
   const [topAnime, setTopAnime] = useState([])
 
   useEffect(() => {

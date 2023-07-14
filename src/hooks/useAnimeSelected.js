@@ -1,4 +1,4 @@
-export function useAnimeSelected({ data }) {
+export function useAnimeSelected ({ data }) {
   const globalInfo = {
     mal: data.url,
     id: data.mal_id,
@@ -10,19 +10,19 @@ export function useAnimeSelected({ data }) {
     score: data.score,
     genres: data.genres,
     status: data.status,
-    popularity: data.popularity,
+    popularity: data.popularity
   }
 
   const image = {
     jpg: {
       imageURL: data.images.jpg.image_url,
       largeImageURL: data.images.jpg.large_image_url,
-      smallImageURL: data.images.jpg.small_image_url,
+      smallImageURL: data.images.jpg.small_image_url
     },
     webp: {
       imageURL: data.images.webp.image_url,
       largeImageURL: data.images.webp.large_image_url,
-      smallImageURL: data.images.webp.small_image_url,
+      smallImageURL: data.images.webp.small_image_url
     }
   }
 

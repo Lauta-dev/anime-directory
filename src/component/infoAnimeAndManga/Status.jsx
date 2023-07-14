@@ -1,4 +1,4 @@
-export function Status({ status, aired }) {
+export function Status ({ status, aired }) {
   return (
     <section id='status'>
       <h2>Status</h2>

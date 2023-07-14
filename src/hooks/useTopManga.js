@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { getTopManga } from "../logic/getTopManga";
+import { useEffect, useState } from 'react'
+import { getTopManga } from '../logic/getTopManga'
 
-export function useTopManga() {
+export function useTopManga () {
   const [topManga, setTopManga] = useState([])
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import './css/loading.css'
 
-export function Loading() {
+export function Loading () {
   return (
     <div className='loading'>
       <h2>Loading</h2>

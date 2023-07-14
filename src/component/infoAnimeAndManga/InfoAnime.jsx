@@ -1,20 +1,21 @@
-import { useInfoAnime } from "../../hooks/infoAnime";
-import { Image } from "./Image";
-import { InfoMangaAndAnime } from "./Information";
-import { Status } from "./Status";
-import { Titles } from "./Title";
+import { useInfoAnime } from '../../hooks/infoAnime'
+import { Image } from './Image'
+import { InfoMangaAndAnime } from './Information'
+import { Status } from './Status'
+import { Titles } from './Title'
 import { Characters } from './Characters'
-import { Synopsis } from "./Synopsis";
+import { Synopsis } from './Synopsis'
 
 import '../css/animeID.css'
-import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
+import { useAnimeCharacter } from '../../hooks/useAnimeCharacter'
+import { TYPES } from '../../TYPES'
 
-export function InfoAnime({ globalInfo: animeInfo, image, titles }) {
+export function InfoAnime ({ animeInfo, image, titles }) {
   const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo })
-  const { getAnimeCharacters } = useAnimeCharacter({ id: infoAnimeFormatter.id, type: 'anime' })
+  const { getAnimeCharacters } = useAnimeCharacter({ id: infoAnimeFormatter.id, type: TYPES.anime })
   return (
     <section>
-      <Image imageURL={image.jpg.imageURL} />
+      <Image type={animeInfo.type} title={animeInfo.title} imageURL={image.jpg.imageURL} />
       <section>
         <Titles titles={titles} />
         <InfoMangaAndAnime

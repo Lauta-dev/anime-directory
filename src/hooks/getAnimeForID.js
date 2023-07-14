@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getAnimeForID } from '../logic/getAnimeForID'
 
-export function useGetAnime({ params }) {
+export function useGetAnime ({ params }) {
   const { malId } = params
   const [animeID, setAnimeID] = useState(null)
 

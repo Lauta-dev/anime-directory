@@ -1,6 +1,6 @@
 import { Animes } from './Animes'
 import { useAnimeSelected } from '../hooks/useAnimeSelected'
-export function ListOfAnimes({ animeArray, nARenderizar, section }) {
+export function ListOfAnimes ({ animeArray, nARenderizar, section }) {
   const newArray = animeArray.slice(0, nARenderizar)
 
   return (

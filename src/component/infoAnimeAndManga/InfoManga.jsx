@@ -1,31 +1,30 @@
-import { useInfoManga } from "../../hooks/infoManga";
-import { AnimeCard } from "../TopAnimeCard";
-import { Image } from "./Image";
-import { InfoMangaAndAnime } from "./Information";
-import { Status } from "./Status";
-import { Titles } from "./Title";
+import { useInfoManga } from '../../hooks/infoManga'
+import { Image } from './Image'
+import { InfoMangaAndAnime } from './Information'
+import { Status } from './Status'
+import { Titles } from './Title'
 import { Synopsis } from './Synopsis'
 
 import '../css/animeID.css'
-import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
+import { useAnimeCharacter } from '../../hooks/useAnimeCharacter'
+import { Characters } from './Characters'
+import { TYPES } from '../../TYPES'
 
-export function InfoManga({ infoManga, image, titles }) {
+export function InfoManga ({ infoManga, image, titles }) {
   const { infoMangaFormatter } = useInfoManga({ data: infoManga })
-  const { getAnimeCharacters } = useAnimeCharacter({ id: infoMangaFormatter.id, type: 'manga' })
+  const { getAnimeCharacters } = useAnimeCharacter({ id: infoMangaFormatter.id, type: TYPES.manga })
 
   return (
-    <section>
-      <Image imageURL={image.jpg.imageURL} />
-      <section>
-        <Titles titles={titles} />
-        <InfoMangaAndAnime
-          popularity={infoMangaFormatter.popularity}
-          chapters={infoMangaFormatter.chapters}
-          status={infoMangaFormatter.status}
-          score={infoMangaFormatter.score}
-          type={infoMangaFormatter.type}
-        />
-      </section>
+    <section className='conteiner'>
+      <Image type={infoManga.type} title={infoManga.title} imageURL={image.jpg.imageURL} />
+      <Titles titles={titles} />
+      <InfoMangaAndAnime
+        popularity={infoMangaFormatter.popularity}
+        chapters={infoMangaFormatter.chapters}
+        status={infoMangaFormatter.status}
+        score={infoMangaFormatter.score}
+        type={infoMangaFormatter.type}
+      />
       <Synopsis
         genres={infoManga.genres}
         synopsis={infoManga.synopsis}
@@ -34,8 +33,7 @@ export function InfoManga({ infoManga, image, titles }) {
         status={infoMangaFormatter.status}
         aired={infoMangaFormatter.publishing}
       />
-      <h2>Characters</h2>
-      <AnimeCard isCharacterAnime={true} animeArray={getAnimeCharacters} />
+      <Characters getAnimeCharacters={getAnimeCharacters} />
     </section>
   )
 }

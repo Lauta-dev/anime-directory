@@ -1,7 +1,7 @@
 import { Link } from 'wouter'
 import './css/header.css'
 
-export function Header() {
+export function Header () {
   return (
     <header>
       <ul>

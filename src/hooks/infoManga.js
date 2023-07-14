@@ -1,6 +1,6 @@
-import { useAnimeSelected } from "./useAnimeSelected"
+import { useAnimeSelected } from './useAnimeSelected'
 
-export function useInfoManga({ data }) {
+export function useInfoManga ({ data }) {
   const { globalInfo } = useAnimeSelected({ data })
 
   const infoMangaFormatter = {

@@ -1,109 +1,109 @@
 {
-   "data" : {
-      "aired" : {
-         "from" : "2013-11-18T00:00:00+00:00",
-         "prop" : {
-            "from" : {
-               "day" : 18,
-               "month" : 11,
-               "year" : 2013
-            },
-            "to" : {
-               "day" : 1,
-               "month" : 1,
-               "year" : 2014
-            }
-         },
-         "string" : "Nov 18, 2013 to 2014",
-         "to" : "2014-01-01T00:00:00+00:00"
+  "data": {
+    "aired": {
+      "from": "2013-11-18T00:00:00+00:00",
+      "prop": {
+        "from": {
+          "day": 18,
+          "month": 11,
+          "year": 2013
+        },
+        "to": {
+          "day": 1,
+          "month": 1,
+          "year": 2014
+        }
       },
-      "airing" : false,
-      "approved" : true,
-      "background" : null,
-      "broadcast" : {
-         "day" : null,
-         "string" : "Unknown",
-         "time" : null,
-         "timezone" : null
+      "string": "Nov 18, 2013 to 2014",
+      "to": "2014-01-01T00:00:00+00:00"
+    },
+    "airing": false,
+    "approved": true,
+    "background": null,
+    "broadcast": {
+      "day": null,
+      "string": "Unknown",
+      "time": null,
+      "timezone": null
+    },
+    "demographics": [],
+    "duration": "13 min per ep",
+    "episodes": 26,
+    "explicit_genres": [],
+    "favorites": 1,
+    "genres": [
+      {
+        "mal_id": 2,
+        "name": "Adventure",
+        "type": "anime",
+        "url": "https://myanimelist.net/anime/genre/2/Adventure"
       },
-      "demographics" : [],
-      "duration" : "13 min per ep",
-      "episodes" : 26,
-      "explicit_genres" : [],
-      "favorites" : 1,
-      "genres" : [
-         {
-            "mal_id" : 2,
-            "name" : "Adventure",
-            "type" : "anime",
-            "url" : "https://myanimelist.net/anime/genre/2/Adventure"
-         },
-         {
-            "mal_id" : 10,
-            "name" : "Fantasy",
-            "type" : "anime",
-            "url" : "https://myanimelist.net/anime/genre/10/Fantasy"
-         }
-      ],
-      "images" : {
-         "jpg" : {
-            "image_url" : "https://cdn.myanimelist.net/images/anime/13/79950.jpg",
-            "large_image_url" : "https://cdn.myanimelist.net/images/anime/13/79950l.jpg",
-            "small_image_url" : "https://cdn.myanimelist.net/images/anime/13/79950t.jpg"
-         },
-         "webp" : {
-            "image_url" : "https://cdn.myanimelist.net/images/anime/13/79950.webp",
-            "large_image_url" : "https://cdn.myanimelist.net/images/anime/13/79950l.webp",
-            "small_image_url" : "https://cdn.myanimelist.net/images/anime/13/79950t.webp"
-         }
+      {
+        "mal_id": 10,
+        "name": "Fantasy",
+        "type": "anime",
+        "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+      }
+    ],
+    "images": {
+      "jpg": {
+        "image_url": "https://cdn.myanimelist.net/images/anime/13/79950.jpg",
+        "large_image_url": "https://cdn.myanimelist.net/images/anime/13/79950l.jpg",
+        "small_image_url": "https://cdn.myanimelist.net/images/anime/13/79950t.jpg"
       },
-      "licensors" : [],
-      "mal_id" : 33267,
-      "members" : 552,
-      "popularity" : 14658,
-      "producers" : [],
-      "rank" : 17035,
-      "rating" : "PG-13 - Teens 13 or older",
-      "score" : null,
-      "scored_by" : null,
-      "season" : null,
-      "source" : "Original",
-      "status" : "Finished Airing",
-      "studios" : [],
-      "synopsis" : "According to legends, there are seven ancient artifacts that hold infinite power. An evil force desires to possess them as their own to achieve their hidden plot. Pan Zheng grew up in a village filled with Descendants of Deities, who practice martial arts and worship Zhuque of the South.\n\nIn the unseen world of deities, soon they were involved in a conflict over ancient artifacts. Under the guidance of the Zhuque, in order to fight back against the evil forces, Pan Zheng passes through millennium of years to the present and made many friends. To seek out the ancient artifacts, they set off to travel across Shenzhou (an old name for China, the Divine Land).\n\n(Source: 5Water via Ancientchinese.net)",
-      "themes" : [],
-      "title" : "Jinxiu Shenzhou: Qi You Ji",
-      "title_english" : "Splendid China - Hunting Treasures",
-      "title_japanese" : "锦绣神州之奇游迹",
-      "title_synonyms" : [],
-      "titles" : [
-         {
-            "title" : "Jinxiu Shenzhou: Qi You Ji",
-            "type" : "Default"
-         },
-         {
-            "title" : "锦绣神州之奇游迹",
-            "type" : "Japanese"
-         },
-         {
-            "title" : "Splendid China - Hunting Treasures",
-            "type" : "English"
-         }
-      ],
-      "trailer" : {
-         "embed_url" : null,
-         "images" : {
-            "image_url" : null,
-            "large_image_url" : null,
-            "maximum_image_url" : null,
-            "medium_image_url" : null,
-            "small_image_url" : null
-         },
-         "url" : null,
-         "youtube_id" : null
+      "webp": {
+        "image_url": "https://cdn.myanimelist.net/images/anime/13/79950.webp",
+        "large_image_url": "https://cdn.myanimelist.net/images/anime/13/79950l.webp",
+        "small_image_url": "https://cdn.myanimelist.net/images/anime/13/79950t.webp"
+      }
+    },
+    "licensors": [],
+    "mal_id": 33267,
+    "members": 552,
+    "popularity": 14658,
+    "producers": [],
+    "rank": 17035,
+    "rating": "PG-13 - Teens 13 or older",
+    "score": null,
+    "scored_by": null,
+    "season": null,
+    "source": "Original",
+    "status": "Finished Airing",
+    "studios": [],
+    "synopsis": "According to legends, there are seven ancient artifacts that hold infinite power. An evil force desires to possess them as their own to achieve their hidden plot. Pan Zheng grew up in a village filled with Descendants of Deities, who practice martial arts and worship Zhuque of the South.\n\nIn the unseen world of deities, soon they were involved in a conflict over ancient artifacts. Under the guidance of the Zhuque, in order to fight back against the evil forces, Pan Zheng passes through millennium of years to the present and made many friends. To seek out the ancient artifacts, they set off to travel across Shenzhou (an old name for China, the Divine Land).\n\n(Source: 5Water via Ancientchinese.net)",
+    "themes": [],
+    "title": "Jinxiu Shenzhou: Qi You Ji",
+    "title_english": "Splendid China - Hunting Treasures",
+    "title_japanese": "锦绣神州之奇游迹",
+    "title_synonyms": [],
+    "titles": [
+      {
+        "title": "Jinxiu Shenzhou: Qi You Ji",
+        "type": "Default"
       },
-      "type" : "TV",
-      "url" : "https://myanimelist.net/anime/33267/Jinxiu_Shenzhou__Qi_You_Ji",
-      "year" : null
-   }
+      {
+        "title": "锦绣神州之奇游迹",
+        "type": "Japanese"
+      },
+      {
+        "title": "Splendid China - Hunting Treasures",
+        "type": "English"
+      }
+    ],
+    "trailer": {
+      "embed_url": null,
+      "images": {
+        "image_url": null,
+        "large_image_url": null,
+        "maximum_image_url": null,
+        "medium_image_url": null,
+        "small_image_url": null
+      },
+      "url": null,
+      "youtube_id": null
+    },
+    "type": "TV",
+    "url": "https://myanimelist.net/anime/33267/Jinxiu_Shenzhou__Qi_You_Ji",
+    "year": null
+  }
 }

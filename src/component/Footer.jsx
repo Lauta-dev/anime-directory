@@ -1,4 +1,4 @@
-export function Footer() {
+export function Footer () {
   return (
     <footer>
       <h2>Footer</h2>

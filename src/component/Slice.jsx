@@ -1,8 +1,8 @@
 import './css/a.css'
 
-export function Slice({ children }) {
+export function Slice ({ children }) {
   return (
-    <div className="slider">
+    <div className='slider'>
       {children}
     </div>
   )

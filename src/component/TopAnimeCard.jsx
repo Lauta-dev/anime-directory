@@ -1,6 +1,6 @@
-import { Slice } from "./Slice"
+import { Slice } from './Slice'
 
-function TopAnime({ animeArray }) {
+function TopAnime ({ animeArray }) {
   return (
     <Slice>
       {
@@ -16,14 +16,13 @@ function TopAnime({ animeArray }) {
   )
 }
 
-function AnimeCharacter({ animeArray }) {
+function AnimeCharacter ({ animeArray }) {
   return (
     <Slice>
       {
         animeArray && animeArray.slice(0, 6).map((data) => {
           const { character } = data
           const id = character.mal_id
-
           return (
             <img
               key={id}
@@ -38,12 +37,11 @@ function AnimeCharacter({ animeArray }) {
 }
 
 /**
- * @param {Array} param1.animeArray 
- * @param {string} param2.isCharacterAnime 
+ * @param {Array} param1.animeArray
+ * @param {string} param2.isCharacterAnime
  * */
-export function AnimeCard({ animeArray, isCharacterAnime }) {
+export function AnimeCard ({ animeArray, isCharacterAnime }) {
   return isCharacterAnime
     ? <AnimeCharacter animeArray={animeArray} />
     : <TopAnime animeArray={animeArray} />
 }
-
