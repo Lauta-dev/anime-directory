@@ -1,21 +1,27 @@
 import { Link } from 'wouter'
 import './css/input.css'
 import { useState } from 'react'
-import { TYPES } from '../TYPES'
 
 export function Input () {
   const [anime, setAnime] = useState()
-  const [check, setCheck] = useState(false)
+  const [nose, setNose] = useState('')
+
   return (
     <div className='conteiner_search'>
-      <input type='checkbox' name='' value='' onChange={(e) => setCheck(e.target.checked)} />
+      <label htmlFor='pet-select'>Category</label>
+      <select id='pet-select' onChange={(e) => setNose(e.target.value)}>
+        <option value='tv'>Anime</option>
+        <option value='manga'>Manga</option>
+        <option value='hentai'>Hentar +18</option>
+      </select>
+
       <input
         className='input_search'
         type='text'
         placeholder='Dragon Ball, Hunter X Hunter, Vinland Saga...'
         onChange={(evet) => setAnime(evet.target.value)}
       />
-      <Link to={`/${check ? TYPES.anime : TYPES.manga}/selected/${anime}`} className='btn_search'>Search</Link>
+      <Link to={`/${nose}/selected/${anime}`} className='btn_search'>Search</Link>
     </div>
 
   )

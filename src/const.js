@@ -14,7 +14,10 @@ export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) => {
 
 export const JIKAN_API_TOP_ANIME = `${PREFIX}/${API_VERSION}/top/anime`
 export const JIKAN_API_TOP_MANGA = `${PREFIX}/${API_VERSION}/top/manga`
-export const JIKAN_API_ANIME_ADULT_CONTENT = ({ input, type }) => `${PREFIX}/${API_VERSION}/${type}?q=${input}&nsfw`
+export const JIKAN_API_ANIME_ADULT_CONTENT = ({ input, type }) => {
+  console.log({ input, type })
+  return `${PREFIX}/${API_VERSION}/${type}?q=${input}`
+}
 
 /**
 * @param {string} type En que formato es el elemento
