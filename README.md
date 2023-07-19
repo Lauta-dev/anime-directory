@@ -1,6 +1,6 @@
 # Lista de como seguir la app
 
-[Enlace](https://anime-directory-five.vercel.app)
+[Enlace](https://anime-direactory.vercel.app)
 
 ## Cuando se ve la informacion de una serie
 
