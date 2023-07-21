@@ -7,17 +7,16 @@ export const JIKAN_API_ANIME = (anime) => `${PREFIX}/${API_VERSION}/anime?q=${an
 export const JIKAN_API_ANIME_ID = (id) => `${PREFIX}/${API_VERSION}/anime/${id}`
 export const JIKAN_API_MANGA_ID = (id) => `${PREFIX}/${API_VERSION}/manga/${id}`
 
-export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) => {
-  const isAnimeOrManga = type === 'tv' ? 'anime' : 'manga'
-  return `${PREFIX}/${API_VERSION}/${isAnimeOrManga}/${id}/characters`
-}
+export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) => (
+  `${PREFIX}/${API_VERSION}/${type}/${id}/characters`
+)
 
 export const JIKAN_API_TOP_ANIME = `${PREFIX}/${API_VERSION}/top/anime`
 export const JIKAN_API_TOP_MANGA = `${PREFIX}/${API_VERSION}/top/manga`
-export const JIKAN_API_ANIME_ADULT_CONTENT = ({ input, type }) => {
-  console.log({ input, type })
-  return `${PREFIX}/${API_VERSION}/${type}?q=${input}`
-}
+
+export const JIKAN_API_ANIME_ADULT_CONTENT = ({ input, type }) => (
+  `${PREFIX}/${API_VERSION}/${type}?q=${input}`
+)
 
 /**
 * @param {string} type En que formato es el elemento

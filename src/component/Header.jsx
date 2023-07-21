@@ -6,8 +6,8 @@ export function Header () {
     <header>
       <ul>
         <li>
-          <Link to='/'>
-            <img id='logo' src='./public/web_page_icon.svg' alt='Logo de la pagina web' />
+          <Link to='/' >
+            <img id='logo' src='/web_page_icon.svg' alt='Logo de la pagina web' />
           </Link>
         </li>
         <div>

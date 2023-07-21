@@ -8,11 +8,11 @@ import { Synopsis } from './Synopsis'
 
 import '../css/animeID.css'
 import { useAnimeCharacter } from '../../hooks/useAnimeCharacter'
-import { TYPES } from '../../TYPES'
+import { FORMAT_TYPES } from '../../TYPES'
 
 export function InfoAnime ({ animeInfo, image, titles }) {
   const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo })
-  const { getAnimeCharacters } = useAnimeCharacter({ id: infoAnimeFormatter.id, type: TYPES.anime })
+  const { getAnimeCharacters } = useAnimeCharacter({ id: infoAnimeFormatter.id, type: FORMAT_TYPES.anime })
   return (
     <section>
       <Image type={animeInfo.type} title={animeInfo.title} imageURL={image.jpg.imageURL} />

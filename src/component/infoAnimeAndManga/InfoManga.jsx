@@ -8,11 +8,11 @@ import { Synopsis } from './Synopsis'
 import '../css/animeID.css'
 import { useAnimeCharacter } from '../../hooks/useAnimeCharacter'
 import { Characters } from './Characters'
-import { TYPES } from '../../TYPES'
+import { FORMAT_TYPES } from '../../TYPES'
 
 export function InfoManga ({ infoManga, image, titles }) {
   const { infoMangaFormatter } = useInfoManga({ data: infoManga })
-  const { getAnimeCharacters } = useAnimeCharacter({ id: infoMangaFormatter.id, type: TYPES.manga })
+  const { getAnimeCharacters } = useAnimeCharacter({ id: infoMangaFormatter.id, type: FORMAT_TYPES.manga })
 
   return (
     <section className='conteiner'>

@@ -2,7 +2,7 @@ import { Link } from 'wouter'
 import { useTopAnime } from '../hooks/useTopAnime'
 import { AnimeCard } from './TopAnimeCard'
 import { useTopManga } from '../hooks/useTopManga'
-import { TYPES } from '../TYPES'
+import { FORMAT_TYPES } from '../TYPES'
 
 export default function Home () {
   const { topAnime } = useTopAnime()
@@ -10,10 +10,10 @@ export default function Home () {
 
   return (
     <>
-      <Link to={`/${TYPES.anime}/top`}>Top Animes +</Link>
+      <Link to={`/${FORMAT_TYPES.anime}/top`}>Top Animes +</Link>
       <AnimeCard animeArray={topAnime} isCharacterAnime={false} />
       <br />
-      <Link to={`/${TYPES.manga}/top`}>Top Mangas +</Link>
+      <Link to={`/${FORMAT_TYPES.manga}/top`}>Top Mangas +</Link>
       <AnimeCard animeArray={topManga} isCharacterAnime={false} />
     </>
   )

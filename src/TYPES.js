@@ -1,11 +1,11 @@
-export const TYPES = {
-  special: 'special',
+export const FORMAT_TYPES = {
+  anime: 'anime',
   manga: 'manga',
   movie: 'movie',
-  anime: 'tv',
+  special: 'special',
   ova: 'ova',
-  ona: 'ona',
-  doujinshi: 'doujinshi'
+  doujinshi: 'doujinshi',
+  ona: 'ona'
 }
 export const ROUTE = {
   id: 'id'
