@@ -1,3 +1,4 @@
+import { useAnimeSelected } from '../hooks/useAnimeSelected'
 import { Slice } from './Slice'
 
 function TopAnime ({ animeArray }) {
