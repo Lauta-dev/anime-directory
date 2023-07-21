@@ -2,12 +2,10 @@ import { Link } from 'wouter'
 import { useAnimeSelected } from '../hooks/useAnimeSelected'
 import { ROUTE } from '../TYPES'
 import { Image } from './infoAnimeAndManga/Image'
-import { useEffect, useState, useContext } from 'react'
-import { SelectAnimeOrMangaContext } from '../context/selectAnimeOrManga'
+import { useEffect, useState } from 'react'
 
 export function CardAnimeAndManga ({ animeArray }) {
   const [selectedAnimeData, setSelectedAnimeData] = useState([])
-  const { a } = useContext(SelectAnimeOrMangaContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +20,11 @@ export function CardAnimeAndManga ({ animeArray }) {
   return (
     selectedAnimeData && selectedAnimeData.map(({ globalInfo, image }) => {
       const { title, score, type, id } = globalInfo
+      const isAnime = type === 'TV' ? 'anime' : type.toLowerCase()
+
       return (
         <div className='anime_card' key={id}>
-          <Link to={`/${a}/selected/${ROUTE.id}/${id}`}>
+          <Link to={`/${isAnime}/selected/${ROUTE.id}/${id}`}>
             <Image type={type} title={title} imageURL={image.webp.imageURL} />
             <div className='conteiner_info'>
               <strong>{title}</strong>
