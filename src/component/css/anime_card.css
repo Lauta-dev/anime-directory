@@ -32,8 +32,6 @@
 }
 
 .card_image_nswf {
-  display: none;
   border-radius: .5rem;
   aspect-ratio: 16/ 25;
-  filter: blur(15px);
 }

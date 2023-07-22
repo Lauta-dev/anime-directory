@@ -23,11 +23,8 @@ export function CardAnimeAndManga({ animeArray }) {
 	return (
 		<div className="cards">
 			{selectedAnimeData?.map(({ globalInfo, image }) => {
-				const { title, score, type, id, genres } = globalInfo;
+				const { title, score, type, id } = globalInfo;
 				const isAnime = type === "TV" ? "anime" : type.toLowerCase();
-
-				const genresType = genres.find((data) => data.name === "Hentai");
-				const sensoreImage = genresType ? "card_image_nswf" : "card_image";
 
 				return (
 					<Link
@@ -36,13 +33,13 @@ export function CardAnimeAndManga({ animeArray }) {
 						to={`/${isAnime}/selected/${ROUTE.id}/${id}`}
 					>
 						<Image
-							className={sensoreImage}
+							className="card_image"
 							type={type}
 							title={title}
 							imageURL={image.webp.imageURL}
 						/>
 
-						<div className={`conteiner_info ${sensoreImage}`}>
+						<div className="conteiner_info">
 							<strong>{title}</strong>
 							<p>Score: {score}</p>
 						</div>

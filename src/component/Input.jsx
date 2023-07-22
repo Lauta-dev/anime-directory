@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "wouter";
 import { FORMAT_TYPES } from "../TYPES";
+import { desactiveNSFWContext } from "../context/desactiveNSFW";
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import "./css/input.css";
 
@@ -8,27 +9,32 @@ export function Input() {
 	const [anime, setAnime] = useState();
 
 	const { a, setA } = useContext(SelectAnimeOrMangaContext);
+	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
 	const newArrayFromFormatType = Object.values(FORMAT_TYPES);
+
+	const activeNsfw = nsfw ? "Active NSWF" : "Desactive NSWF";
 
 	return (
 		<div className="conteiner_search">
 			<label htmlFor="pet-select">Category</label>
 			<select id="pet-select" onChange={(e) => setA(e.target.value)}>
-				{newArrayFromFormatType.map((value) => (
+				{newArrayFromFormatType?.map((value) => (
 					<option key={value} value={value}>
 						{value}
 					</option>
 				))}
 			</select>
 
-			<br />
-			<input
-				type="checkbox"
-				name="check"
-				id="check"
-				onChange={(e) => console.log(e.target.checked)}
-			/>
-			<br />
+			<div>
+				<label htmlFor="check">{activeNsfw}</label>
+				<input
+					type="checkbox"
+					name="check"
+					id="check"
+					onChange={() => setNsfw(!nsfw)}
+					checked={nsfw}
+				/>
+			</div>
 
 			<label htmlFor="search">Search</label>
 			<div className="input_conteiner">
