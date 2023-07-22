@@ -25,7 +25,7 @@ export function Input() {
 				))}
 			</select>
 
-			<div>
+			<div className="nsfw">
 				<label htmlFor="check">{activeNsfw}</label>
 				<input
 					type="checkbox"
