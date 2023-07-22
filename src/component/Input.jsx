@@ -21,6 +21,15 @@ export function Input() {
 				))}
 			</select>
 
+			<br />
+			<input
+				type="checkbox"
+				name="check"
+				id="check"
+				onChange={(e) => console.log(e.target.checked)}
+			/>
+			<br />
+
 			<label htmlFor="search">Search</label>
 			<div className="input_conteiner">
 				<input

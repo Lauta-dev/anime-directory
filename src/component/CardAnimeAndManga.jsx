@@ -42,7 +42,7 @@ export function CardAnimeAndManga({ animeArray }) {
 							imageURL={image.webp.imageURL}
 						/>
 
-						<div className="conteiner_info">
+						<div className={`conteiner_info ${sensoreImage}`}>
 							<strong>{title}</strong>
 							<p>Score: {score}</p>
 						</div>
