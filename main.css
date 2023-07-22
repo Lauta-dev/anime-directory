@@ -9,9 +9,17 @@
 
 main {
   padding: 2rem;
-  background-color: #1d1c1c;
 }
 
-h1, h2, h3, h4, a, ul,li, p, border, strong  {
-  color: #fff;
+h1,
+h2,
+h3,
+h4,
+a,
+ul,
+li,
+p,
+border,
+strong {
+  color: #000;
 }

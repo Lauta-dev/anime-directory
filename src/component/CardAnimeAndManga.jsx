@@ -30,7 +30,11 @@ export function CardAnimeAndManga({ animeArray }) {
 				const sensoreImage = genresType ? "card_image_nswf" : "card_image";
 
 				return (
-					<Link className="link" to={`/${isAnime}/selected/${ROUTE.id}/${id}`}>
+					<Link
+						key={id}
+						className="link"
+						to={`/${isAnime}/selected/${ROUTE.id}/${id}`}
+					>
 						<Image
 							className={sensoreImage}
 							type={type}

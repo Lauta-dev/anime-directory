@@ -2,7 +2,7 @@ import { useGetAnime } from "../hooks/getAnime";
 import { CardListOfAnimes } from "./CardListOfAnimes";
 import { Loading } from "./Loading";
 
-import "./css/a.css";
+import "./css/slider.css";
 
 export default function GetAnimes({ params }) {
 	const { animeData } = useGetAnime({ params });

@@ -1,7 +1,7 @@
 .base {
   padding: 1rem;
   border-radius: 1rem;
-  background: #00000061;
+  background: #e9e9e936;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
   border: 1px solid #ffffff80;
 }
 
-.base > h2 {
+.base>h2 {
   margin-bottom: 1rem;
 }
 
@@ -19,7 +19,7 @@
   align-items: center;
   margin: 1rem;
 }
-.loading > h2 {
+
+.loading>h2 {
   color: #ffffff73;
 }
-
