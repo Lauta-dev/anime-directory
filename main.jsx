@@ -1,13 +1,12 @@
-import { createRoot } from 'react-dom/client'
-import React from 'react'
-import App from './src/App'
-import './main.css'
-import './normalize.css'
-import './src/component/css/anime_card.css'
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./main.css";
+import "./normalize.css";
+import App from "./src/App";
 
-const root = createRoot(document.getElementById('app'))
+const root = createRoot(document.getElementById("app"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+);

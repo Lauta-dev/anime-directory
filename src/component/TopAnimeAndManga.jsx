@@ -1,7 +1,7 @@
-import { CardListOfAnimes } from './CardListOfAnimes'
-import { useTopAnime } from '../hooks/useTopAnime'
+import { useTopAnime } from "../hooks/useTopAnime";
+import { CardListOfAnimes } from "./CardListOfAnimes";
 
-export default function TopAnimes () {
-  const { topAnime } = useTopAnime()
-  return <CardListOfAnimes animeArray={topAnime} />
+export default function TopAnimes() {
+	const { topAnime } = useTopAnime();
+	return <CardListOfAnimes animeArray={topAnime} />;
 }
