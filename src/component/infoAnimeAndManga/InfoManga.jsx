@@ -14,7 +14,7 @@ export function InfoManga({ infoManga, image, titles }) {
 	const { infoMangaFormatter } = useInfoManga({ data: infoManga });
 	const { getAnimeCharacters } = useAnimeCharacter({
 		id: infoMangaFormatter.id,
-		type: FORMAT_TYPES.manga,
+		type: FORMAT_TYPES.manga.type,
 	});
 
 	return (

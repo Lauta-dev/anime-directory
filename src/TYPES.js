@@ -1,13 +1,35 @@
+import { nanoid } from "nanoid";
+
 export const FORMAT_TYPES = {
-	anime: "anime",
-	tv: "tv",
-	manga: "manga",
-	movie: "movie",
-	special: "special",
-	ova: "anime",
-	doujinshi: "doujinshi",
-	ona: "ona",
-	music: "music",
+	anime: {
+		type: "anime",
+		id: nanoid(),
+	},
+
+	manga: {
+		type: "manga",
+		id: nanoid(),
+	},
+
+	movie: {
+		type: "movie",
+		id: nanoid(),
+	},
+
+	special: {
+		type: "special",
+		id: nanoid(),
+	},
+
+	ova: {
+		type: "ova",
+		id: nanoid(),
+	},
+
+	doujinshi: {
+		type: "doujinshi",
+		id: nanoid(),
+	},
 };
 export const ROUTE = {
 	id: "id",

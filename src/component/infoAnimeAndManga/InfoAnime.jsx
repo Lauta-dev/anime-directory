@@ -14,7 +14,7 @@ export function InfoAnime({ animeInfo, image, titles }) {
 	const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo });
 	const { getAnimeCharacters } = useAnimeCharacter({
 		id: infoAnimeFormatter.id,
-		type: FORMAT_TYPES.anime,
+		type: FORMAT_TYPES.anime.dsa,
 	});
 	return (
 		<section className="conteiner">

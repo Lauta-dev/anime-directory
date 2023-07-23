@@ -31,13 +31,11 @@ export const JIKAN_API_TOP_MANGA = `${PREFIX}/${API_VERSION}/top/${type.manga}`;
  * @returns Una URL para acceder a los animes
  */
 export const JIKAN_API_ANIME_SEARCH = ({ input, type, nsfw }) => {
-	const isAnime = type === "anime" ? "tv" : type;
-	console.log(type);
-	console.log(
-		`${PREFIX}/${API_VERSION}/${isAnime}?q=${input}&sfw=${nsfw}&type=${isAnime}`,
-	);
+	const isTypeAnime = type === "anime" ? "tv" : type;
+	const isAnime = type === "ova" || "movie" || "special" ? "anime" : type;
 
-	return `${PREFIX}/${API_VERSION}/${"anime"}?q=${input}&sfw=${nsfw}&type=${isAnime}`;
+	console.log({ isAnime, isTypeAnime });
+	return `${PREFIX}/${API_VERSION}/${isAnime}?q=${input}&sfw=${nsfw}&type=${isTypeAnime}`;
 };
 /**
  * @param {string} type En que formato es el elemento

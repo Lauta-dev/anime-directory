@@ -4,16 +4,16 @@ import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { getAnimeAndManga } from "../logic/getAnime";
 
 export function useGetAnime({ params }) {
-	const { a } = useContext(SelectAnimeOrMangaContext);
+	const { type } = useContext(SelectAnimeOrMangaContext);
 	const { nsfw } = useContext(desactiveNSFWContext);
 
 	const { title } = params;
 	const [animeData, setAnimeData] = useState([]);
 
-	console.log({ a, nsfw });
+	console.log(type);
 
 	useEffect(() => {
-		getAnimeAndManga({ input: title, type: a, nsfw }).then(({ data }) =>
+		getAnimeAndManga({ input: title, type, nsfw }).then(({ data }) =>
 			setAnimeData(data),
 		);
 	}, [title, nsfw]);

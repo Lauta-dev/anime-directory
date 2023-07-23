@@ -10,43 +10,29 @@ const GetAnimeForID = lazy(() => import("../component/getAnimeForID"));
 const GetAnimes = lazy(() => import("../component/getAnime"));
 
 export function Routers() {
+	const anime = FORMAT_TYPES.anime.type.toString();
+	const manga = FORMAT_TYPES.manga.type.toString();
+	const movie = FORMAT_TYPES.movie.type.toString();
+	const ova = FORMAT_TYPES.ova.type.toString();
+	const special = FORMAT_TYPES.special.type.toString();
+	const doujinshi = FORMAT_TYPES.doujinshi.type.toString();
+
 	return (
 		<>
-			<Route path={`/${FORMAT_TYPES.manga}/top`} component={TopManga} />
+			<Route path={`/${manga}/top`} component={TopManga} />
+			<Route path={`/${manga}/selected/:title`} component={GetAnimes} />
 
 			<Route
-				path={`/${FORMAT_TYPES.manga}/selected/:title`}
-				component={GetAnimes}
-			/>
-
-			<Route
-				path={`/${FORMAT_TYPES.manga}/selected/${ROUTE.id}/:malId`}
+				path={`/${manga}/selected/${ROUTE.id}/:malId`}
 				component={GetMangaForID}
 			/>
 
-			<Route path={`/${FORMAT_TYPES.anime}/top`} component={TopAnimes} />
-
-			<Route
-				path={`/${FORMAT_TYPES.anime}/selected/:title`}
-				component={GetAnimes}
-			/>
-
-			<Route
-				path={`/${FORMAT_TYPES.special}/selected/:title`}
-				component={GetAnimes}
-			/>
-
-			<Route
-				path={`/${FORMAT_TYPES.movie}/selected/:title`}
-				component={GetAnimes}
-			/>
-
-			<Route
-				path={`/${FORMAT_TYPES.doujinshi}/selected/:title`}
-				component={GetAnimes}
-			/>
-
-			<Route path={`/ova/selected/:title`} component={GetAnimes} />
+			<Route path={`/${anime}/top`} component={TopAnimes} />
+			<Route path={`/${anime}/selected/:title`} component={GetAnimes} />
+			<Route path={`/${special}/selected/:title`} component={GetAnimes} />
+			<Route path={`/${movie}/selected/:title`} component={GetAnimes} />
+			<Route path={`/${doujinshi}/selected/:title`} component={GetAnimes} />
+			<Route path={`/${ova}/selected/:title`} component={GetAnimes} />
 		</>
 	);
 }

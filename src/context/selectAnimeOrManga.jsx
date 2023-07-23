@@ -1,17 +1,19 @@
-import { createContext, useState } from 'react'
-import { FORMAT_TYPES } from '../TYPES'
+import { createContext, useState } from "react";
+import { FORMAT_TYPES } from "../TYPES";
 
-export const SelectAnimeOrMangaContext = createContext()
+export const SelectAnimeOrMangaContext = createContext();
 
 export const SelectAnimeOrMangaContextProvider = ({ children }) => {
-  const [a, setA] = useState(FORMAT_TYPES.anime)
+	const [type, setType] = useState(FORMAT_TYPES.anime.type.toString());
 
-  return (
-    <SelectAnimeOrMangaContext.Provider value={{
-      a,
-      setA
-    }}>
-      {children}
-    </SelectAnimeOrMangaContext.Provider>
-  )
-}
+	return (
+		<SelectAnimeOrMangaContext.Provider
+			value={{
+				type,
+				setType,
+			}}
+		>
+			{children}
+		</SelectAnimeOrMangaContext.Provider>
+	);
+};

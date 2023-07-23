@@ -41,6 +41,8 @@ export function CardAnimeAndManga({ animeArray }) {
 
 						<div className="conteiner_info">
 							<strong>{title}</strong>
+							<br />
+							<br />
 							<p>Score: {score}</p>
 							<p>Type: {type}</p>
 							<p>Type: {episode}</p>

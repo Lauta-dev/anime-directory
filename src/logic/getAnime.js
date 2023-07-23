@@ -1,7 +1,6 @@
 import { JIKAN_API_ANIME_SEARCH } from "../const";
 
 export async function getAnimeAndManga({ input, type, nsfw }) {
-	console.log({ input, type, nsfw });
 	try {
 		const getData = await fetch(JIKAN_API_ANIME_SEARCH({ input, type, nsfw }));
 		return await getData.json();
