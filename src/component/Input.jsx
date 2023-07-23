@@ -10,7 +10,7 @@ export function Input() {
 
 	const { a, setA } = useContext(SelectAnimeOrMangaContext);
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
-	const newArrayFromFormatType = Object.values(FORMAT_TYPES);
+	const newArrayFromFormatType = Object.keys(FORMAT_TYPES);
 
 	const activeNsfw = nsfw ? "Active NSWF" : "Desactive NSWF";
 

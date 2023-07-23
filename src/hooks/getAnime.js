@@ -10,6 +10,8 @@ export function useGetAnime({ params }) {
 	const { title } = params;
 	const [animeData, setAnimeData] = useState([]);
 
+	console.log({ a, nsfw });
+
 	useEffect(() => {
 		getAnimeAndManga({ input: title, type: a, nsfw }).then(({ data }) =>
 			setAnimeData(data),

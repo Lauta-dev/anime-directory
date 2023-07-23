@@ -23,8 +23,8 @@ export function CardAnimeAndManga({ animeArray }) {
 	return (
 		<div className="cards">
 			{selectedAnimeData?.map(({ globalInfo, image }) => {
-				const { title, score, type, id } = globalInfo;
-				const isAnime = type === "TV" ? "anime" : type.toLowerCase();
+				const { title, score, type, id, episode } = globalInfo;
+				const isAnime = type === "ova" ? "anime" : type.toLowerCase();
 
 				return (
 					<Link
@@ -42,6 +42,8 @@ export function CardAnimeAndManga({ animeArray }) {
 						<div className="conteiner_info">
 							<strong>{title}</strong>
 							<p>Score: {score}</p>
+							<p>Type: {type}</p>
+							<p>Type: {episode}</p>
 						</div>
 					</Link>
 				);
