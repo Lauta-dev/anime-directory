@@ -1,20 +1,26 @@
 import { Link } from "wouter";
 import { FORMAT_TYPES } from "../TYPES";
 import { useTopAnime } from "../hooks/useTopAnime";
-import { useTopManga } from "../hooks/useTopManga";
 import { AnimeCard } from "./TopAnimeCard";
+import { useState } from "react";
 
 export default function Home() {
-	const { topAnime } = useTopAnime();
-	const { topManga } = useTopManga();
+	const [showMangaOrAnime, setShowMangaOrAnime] = useState(false);
+	const { top } = useTopAnime({
+		type: showMangaOrAnime ? FORMAT_TYPES.anime.type : FORMAT_TYPES.manga.type,
+	});
 
 	return (
 		<>
-			<Link to={`/${FORMAT_TYPES.anime}/top`}>Top Animes +</Link>
-			<AnimeCard animeArray={topAnime} isCharacterAnime={false} />
-			<br />
-			<Link to={`/${FORMAT_TYPES.manga}/top`}>Top Mangas +</Link>
-			<AnimeCard animeArray={topManga} isCharacterAnime={false} />
+			<label htmlFor="type">Mostrar anime</label>
+			<input
+				type="checkbox"
+				name="type"
+				id="type"
+				onChange={() => setShowMangaOrAnime(!showMangaOrAnime)}
+			/>
+
+			<AnimeCard animeArray={top} isCharacterAnime={false} />
 		</>
 	);
 }

@@ -19,8 +19,8 @@ export const JIKAN_API_MANGA_ID = (id) =>
 export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 	`${PREFIX}/${API_VERSION}/${type}/${id}/characters`;
 
-export const JIKAN_API_TOP_ANIME = `${PREFIX}/${API_VERSION}/top/${type.anime}`;
-export const JIKAN_API_TOP_MANGA = `${PREFIX}/${API_VERSION}/top/${type.manga}`;
+export const JIKAN_API_TOP = ({ type }) =>
+	`${PREFIX}/${API_VERSION}/top/${type}`;
 
 /**
  *
@@ -30,12 +30,17 @@ export const JIKAN_API_TOP_MANGA = `${PREFIX}/${API_VERSION}/top/${type.manga}`;
  *
  * @returns Una URL para acceder a los animes
  */
-export const JIKAN_API_ANIME_SEARCH = ({ input, type, nsfw }) => {
+export const JIKAN_API_ANIME_SEARCH = ({ title, type, nsfw }) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
 	const isAnime = type === "ova" || "movie" || "special" ? "anime" : type;
 
-	console.log({ isAnime, isTypeAnime });
-	return `${PREFIX}/${API_VERSION}/${isAnime}?q=${input}&sfw=${nsfw}&type=${isTypeAnime}`;
+	console.log({ isAnime, isTypeAnime, type });
+
+	if (type === "manga") {
+		return `${PREFIX}/${API_VERSION}/manga?q=${title}&sfw=${nsfw}&type=manga`;
+	}
+
+	return `${PREFIX}/${API_VERSION}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}`;
 };
 /**
  * @param {string} type En que formato es el elemento

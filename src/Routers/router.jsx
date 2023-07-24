@@ -10,12 +10,12 @@ const GetAnimeForID = lazy(() => import("../component/getAnimeForID"));
 const GetAnimes = lazy(() => import("../component/getAnime"));
 
 export function Routers() {
-	const anime = FORMAT_TYPES.anime.type.toString();
-	const manga = FORMAT_TYPES.manga.type.toString();
-	const movie = FORMAT_TYPES.movie.type.toString();
-	const ova = FORMAT_TYPES.ova.type.toString();
-	const special = FORMAT_TYPES.special.type.toString();
-	const doujinshi = FORMAT_TYPES.doujinshi.type.toString();
+	const anime = FORMAT_TYPES.anime.type;
+	const manga = FORMAT_TYPES.manga.type;
+	const movie = FORMAT_TYPES.movie.type;
+	const ova = FORMAT_TYPES.ova.type;
+	const special = FORMAT_TYPES.special.type;
+	const doujinshi = FORMAT_TYPES.doujinshi.type;
 
 	return (
 		<>

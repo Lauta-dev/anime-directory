@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "wouter";
-import { FORMAT_TYPES } from "../TYPES";
+import { FORMAT_TYPES, MANGA_FILTERS } from "../TYPES";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import "./css/input.css";
@@ -10,7 +10,9 @@ export function Input() {
 
 	const { type, setType } = useContext(SelectAnimeOrMangaContext);
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
+
 	const newArrayFromFormatType = Object.values(FORMAT_TYPES);
+	const newArrayFromFormatTypeManga = Object.values(MANGA_FILTERS);
 
 	const activeNsfw = nsfw ? "Active NSWF" : "Desactive NSWF";
 
@@ -18,11 +20,17 @@ export function Input() {
 		<div className="conteiner_search">
 			<label htmlFor="pet-select">Category</label>
 			<select id="pet-select" onChange={(e) => setType(e.target.value)}>
-				{newArrayFromFormatType?.map(({ type, id }) => (
-					<option key={id} value={type}>
-						{type.toString()}
-					</option>
-				))}
+				{nsfw
+					? newArrayFromFormatType?.map(({ type, id }) => (
+							<option key={id} value={type}>
+								{type.toString()}
+							</option>
+					  ))
+					: newArrayFromFormatTypeManga?.map(({ type, id }) => (
+							<option key={id} value={type}>
+								{type.toString()}
+							</option>
+					  ))}
 			</select>
 
 			<div className="nsfw">

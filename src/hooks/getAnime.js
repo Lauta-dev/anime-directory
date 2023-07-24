@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
-import { getAnimeAndManga } from "../logic/getAnime";
+import { JIKAN_API_ANIME_SEARCH } from "../const";
 
 export function useGetAnime({ params }) {
 	const { type } = useContext(SelectAnimeOrMangaContext);
@@ -10,13 +10,23 @@ export function useGetAnime({ params }) {
 	const { title } = params;
 	const [animeData, setAnimeData] = useState([]);
 
-	console.log(type);
-
 	useEffect(() => {
-		getAnimeAndManga({ input: title, type, nsfw }).then(({ data }) =>
-			setAnimeData(data),
-		);
+		const get = async () => {
+			try {
+				const getData = await fetch(
+					JIKAN_API_ANIME_SEARCH({ title, type, nsfw }),
+				);
+				const res = await getData.json();
+				return setAnimeData(res.data);
+			} catch (error) {
+				throw new Error("Error al obtener la respuesta");
+			}
+		};
+
+		get();
 	}, [title, nsfw]);
+
+	console.log;
 
 	return { animeData };
 }
