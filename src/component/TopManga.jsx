@@ -1,8 +1,11 @@
-import { useTopManga } from '../hooks/useTopManga'
-import { CardListOfAnimes } from './CardListOfAnimes'
+import { useTopAnime } from "../hooks/useTopAnime";
+import { CardListOfAnimes } from "./CardListOfAnimes";
 
-export default function TopManga () {
-  const { topManga } = useTopManga()
+export default function TopManga({ params }) {
+	const objectToArray = Object.values(params);
+	const type = objectToArray[0];
 
-  return <CardListOfAnimes animeArray={topManga} />
+	const { top } = useTopAnime({ type });
+
+	return <CardListOfAnimes animeArray={top} />;
 }

@@ -1,0 +1,21 @@
+.changeAnimeOrManga {
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.manga {
+  background-color: rgb(232, 255, 0);
+}
+
+.anime {
+  background-color: #ffa941;
+}
+
+.conteiner-filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}

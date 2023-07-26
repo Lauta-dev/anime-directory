@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export function Select() {
 	const [nose, setNose] = useState("");
-	console.log(nose);
 
 	return (
 		<>

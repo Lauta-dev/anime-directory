@@ -24,7 +24,9 @@ export function CardAnimeAndManga({ animeArray }) {
 		<div className="cards">
 			{selectedAnimeData?.map(({ globalInfo, image }) => {
 				const { title, score, type, id, episode } = globalInfo;
-				const isAnime = type === "ova" ? "anime" : type.toLowerCase();
+
+				const isAnime =
+					type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
 
 				return (
 					<Link

@@ -1,26 +1,27 @@
 const PREFIX = "https://api.jikan.moe";
 const API_VERSION = "v4";
+const urlCompleted = `${PREFIX}/${API_VERSION}`;
 
 const type = {
 	manga: "manga",
 	anime: "anime",
 };
 
-export const JIKAN_API_MANGA = (manga) =>
-	`${PREFIX}/${API_VERSION}/${type.manga}?q=${manga}&sfw`;
-export const JIKAN_API_ANIME = (anime) =>
-	`${PREFIX}/${API_VERSION}/${type.anime}?q=${anime}&sfw`;
+export const SEASON_ANIME_NOW = `${urlCompleted}/seasons/now`;
 
-export const JIKAN_API_ANIME_ID = (id) =>
-	`${PREFIX}/${API_VERSION}/${type.anime}/${id}`;
-export const JIKAN_API_MANGA_ID = (id) =>
-	`${PREFIX}/${API_VERSION}/${type.manga}/${id}`;
+export const JIKAN_API_MANGA = (manga) =>
+	`${urlCompleted}/${type.manga}?q=${manga}&sfw`;
+export const JIKAN_API_ANIME = (anime) =>
+	`${urlCompleted}/${type.anime}?q=${anime}&sfw`;
+
+export const JIKAN_API_ANIME_ID = (id) => `${urlCompleted}/${type.anime}/${id}`;
+
+export const JIKAN_API_MANGA_ID = (id) => `${urlCompleted}/${type.manga}/${id}`;
 
 export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
-	`${PREFIX}/${API_VERSION}/${type}/${id}/characters`;
+	`${urlCompleted}/${type}/${id}/characters`;
 
-export const JIKAN_API_TOP = ({ type }) =>
-	`${PREFIX}/${API_VERSION}/top/${type}`;
+export const JIKAN_API_TOP = ({ type }) => `${urlCompleted}/top/${type}`;
 
 /**
  *
@@ -32,15 +33,12 @@ export const JIKAN_API_TOP = ({ type }) =>
  */
 export const JIKAN_API_ANIME_SEARCH = ({ title, type, nsfw }) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
-	const isAnime = type === "ova" || "movie" || "special" ? "anime" : type;
-
-	console.log({ isAnime, isTypeAnime, type });
 
 	if (type === "manga") {
-		return `${PREFIX}/${API_VERSION}/manga?q=${title}&sfw=${nsfw}&type=manga`;
+		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga`;
 	}
 
-	return `${PREFIX}/${API_VERSION}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}`;
+	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}`;
 };
 /**
  * @param {string} type En que formato es el elemento

@@ -26,7 +26,5 @@ export function useGetAnime({ params }) {
 		get();
 	}, [title, nsfw]);
 
-	console.log;
-
 	return { animeData };
 }

@@ -10,8 +10,8 @@ export function InfoMangaAndAnime({
 	return (
 		<section>
 			<ul id="info" className="slider">
-				<li>Caps: {chapters}</li>
-				<li>Sourse: {status}</li>
+        {chapters ? <li>Chapters: {chapters}</li> : null}
+				<li>Status: {status}</li>
 				<li>Type: {type}</li>
 				<li>Score: {score}</li>
 				<li>popularity: {popularity}</li>

@@ -9,20 +9,28 @@ import { Titles } from "./Title";
 import { FORMAT_TYPES } from "../../TYPES";
 import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
 import "../css/animeID.css";
+import { SaveMangaOrAnime } from "./saveMangaOrAnime";
+import { useEffect } from "react";
 
 export function InfoAnime({ animeInfo, image, titles }) {
 	const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo });
 	const { getAnimeCharacters } = useAnimeCharacter({
 		id: infoAnimeFormatter.id,
-		type: FORMAT_TYPES.anime.dsa,
+		type: FORMAT_TYPES.anime.type,
 	});
+
+	useEffect(() => {}, []);
+
 	return (
 		<section className="conteiner">
 			<Image
 				type={animeInfo.type}
 				title={animeInfo.title}
-				imageURL={image.jpg.imageURL}
+				imageURL={image.jpg.largeImageURL}
 			/>
+
+			<SaveMangaOrAnime info={infoAnimeFormatter} />
+
 			<section>
 				<Titles titles={titles} />
 				<InfoMangaAndAnime
