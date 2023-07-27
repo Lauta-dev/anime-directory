@@ -7,13 +7,11 @@ export function useRemoveItem({ id }) {
 	useEffect(() => {
 		const a = async () => {
 			try {
-				const pe = {
+				const body = {
 					method: "DELETE",
 				};
-				console.log(id);
 
-				const f = await fetch(`${localHost}/delete/${id}`, pe);
-
+				const f = await fetch(`${localHost}/delete/${id}`, body);
 				const res = await f.json();
 				setRes(res);
 			} catch (error) {

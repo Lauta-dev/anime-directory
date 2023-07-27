@@ -1,14 +1,29 @@
 import { removeItemFromDBLogic } from "../../logic/removeItemFromDBLogic";
+import "../css/buttonAddItemInDB.css";
 
-export const RemoveItemFromDB = ({ id, oncheck }) => {
-	return (
-		<button
-			onClick={() => {
-				oncheck();
-				removeItemFromDBLogic({ id });
-			}}
+export const RemoveItemFromDB = ({ id, oncheck }) => (
+	<button
+		className="globalStyle removeItem"
+		type="button"
+		onClick={() => {
+			oncheck();
+			removeItemFromDBLogic({ id });
+		}}
+	>
+		Remove{" "}
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			strokeWidth={1.5}
+			stroke="currentColor"
+			className="removeIcon"
 		>
-			remove
-		</button>
-	);
-};
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+			/>
+		</svg>
+	</button>
+);

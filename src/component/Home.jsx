@@ -2,11 +2,11 @@ import { Link } from "wouter";
 import { FORMAT_TYPES } from "../TYPES";
 import { useTopAnime } from "../hooks/useTopAnime";
 import { AnimeCard } from "./TopAnimeCard";
-import { useEffect, useState } from "react";
 
 import { getSeasonNow } from "../logic/getSeasonNow";
 
 import "./css/changeMangaOrAnime.css";
+import { useState } from "react";
 
 export default function Home() {
 	const [showMangaOrAnime, setShowMangaOrAnime] = useState(false);
@@ -25,6 +25,7 @@ export default function Home() {
 		<>
 			<div className="conteiner-filters">
 				<button
+					type="button"
 					className={`changeAnimeOrManga ${
 						showMangaOrAnime ? "manga" : "anime"
 					}`}
@@ -39,17 +40,40 @@ export default function Home() {
 					More #{selectAnimeOrManga}
 				</Link>
 			</div>
-
-			<br />
 			<br />
 
 			<AnimeCard animeArray={top} isCharacterAnime={false} />
+			<br />
 
-			{data?.map((e) => (
-				<div key={e.mal_id}>
-					<h2>{e.title}</h2>
-				</div>
-			))}
+			<ul className="season_conteiner">
+				{data?.map((e) => {
+					return (
+						<Link key={e.mal_id} to={`/anime/selected/id/${e.mal_id}`}>
+							<li className="list">
+								<img className="img" src={e.images.jpg.image_url} alt="" />
+
+								<div className="infoSeason">
+									<b>{e.title}</b>
+									<div className="detail">
+										<p>
+											Aired: <b>{e.aired.string}</b>
+										</p>
+
+										<p>
+											Status: <b>{e.status}</b>
+										</p>
+
+										<p>
+											Episodes: <b>{e.episodes ?? "?"}</b>
+										</p>
+									</div>
+								</div>
+							</li>
+						</Link>
+					);
+				})}
+				<Link to="/anime/selected/season">More </Link>
+			</ul>
 		</>
 	);
 }

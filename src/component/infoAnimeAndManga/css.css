@@ -1,0 +1,26 @@
+/* Estilos para la transición de altura */
+.description {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 260ms ease-in-out;
+}
+
+.description.expanded {
+  max-height: 600px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  gap: 5px;
+}
+
+.less {
+  rotate: -180deg;
+}
+
+.w-6 {
+  width: 20px;
+}

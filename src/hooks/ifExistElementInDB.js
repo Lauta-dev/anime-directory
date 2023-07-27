@@ -5,19 +5,23 @@ export function useIfExistElemetnInDB({ id }) {
 	const [malId, setMalId] = useState([]);
 
 	const searchElement = async ({ id }) => {
-		const body = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				id: id,
-			}),
-		};
+		try {
+			const body = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					id: id,
+				}),
+			};
 
-		const f = await fetch(`http://localhost:8080/data/${id}`, body);
-		const res = await f.json();
-		return res;
+			const f = await fetch(`http://localhost:8080/data/${id}`, body);
+			const res = await f.json();
+			return res;
+		} catch (error) {
+			throw new Error(`No se puedo connectar a la base de datos, ${error}`);
+		}
 	};
 
 	useEffect(() => {

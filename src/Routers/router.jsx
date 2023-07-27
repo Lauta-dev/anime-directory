@@ -23,6 +23,8 @@ export function Routers() {
 
 			<Route path={`/${manga}/selected/:title`} component={GetAnimes} />
 
+			<Route path={`/${anime}/selected/season`} component={GetAnimes} />
+
 			<Route
 				path={`/${manga}/selected/${ROUTE.id}/:malId`}
 				component={GetMangaForID}
@@ -33,17 +35,17 @@ export function Routers() {
 				component={GetAnimeForID}
 			/>
 
-    	<Route
+			<Route
 				path={`/${special}/selected/${ROUTE.id}/:malId`}
 				component={GetAnimeForID}
 			/>
 
-      <Route
+			<Route
 				path={`/${movie}/selected/${ROUTE.id}/:malId`}
 				component={GetAnimeForID}
 			/>
 
-      <Route
+			<Route
 				path={`/${ova}/selected/${ROUTE.id}/:malId`}
 				component={GetAnimeForID}
 			/>

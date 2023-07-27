@@ -7,7 +7,7 @@ const type = {
 	anime: "anime",
 };
 
-export const SEASON_ANIME_NOW = `${urlCompleted}/seasons/now`;
+export const SEASON_ANIME_NOW = `${urlCompleted}/seasons/now?limit=5`;
 
 export const JIKAN_API_MANGA = (manga) =>
 	`${urlCompleted}/${type.manga}?q=${manga}&sfw`;
