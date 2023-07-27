@@ -1,52 +1,43 @@
 import { useInfoAnime } from "../../hooks/infoAnime";
-import { Characters } from "./Characters";
-import { Image } from "./Image";
 import { InfoMangaAndAnime } from "./Information";
-import { Status } from "./Status";
-import { Synopsis } from "./Synopsis";
-import { Titles } from "./Title";
 
 import { FORMAT_TYPES } from "../../TYPES";
 import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
+import { Info } from "./info";
 import "../css/animeID.css";
-import { SaveMangaOrAnime } from "./saveMangaOrAnime";
-import { useEffect } from "react";
 
 export function InfoAnime({ animeInfo, image, titles }) {
-	const { infoAnimeFormatter } = useInfoAnime({ data: animeInfo });
+	const { info } = useInfoAnime({ data: animeInfo });
+	const { genres, title, type, id, synopsis, episodes, popularity, score } =
+		info;
+
 	const { getAnimeCharacters } = useAnimeCharacter({
-		id: infoAnimeFormatter.id,
+		id,
 		type: FORMAT_TYPES.anime.type,
 	});
 
-	useEffect(() => {}, []);
-
 	return (
 		<section className="conteiner">
-			<Image
-				type={animeInfo.type}
-				title={animeInfo.title}
-				imageURL={image.jpg.largeImageURL}
-			/>
-
-			<SaveMangaOrAnime info={infoAnimeFormatter} />
-
-			<section>
-				<Titles titles={titles} />
+			<Info
+				image={image}
+				caracters={getAnimeCharacters}
+				genres={genres}
+				title={title}
+				titles={titles}
+				id={id}
+				infoFormatter={info}
+				synopsis={synopsis}
+				type={type}
+			>
 				<InfoMangaAndAnime
-					popularity={infoAnimeFormatter.popularity}
-					chapters={infoAnimeFormatter.episodes}
-					status={infoAnimeFormatter.status}
-					score={infoAnimeFormatter.score}
-					type={infoAnimeFormatter.type}
+					popularity={popularity}
+					chapters={episodes}
+					status={status}
+					score={score}
+					type={type}
+					key={id}
 				/>
-			</section>
-			<Synopsis genres={animeInfo.genres} synopsis={animeInfo.synopsis} />
-			<Status
-				status={infoAnimeFormatter.status}
-				aired={infoAnimeFormatter.publishing}
-			/>
-			<Characters getAnimeCharacters={getAnimeCharacters} />
+			</Info>
 		</section>
 	);
 }

@@ -1,26 +1,11 @@
-import { useState } from "react";
-import { localHost } from "../../../server/prefix";
+import { removeItemFromDBLogic } from "../../logic/removeItemFromDBLogic";
 
-export const RemoveItemFromDB = ({ id, c, s }) => {
-	async function a() {
-		try {
-			const pe = {
-				method: "DELETE",
-			};
-
-			const f = await fetch(`${localHost}/delete/${id}`, pe);
-			const res = await f.json();
-		} catch (error) {
-			throw new Error(`Error al eliminar el elemento ${error}`);
-		}
-	}
-
+export const RemoveItemFromDB = ({ id, oncheck }) => {
 	return (
 		<button
-			type="button"
 			onClick={() => {
-				s(!c);
-				return a();
+				oncheck();
+				removeItemFromDBLogic({ id });
 			}}
 		>
 			remove

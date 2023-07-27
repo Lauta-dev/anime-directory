@@ -1,5 +1,5 @@
 export const useSaveInfoInDB = async ({ info }) => {
-	const fetchResponse = {
+	const body = {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -11,6 +11,6 @@ export const useSaveInfoInDB = async ({ info }) => {
 		}),
 	};
 
-	const f = await fetch("http://localhost:8080/save", fetchResponse);
-	const res = await f.json();
+	const saveData = await fetch("http://localhost:8080/save", body);
+	const res = await saveData.json();
 };

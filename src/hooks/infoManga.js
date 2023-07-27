@@ -3,7 +3,7 @@ import { useAnimeSelected } from "./useAnimeSelected";
 export function useInfoManga({ data }) {
 	const { globalInfo } = useAnimeSelected({ data });
 
-	const infoMangaFormatter = {
+	const info = {
 		...globalInfo,
 		chapters: data.chapters,
 		published: data.published.string,
@@ -15,5 +15,5 @@ export function useInfoManga({ data }) {
 		})),
 	};
 
-	return { infoMangaFormatter };
+	return { info };
 }
