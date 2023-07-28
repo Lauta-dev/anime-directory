@@ -7,8 +7,6 @@ import "./css/slider.css";
 export default function GetAnimes({ params }) {
 	const { animeData } = useGetAnime({ params });
 
-	console.log(params);
-
 	return animeData.length < 1 ? (
 		<Loading />
 	) : (

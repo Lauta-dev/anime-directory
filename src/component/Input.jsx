@@ -6,6 +6,7 @@ import { ActiveOrDesactiveNSFW } from "./ActiveOrDesactiveNSFW";
 import { ChangeAnimeOrManga } from "./ChangeAnimeOrManga";
 
 import "./css/input.css";
+import { searchInput } from "../Routers/paths";
 
 export function Input() {
 	const [anime, setAnime] = useState();
@@ -20,7 +21,7 @@ export function Input() {
 				<label htmlFor="search">Search</label>
 				<div className="input_conteiner">
 					<input
-            autoComplete="off"
+						autoComplete="off"
 						id="search"
 						className="input_search"
 						type="text"
@@ -29,7 +30,7 @@ export function Input() {
 					/>
 
 					{anime ? (
-						<Link to={`/${type}/selected/${anime}`} className="btn_search">
+						<Link to={searchInput({ anime, type })} className="btn_search">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"

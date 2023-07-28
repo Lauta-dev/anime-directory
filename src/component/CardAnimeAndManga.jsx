@@ -29,11 +29,7 @@ export function CardAnimeAndManga({ animeArray }) {
 					type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
 
 				return (
-					<Link
-						key={id}
-						className="link"
-						to={`/${isAnime}/selected/${ROUTE.id}/${id}`}
-					>
+					<Link key={id} className="link" to={`/${isAnime}/${ROUTE.id}/${id}`}>
 						<Image
 							className="card_image"
 							type={type}

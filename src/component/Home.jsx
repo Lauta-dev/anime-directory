@@ -7,6 +7,7 @@ import { getSeasonNow } from "../logic/getSeasonNow";
 
 import "./css/changeMangaOrAnime.css";
 import { useState } from "react";
+import { animeSeasonPath } from "../Routers/paths";
 
 export default function Home() {
 	const [showMangaOrAnime, setShowMangaOrAnime] = useState(false);
@@ -72,7 +73,7 @@ export default function Home() {
 						</Link>
 					);
 				})}
-				<Link to="/anime/season">More </Link>
+				<Link to={animeSeasonPath}>More </Link>
 			</ul>
 		</>
 	);

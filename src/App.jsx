@@ -9,14 +9,14 @@ const Home = lazy(() => import("./component/Home"));
 
 export default function App() {
 	return (
-		<Suspense fallback={<h1>Cargando...</h1>}>
-			<SelectAnimeOrMangaContextProvider>
-				<DesactiveNSFWPovider>
+		<Suspense fallback={<h1></h1>}>
+			<DesactiveNSFWPovider>
+				<SelectAnimeOrMangaContextProvider>
 					<Input />
-				</DesactiveNSFWPovider>
-				<Routers />
-				<Route path="/" component={Home} />
-			</SelectAnimeOrMangaContextProvider>
+					<Routers />
+					<Route path="/" component={Home} />
+				</SelectAnimeOrMangaContextProvider>
+			</DesactiveNSFWPovider>
 		</Suspense>
 	);
 }
