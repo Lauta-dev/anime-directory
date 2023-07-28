@@ -15,7 +15,7 @@ cd anime-directory
 
 **Instalar dependencias del proyecto**
 ```bash
-npm install
+pnpm install
 ```
 
 o si prefiere [pnpm](https://pnpm.io/es/)
