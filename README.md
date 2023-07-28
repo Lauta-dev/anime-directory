@@ -29,3 +29,5 @@ Lugar donde consultar tus Anime/Manga favoritos.
 	- [ ] Episodios populares.
 	- [ ] Reviews Anime/Manga.
 	- [ ] Recomendacion de Anime/Manga
+
+(Instalar SQLite)[]
