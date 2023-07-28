@@ -13,7 +13,7 @@ export function CardAnimeAndManga({ animeArray }) {
 	useEffect(() => {
 		const fetchData = async () => {
 			const animeData = await Promise.all(
-				animeArray.map((data) => useAnimeSelected({ data })),
+				animeArray?.map((data) => useAnimeSelected({ data })),
 			);
 			setSelectedAnimeData(animeData);
 		};

@@ -7,13 +7,11 @@ import "./css/slider.css";
 export default function GetAnimes({ params }) {
 	const { animeData } = useGetAnime({ params });
 
+	console.log(params);
+
 	return animeData.length < 1 ? (
 		<Loading />
 	) : (
-		<CardListOfAnimes
-			animeArray={animeData}
-			nARenderizar={5}
-			section={`Anime sobre ${params.anime}`}
-		/>
+		<CardListOfAnimes animeArray={animeData} />
 	);
 }

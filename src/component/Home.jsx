@@ -72,7 +72,7 @@ export default function Home() {
 						</Link>
 					);
 				})}
-				<Link to="/anime/selected/season">More </Link>
+				<Link to="/anime/season">More </Link>
 			</ul>
 		</>
 	);

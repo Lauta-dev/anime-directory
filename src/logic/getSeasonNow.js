@@ -12,7 +12,7 @@ export const getSeasonNow = () => {
 
 		const get = async () => {
 			try {
-				const temp = await fetch(SEASON_ANIME_NOW);
+				const temp = await fetch(SEASON_ANIME_NOW({ limit: 5 }));
 				const res = await temp.json();
 				localStorage.setItem(season, JSON.stringify(res));
 				return setSeasonNow(res);

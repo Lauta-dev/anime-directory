@@ -7,7 +7,14 @@ const type = {
 	anime: "anime",
 };
 
-export const SEASON_ANIME_NOW = `${urlCompleted}/seasons/now?limit=5`;
+/**
+ * TODO: sfw tiene que cambiar cuando se active el boton de nsfw
+ * @param {number} limit Limite de elementos que se mostraran
+ * @param {number} page Pagina cual va a viajar
+ * @returns
+ */
+export const SEASON_ANIME_NOW = ({ limit, page }) =>
+	`${urlCompleted}/seasons/now?limit=${limit}&page=${page}&sfw=true`;
 
 export const JIKAN_API_MANGA = (manga) =>
 	`${urlCompleted}/${type.manga}?q=${manga}&sfw`;
