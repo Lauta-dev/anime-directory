@@ -30,4 +30,4 @@ Lugar donde consultar tus Anime/Manga favoritos.
 	- [ ] Reviews Anime/Manga.
 	- [ ] Recomendacion de Anime/Manga
 
-(Instalar SQLite)[https://github.com/Lauta-dev/anime-directory/blob/main/installSQLite.md]
+[Instalar SQLite](https://github.com/Lauta-dev/anime-directory/blob/main/installSQLite.md)
