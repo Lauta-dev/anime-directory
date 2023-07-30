@@ -1,14 +1,22 @@
 import { Order } from "./Order";
 import { useGetAnime } from "../hooks/getAnimeForID";
-import { AnimeNotFount } from "./AnimeNotFount";
 
 export default function GetAnimeForID({ params }) {
 	const { animeID } = useGetAnime({ params });
-	console.log(animeID);
+	// Regex que me saca el manga y anime
+	const reg = /(manga|anime)/;
+	const url = window.location.href;
 
-	return animeID?.data ? (
-		<Order data={animeID?.data} />
-	) : (
-		<AnimeNotFount data={animeID} />
-	);
+	console.log(url.match(reg));
+
+	if (animeID === null) {
+		return <h1>Cargando</h1>;
+	}
+
+	if (animeID?.data) {
+		return <Order data={animeID.data} />;
+	} else {
+		const { error } = animeID;
+		console.log(error);
+	}
 }

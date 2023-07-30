@@ -3,7 +3,7 @@ import { JIKAN_API_ANIME_ID } from "../const";
 
 export function useGetAnime({ params }) {
 	const { malId } = params;
-	const [animeID, setAnimeID] = useState({});
+	const [animeID, setAnimeID] = useState(null);
 
 	useEffect(() => {
 		async function getAnimeForID() {
@@ -16,7 +16,7 @@ export function useGetAnime({ params }) {
 			}
 		}
 		getAnimeForID();
-	}, []);
+	}, [malId]);
 
 	return { animeID };
 }

@@ -27,7 +27,7 @@ export function Header() {
 						onClick={on}
 						type="checkbox"
 						id="menu-toggle"
-						checked={checkend}
+						defaultChecked={checkend}
 					/>
 					<label htmlFor="menu-toggle" className="menu-icon">
 						{" "}
