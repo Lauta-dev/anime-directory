@@ -8,8 +8,8 @@ const special = FORMAT_TYPES.special.type;
 
 export const animeSeasonPath = `/${anime}/season`;
 
-export const topAnimePath = `/${anime}/top/:anime`;
-export const topMangaPath = `/${manga}/top/:manga`;
+export const topAnimePath = `/${anime}/top`;
+export const topMangaPath = `/${manga}/top`;
 
 export const topAnimeAndMangaPath = ({ select }) => `/${select}/top/${select}`;
 

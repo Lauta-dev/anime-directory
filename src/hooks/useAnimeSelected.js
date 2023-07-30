@@ -1,4 +1,4 @@
-export function useAnimeSelected({ data }) {
+export function useGlobalInfo({ data }) {
 	const globalInfo = {
 		mal: data.url,
 		id: data.mal_id,

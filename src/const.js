@@ -29,15 +29,7 @@ export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 
 export const JIKAN_API_TOP = ({ type }) => `${urlCompleted}/top/${type}`;
 
-/**
- *
- * @param {string} param0 Nombre del medio
- * @param {string} param1 Que tipo de medio es (anime/manga/ova/movie)
- * @param {boolean} param2 Activar el contenido para adultos
- *
- * @returns Una URL para acceder a los animes
- */
-export const JIKAN_API_ANIME_SEARCH = ({ title, type, nsfw }) => {
+export const JIKAN_API_SEARCH = ({ title, type, nsfw }) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
 
 	if (type === "manga") {

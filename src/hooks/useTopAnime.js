@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { JIKAN_API_TOP } from "../const";
 
-export function useTopAnime({ type }) {
+export function useTop({ type }) {
 	const [top, setTop] = useState([]);
 	const nameTop = `top-${type}`;
 

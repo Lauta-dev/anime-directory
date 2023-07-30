@@ -1,10 +1,10 @@
-import { useAnimeSelected } from "../hooks/useAnimeSelected";
+import { useGlobalInfo } from "../hooks/useAnimeSelected";
 
 import { InfoAnime } from "./infoAnimeAndManga/InfoAnime";
 import { InfoManga } from "./infoAnimeAndManga/InfoManga";
 
 export function Order({ data }) {
-	const { titles, image } = useAnimeSelected({ data });
+	const { titles, image } = useGlobalInfo({ data });
 	const isManga = data.source;
 
 	return isManga ? (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ROUTE } from "../TYPES";
-import { useAnimeSelected } from "../hooks/useAnimeSelected";
+import { useGlobalInfo } from "../hooks/useAnimeSelected";
 import { Image } from "./infoAnimeAndManga/Image";
 
 import { Link } from "wouter";
@@ -13,7 +13,7 @@ export function CardAnimeAndManga({ animeArray }) {
 	useEffect(() => {
 		const fetchData = async () => {
 			const animeData = await Promise.all(
-				animeArray?.map((data) => useAnimeSelected({ data })),
+				animeArray?.map((data) => useGlobalInfo({ data })),
 			);
 			setSelectedAnimeData(animeData);
 		};
