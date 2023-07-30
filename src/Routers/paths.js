@@ -20,7 +20,9 @@ export const ovaSearchPath = `/${ova}/search/:title`;
 export const movieSearchPath = `/${movie}/search/:title`;
 
 export const animeWithId = `/${anime}/${ROUTE.id}/:malId`;
+
 export const mangaWithId = `/${manga}/${ROUTE.id}/:malId`;
+
 export const ovaWithId = `/${ova}/${ROUTE.id}/:malId`;
 export const specialWithId = `/${special}/${ROUTE.id}/:malId`;
 export const movieWithId = `/${movie}/${ROUTE.id}/:malId`;

@@ -32,7 +32,7 @@ export function Routers() {
 			<Route path={topAnimePath} component={Tops} />
 			<Route path={topMangaPath} component={Tops} />
 
-			<Route path={mangaWithId} component={GetMangaForID} />
+			<Route path={mangaWithId} component={GetAnimeForID} />
 			<Route path={animeWithId} component={GetAnimeForID} />
 
 			<Route path={specialWithId} component={GetAnimeForID} />

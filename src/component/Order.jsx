@@ -5,7 +5,7 @@ import { InfoManga } from "./infoAnimeAndManga/InfoManga";
 
 export function Order({ data }) {
 	const { titles, image } = useAnimeSelected({ data });
-	const isManga = data.season || 0;
+	const isManga = data.source;
 
 	return isManga ? (
 		<InfoAnime image={image} animeInfo={data} titles={titles} />
