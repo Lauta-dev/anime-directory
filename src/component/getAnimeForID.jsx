@@ -3,5 +3,7 @@ import { useGetAnime } from "../hooks/getAnimeForID";
 
 export default function GetAnimeForID({ params }) {
 	const { animeID } = useGetAnime({ params });
-	return animeID ? <Order data={animeID} /> : <p>No existe tal anime</p>;
+  console.log(animeID)
+
+  return animeID?.data ? <Order data={animeID?.data} /> : <p>No existe tal anime</p>;
 }

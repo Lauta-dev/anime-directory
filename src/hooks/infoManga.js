@@ -3,6 +3,7 @@ import { useAnimeSelected } from "./useAnimeSelected";
 export function useInfoManga({ data }) {
 	const { globalInfo } = useAnimeSelected({ data });
 
+
 	const info = {
 		...globalInfo,
 		chapters: data.chapters,

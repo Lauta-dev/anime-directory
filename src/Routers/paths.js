@@ -11,6 +11,8 @@ export const animeSeasonPath = `/${anime}/season`;
 export const topAnimePath = `/${anime}/top/:anime`;
 export const topMangaPath = `/${manga}/top/:manga`;
 
+export const topAnimeAndMangaPath = ({ select }) => `/${select}/top/${select}`;
+
 export const animeSearchPath = `/${anime}/search/:title`;
 export const mangaSearchPath = `/${manga}/search/:title`;
 export const specialSearchPath = `/${special}/search/:title`;
@@ -24,3 +26,5 @@ export const specialWithId = `/${special}/${ROUTE.id}/:malId`;
 export const movieWithId = `/${movie}/${ROUTE.id}/:malId`;
 
 export const searchInput = ({ type, anime }) => `/${type}/search/${anime}`;
+
+export const seasonAnimeId = (id) => `${anime}/${ROUTE.id}/${id}`;

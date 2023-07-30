@@ -8,7 +8,7 @@ import {
 } from "./sqlFuncions.js";
 
 const app = express();
-const port = 8080;
+const PORT = 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -27,25 +27,25 @@ app.post("/data/:id", (req, res) => {
 	});
 });
 
-app.post("/save", (req, res) => {
+app.post("/save", (req) => {
 	const { name, id, type } = req.body;
 	const arr = [name, id, type];
 
 	const sql = saveData({ name, id, type });
 
-	db.run(sql, arr, (error, r) => {
+	db.run(sql, arr, (error) => {
 		if (error) throw new Error(`Error al ejecutar la consulta SQL ${error}`);
 	});
 });
 
-app.delete("/delete/:id", (req, res) => {
+app.delete("/delete/:id", (req) => {
 	const { id } = req.params;
 
 	const sql = removeItemFromDBWithID({ id });
 
-	db.run(sql, [id], (e, r) => {
+	db.run(sql, [id], (e) => {
 		if (e)
 			throw new Error(`Error al eliminar el elemento de la base de datos ${e}`);
 	});
 });
-app.listen(port, () => console.log(`http://localhost:${port}`));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

@@ -3,16 +3,12 @@ import { FORMAT_TYPES } from "../TYPES";
 import { useTopAnime } from "../hooks/useTopAnime";
 import { AnimeCard } from "./TopAnimeCard";
 
-import { getSeasonNow } from "../logic/getSeasonNow";
-
-import "./css/changeMangaOrAnime.css";
 import { useState } from "react";
-import { animeSeasonPath } from "../Routers/paths";
+import "./css/changeMangaOrAnime.css";
+import { Season } from "./Season";
 
 export default function Home() {
 	const [showMangaOrAnime, setShowMangaOrAnime] = useState(false);
-	const { seasonNow } = getSeasonNow();
-	const data = seasonNow.data;
 
 	const selectAnimeOrManga = showMangaOrAnime
 		? FORMAT_TYPES.anime.type
@@ -44,37 +40,10 @@ export default function Home() {
 			<br />
 
 			<AnimeCard animeArray={top} isCharacterAnime={false} />
+
 			<br />
 
-			<ul className="season_conteiner">
-				{data?.map((e) => {
-					return (
-						<Link key={e.mal_id} to={`/anime/selected/id/${e.mal_id}`}>
-							<li className="list">
-								<img className="img" src={e.images.jpg.image_url} alt="" />
-
-								<div className="infoSeason">
-									<b>{e.title}</b>
-									<div className="detail">
-										<p>
-											Aired: <b>{e.aired.string}</b>
-										</p>
-
-										<p>
-											Status: <b>{e.status}</b>
-										</p>
-
-										<p>
-											Episodes: <b>{e.episodes ?? "?"}</b>
-										</p>
-									</div>
-								</div>
-							</li>
-						</Link>
-					);
-				})}
-				<Link to={animeSeasonPath}>More </Link>
-			</ul>
+			<Season />
 		</>
 	);
 }
