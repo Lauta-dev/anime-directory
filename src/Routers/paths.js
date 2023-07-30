@@ -19,13 +19,13 @@ export const specialSearchPath = `/${special}/search/:title`;
 export const ovaSearchPath = `/${ova}/search/:title`;
 export const movieSearchPath = `/${movie}/search/:title`;
 
-export const animeWithId = `/${anime}/${ROUTE.id}/:malId`;
+export const animeWithId = `/${anime}/${ROUTE.id}/:id`;
 
-export const mangaWithId = `/${manga}/${ROUTE.id}/:malId`;
+export const mangaWithId = `/${manga}/${ROUTE.id}/:id`;
 
-export const ovaWithId = `/${ova}/${ROUTE.id}/:malId`;
-export const specialWithId = `/${special}/${ROUTE.id}/:malId`;
-export const movieWithId = `/${movie}/${ROUTE.id}/:malId`;
+export const ovaWithId = `/${ova}/${ROUTE.id}/:id`;
+export const specialWithId = `/${special}/${ROUTE.id}/:id`;
+export const movieWithId = `/${movie}/${ROUTE.id}/:id`;
 
 export const searchInput = ({ type, anime }) => `/${type}/search/${anime}`;
 

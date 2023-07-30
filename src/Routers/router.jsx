@@ -16,7 +16,6 @@ import {
 	topMangaPath,
 } from "./paths";
 
-const GetMangaForID = lazy(() => import("../component/GetMangaForID.jsx"));
 const Tops = lazy(() => import("../component/TopManga.jsx"));
 
 const GetAnimeForID = lazy(() => import("../component/getAnimeForID.jsx"));
