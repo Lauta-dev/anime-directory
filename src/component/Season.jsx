@@ -35,7 +35,7 @@ export function Season() {
 						</Link>
 					);
 				})}
-				<Link to={animeSeasonPath}>More </Link>
+				<Link to={animeSeasonPath}>More</Link>
 			</ul>
 		</>
 	);
