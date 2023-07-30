@@ -3,8 +3,8 @@ import "./css/header.css";
 import { useState } from "react";
 
 export function Header() {
-  const [checkend, setCheckend] = useState(false)
-  const on = () => setCheckend(!checkend)
+	const [checkend, setCheckend] = useState(false);
+	const on = () => setCheckend(!checkend);
 
 	return (
 		<header>
@@ -18,36 +18,57 @@ export function Header() {
 						/>
 					</Link>
 				</li>
-        <li id="github">
-				  <h2>Anime directory</h2>
-			  </li>
+				<li id="github">
+					<h2>Anime directory</h2>
+				</li>
 
-        <li>
-          <input onClick={on} type="checkbox" id="menu-toggle" checked={checkend} />
-          <label for="menu-toggle" class="menu-icon"> Menu
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-            </svg>
-          </label>
-          <div class="menu-overlay">
-            <ul class="menu">
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Acerca de</a></li>
-              <li><a href="#">Servicios</a></li>
-              <li><a href="#">Contacto</a></li>
-              <li><a onClick={on} href="#" id="close-menu">Cerrar Menú</a></li>
-            </ul>
-          </div>
-        </li>
+				<li>
+					<input
+						onClick={on}
+						type="checkbox"
+						id="menu-toggle"
+						checked={checkend}
+					/>
+					<label htmlFor="menu-toggle" className="menu-icon">
+						{" "}
+						Menu
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							strokeWidth={1.5}
+							stroke="currentColor"
+							className="w-6 h-6"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+							/>
+						</svg>
+					</label>
+					<div className="menu-overlay">
+						<ul className="menu">
+							<li>
+								<a href="#">Inicio</a>
+							</li>
+							<li>
+								<a href="#">Acerca de</a>
+							</li>
+							<li>
+								<a href="#">Servicios</a>
+							</li>
+							<li>
+								<a href="#">Contacto</a>
+							</li>
+							<li>
+								<a onClick={on} href="#" id="close-menu">
+									Cerrar Menú
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
 			</ul>
 		</header>
 	);
