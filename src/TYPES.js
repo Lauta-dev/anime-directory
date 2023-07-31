@@ -1,34 +1,32 @@
-import { nanoid } from "nanoid";
-
 export const FORMAT_TYPES = {
 	anime: {
 		type: "anime",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 
 	manga: {
 		type: "manga",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 
 	movie: {
 		type: "movie",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 
 	special: {
 		type: "special",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 
 	ova: {
 		type: "ova",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 
 	doujinshi: {
 		type: "doujinshi",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 };
 
@@ -36,39 +34,33 @@ export const ROUTE = {
 	id: "id",
 };
 
-/*
-	
-string (manga_search_query_type)
-Enum: "manga" "novel" "lightnovel" "oneshot" "doujin" "manhwa" "manhua" 
-*/
-
 export const MANGA_FILTERS = {
 	manga: {
 		type: "manga",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 	novel: {
 		type: "novel",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 	doujin: {
 		type: "doujin",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 	manhwa: {
 		type: "manhwa",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 	manhua: {
 		type: "manhua",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 	oneshot: {
 		type: "oneshot",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 	lightnovel: {
 		type: "lightnovel",
-		id: nanoid(),
+		id: crypto.randomUUID(),
 	},
 };
