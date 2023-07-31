@@ -19,7 +19,9 @@ export function Header() {
 					</Link>
 				</li>
 				<li id="github">
-					<h2>Anime directory</h2>
+					<Link to="/">
+						<h2>Anime directory</h2>
+					</Link>
 				</li>
 
 				<li>
@@ -27,6 +29,7 @@ export function Header() {
 						onClick={on}
 						type="checkbox"
 						id="menu-toggle"
+						checked={checkend}
 						defaultChecked={checkend}
 					/>
 					<label htmlFor="menu-toggle" className="menu-icon">
@@ -62,9 +65,7 @@ export function Header() {
 								<a href="#">Contacto</a>
 							</li>
 							<li>
-								<a onClick={on} href="#" id="close-menu">
-									Cerrar Menú
-								</a>
+								<button onClick={on}>Show</button>
 							</li>
 						</ul>
 					</div>
