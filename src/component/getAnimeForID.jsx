@@ -1,13 +1,9 @@
 import { Order } from "./Order";
 import { useGetAnime } from "../hooks/getAnimeForID";
+import { useSearchMangaOrAnimeRegex } from "../hooks/useSearchMangaOrAnimeRegex";
 
 export default function GetAnimeForID({ params }) {
-	// Regex que me saca el manga y anime
-	const reg = /(manga|anime)/;
-	const url = window.location.href;
-	const match = url.match(reg);
-
-	const isAnime = match === null ? "anime" : match[0];
+  const { isAnime } = useSearchMangaOrAnimeRegex()
 	const { animeID } = useGetAnime({ params, type: isAnime });
 
 	if (animeID === null) {

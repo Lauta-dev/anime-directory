@@ -13,3 +13,4 @@ export default function GetAnimes({ params }) {
 		<CardListOfAnimes animeArray={animeData} />
 	);
 }
+
