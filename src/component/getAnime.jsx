@@ -7,10 +7,14 @@ import "./css/slider.css";
 export default function GetAnimes({ params }) {
 	const { animeData } = useGetAnime({ params });
 
-	return animeData.length < 1 ? (
-		<Loading />
+  if (animeData === null) return <Loading />
+
+  const { data } = animeData
+
+  return data.length > 0 ? (
+		<CardListOfAnimes animeArray={data} />
 	) : (
-		<CardListOfAnimes animeArray={animeData} />
+    <h2>No se encontro el anime {params.title}</h2>
 	);
 }
 

@@ -17,10 +17,8 @@ import {
 } from "./paths";
 
 const Tops = lazy(() => import("../component/TopManga.jsx"));
-
 const GetAnimeForID = lazy(() => import("../component/getAnimeForID.jsx"));
 const GetAnimes = lazy(() => import("../component/getAnime.jsx"));
-
 const AnimeSeason = lazy(() => import("../component/AnimeSeason.jsx"));
 
 export function Routers() {
