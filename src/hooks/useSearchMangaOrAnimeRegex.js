@@ -1,9 +1,10 @@
 export function useSearchMangaOrAnimeRegex () {
-	const reg = /(manga|anime)/;
+	const reg = /\/(manga|anime)\//;
 	const url = window.location.href;
 	const match = url.match(reg);
 
-	const isAnime = match === null ? "anime" : match[0];
+  const wordWithoutSlashes = match[0].replace(/\//g, '');
+	const isAnime = match === null ? "anime" : wordWithoutSlashes;
 
   return { isAnime }
 }

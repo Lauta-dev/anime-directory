@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { JIKAN_API_ANIME_AND_MANGA_ID } from "../const";
 
+/**
+ * Este devuelve un array [data] si se encuentra el recurso 
+ * Si no se encontro, devolvera { error, status, message, type }
+ *
+ * */
 export function useGetAnime({ params, type }) {
 	const { id } = params;
 	const [animeID, setAnimeID] = useState(null);
