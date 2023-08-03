@@ -3,7 +3,6 @@
   display: flex;
   gap: 10px;
   flex-direction: column;
-
 }
 
 .input_search {
@@ -31,3 +30,16 @@
   display: flex;
   gap: 1rem;
 }
+
+
+.focus {
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+.onfocus {
+  border-color: red;
+}
+
+

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link } from "wouter";
 
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
@@ -9,8 +9,13 @@ import "./css/input.css";
 import { searchInput } from "../Routers/paths";
 
 export function Input() {
-	const [anime, setAnime] = useState();
+	const [anime, setAnime] = useState('');
+  const ref = useRef(false)
+
+
 	const { type } = useContext(SelectAnimeOrMangaContext);
+
+  const handleFocus = () => ref.current = true 
 
 	return (
 		<>
@@ -21,15 +26,16 @@ export function Input() {
 				<label htmlFor="search">Search</label>
 				<div className="input_conteiner">
 					<input
+            onFocus={handleFocus}
 						autoComplete="off"
 						id="search"
-						className="input_search"
+            className={`input_search focus ${ref.current ? "onfocus" : null}`}
 						type="text"
 						placeholder="Dragon Ball, Hunter X Hunter, Vinland Saga..."
 						onChange={(evet) => setAnime(evet.target.value)}
 					/>
 
-					{anime ? (
+          {anime?.length > 3 ? (
 						<Link to={searchInput({ anime, type })} className="btn_search">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +70,7 @@ export function Input() {
 							</svg>
 						</Link>
 					)}
+
 				</div>
 			</div>
 		</>
