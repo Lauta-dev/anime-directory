@@ -8,7 +8,7 @@ import "../css/animeID.css";
 
 export function InfoAnime({ animeInfo, image, titles }) {
 	const { info } = useInfoAnime({ data: animeInfo });
-	const { genres, title, type, id, synopsis, episodes, popularity, score } =
+	const { genres, status, title, type, id, synopsis, episodes, popularity, score } =
 		info;
 
 	const { getAnimeCharacters } = useAnimeCharacter({
@@ -30,8 +30,8 @@ export function InfoAnime({ animeInfo, image, titles }) {
 				type={type}
 			>
 				<InfoMangaAndAnime
+          episodes={episodes}
 					popularity={popularity}
-					chapters={episodes}
 					status={status}
 					score={score}
 					type={type}

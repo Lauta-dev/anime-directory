@@ -1,22 +1,18 @@
 import { useState } from "react";
-import { Genres } from "./Genres";
-
 import "./css.css";
 
-export function Synopsis({ genres, synopsis }) {
+export function Synopsis({  synopsis }) {
 	const [hideDescription, setHideDescription] = useState(false);
 
 	return (
 		<>
-			<div>
-				<div className="descri">
+				<section className="descri">
 					<h2>Description:</h2>
 
 					<div className={`description ${hideDescription ? "expanded" : ""}`}>
 						<p>{synopsis}</p>
 					</div>
-				</div>
-			</div>
+				</section>
 
 			{hideDescription ? (
 				<button
@@ -64,7 +60,6 @@ export function Synopsis({ genres, synopsis }) {
 				</button>
 			)}
 
-			<Genres genres={genres} />
 		</>
 	);
 }

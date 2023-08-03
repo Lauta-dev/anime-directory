@@ -8,7 +8,7 @@ export function InfoManga ({ infoManga, image, titles }) {
   return (
     <section>
       <Image imageURL={image.jpg.imageURL} />
-      <section>
+      
         <Titles titles={titles} />
         <InfoMangaAndAnime
           popularity={infoManga.popularity}
@@ -17,11 +17,12 @@ export function InfoManga ({ infoManga, image, titles }) {
           score={infoManga.score}
           type={infoManga.type}
         />
-      </section>
+      
       <Status
         status={infoManga.status}
         aired={infoManga.publishing}
       />
+
       <Characters getAnimeCharacters={infoManga} />
     </section>
   )

@@ -6,12 +6,14 @@ export function InfoMangaAndAnime({
 	type,
 	score,
 	popularity,
+  episodes
 }) {
 	return (
 		<section>
 			<ul id="info" className="slider">
-        {chapters ? <li>Chapters: {chapters}</li> : null}
-				<li>Status: {status}</li>
+        { chapters ? <li>Chapters: {chapters}</li> : null }
+        { episodes ? <li>Episodes: {episodes}</li> : null }
+        <li>Status: {status}</li>
 				<li>Type: {type}</li>
 				<li>Score: {score}</li>
 				<li>popularity: {popularity}</li>

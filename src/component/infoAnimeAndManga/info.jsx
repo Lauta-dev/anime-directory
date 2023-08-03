@@ -1,5 +1,6 @@
 import { Characters } from "./Characters";
 import { CheckIfExist } from "./CheckIfExist";
+import { Genres } from "./Genres";
 import { Image } from "./Image";
 import { Synopsis } from "./Synopsis";
 import { Titles } from "./Title";
@@ -22,7 +23,8 @@ export function Info({
 			<CheckIfExist id={id} infoMangaFormatter={infoFormatter} />
 			<Titles titles={titles} />
 			{children}
-			<Synopsis genres={genres} synopsis={synopsis} />
+			<Genres genres={genres} />
+			<Synopsis synopsis={synopsis} />
 			<Characters getAnimeCharacters={caracters} />
 		</>
 	);

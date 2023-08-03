@@ -23,7 +23,8 @@ export function CardAnimeAndManga({ animeArray }) {
 	return (
 		<div className="cards">
 			{selectedAnimeData?.map(({ globalInfo, image }) => {
-				const { title, score, type, id, episode } = globalInfo;
+        console.log(globalInfo)
+				const { title, score, type, id } = globalInfo;
 
 				const isAnime =
 					type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
@@ -37,14 +38,12 @@ export function CardAnimeAndManga({ animeArray }) {
 							imageURL={image.webp.imageURL}
 						/>
 
-						<div className="conteiner_info">
+						<section className="conteiner_info">
 							<strong>{title}</strong>
-							<br />
-							<br />
+
 							<p>Score: {score}</p>
 							<p>Type: {type}</p>
-							<p>Type: {episode}</p>
-						</div>
+						</section>
 					</Link>
 				);
 			})}

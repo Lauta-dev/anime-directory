@@ -34,6 +34,9 @@
   text-overflow: ellipsis;
   height: 100%;
   white-space: break-spaces;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 
 .descri>h2 {

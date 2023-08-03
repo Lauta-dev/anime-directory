@@ -1,8 +1,14 @@
 import { tipos } from "../../const";
-export function Image({ imageURL, type, title, className }) {
+import '../css/image.css'
+
+export function Image({ imageURL, type, title}) {
 	return (
 		<>
-			<img className={className} src={imageURL} alt={tipos(type, title)} />
+			<img
+        className='imageCover'
+        src={imageURL}
+        alt={tipos(type, title)}
+      />
 		</>
 	);
 }
