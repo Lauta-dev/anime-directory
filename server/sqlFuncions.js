@@ -1,5 +1,3 @@
-// INSERT INTO anime (name) VALUES ('asdasd');
-
 /**
  *
  * @param  {...string} data Sera las tablas que se pasaran a la base de datos, por defecto es '*'
@@ -12,9 +10,8 @@ export const selectAllForDataBase = (id) =>
  * @param {number} id el id del elemento
  * @param {string} type en que categoria es el elemento
  */
-export const saveData = (name, id, type) => {
-	return "INSERT INTO anime (anime_name, mal_id, type) VALUES (?, ?, ?);";
-};
+export const saveData = (name, id, type) =>
+	"INSERT INTO anime (anime_name, mal_id, type) VALUES (?, ?, ?);";
 
 /**
  *

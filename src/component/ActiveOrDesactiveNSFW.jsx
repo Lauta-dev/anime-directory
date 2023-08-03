@@ -3,17 +3,21 @@ import { desactiveNSFWContext } from "../context/desactiveNSFW";
 
 export const ActiveOrDesactiveNSFW = () => {
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
-	const activeNsfw = nsfw ? "Active NSWF" : "Desactive NSWF";
+	const active = nsfw.sfw ? "Active NSFW" : "Desactive NSFW";
+
+  const handleChangeNsfw = () => setNsfw({
+    sfw: !nsfw.sfw
+  })
 
 	return (
 		<div className="nsfw">
-			<label htmlFor="check">{activeNsfw}</label>
+			<label htmlFor="check">{active}</label>
 			<input
 				type="checkbox"
 				name="check"
 				id="check"
-				onChange={() => setNsfw(!nsfw)}
-				checked={nsfw}
+				onChange={handleChangeNsfw}
+				checked={!nsfw.sfw}
 			/>
 		</div>
 	);

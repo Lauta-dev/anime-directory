@@ -6,23 +6,29 @@ import { JIKAN_API_SEARCH } from "../const";
 export function useGetAnime({ params }) {
 	const { type } = useContext(SelectAnimeOrMangaContext);
 	const { nsfw } = useContext(desactiveNSFWContext);
-
-	const { title } = params;
 	const [animeData, setAnimeData] = useState(null);
+
+  const { title } = params;
 
 	useEffect(() => {
 		const get = async () => {
 			try {
-				const getData = await fetch(JIKAN_API_SEARCH({ title, type, nsfw }));
+				const getData = await fetch(JIKAN_API_SEARCH({
+          title,
+          type,
+          nsfw: nsfw.sfw,
+          page: nsfw.page
+        }));
+
 				const res = await getData.json();
 				return setAnimeData(res);
 			} catch (error) {
-				throw new Error("Error al obtener la respuesta");
+				throw new Error("Error al obtener la respuesta", error);
 			}
 		};
 
 		get();
-	}, [title, nsfw]);
+	}, [title, nsfw, type]);
   
 	return { animeData };
 }

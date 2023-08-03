@@ -29,14 +29,14 @@ export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 
 export const JIKAN_API_TOP = ({ type }) => `${urlCompleted}/top/${type}`;
 
-export const JIKAN_API_SEARCH = ({ title, type, nsfw }) => {
+export const JIKAN_API_SEARCH = ({ title, type, nsfw, page }) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
 
 	if (type === "manga") {
-		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga`;
+		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${page ?? 1}`;
 	}
 
-	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}`;
+	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}&page=${page ?? 1}`;
 };
 /**
  * @param {string} type En que formato es el elemento

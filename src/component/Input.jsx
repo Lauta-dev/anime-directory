@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { ActiveOrDesactiveNSFW } from "./ActiveOrDesactiveNSFW";
@@ -7,6 +7,7 @@ import { ChangeAnimeOrManga } from "./ChangeAnimeOrManga";
 
 import "./css/input.css";
 import { searchInput } from "../Routers/paths";
+import Pages from "./Pages";
 
 export function Input() {
 	const [anime, setAnime] = useState('');
@@ -21,6 +22,8 @@ export function Input() {
 		<>
 			<ActiveOrDesactiveNSFW />
 			<ChangeAnimeOrManga />
+
+      <Pages /> 
 
 			<div className="conteiner_search">
 				<label htmlFor="search">Search</label>
@@ -70,9 +73,14 @@ export function Input() {
 							</svg>
 						</Link>
 					)}
-
 				</div>
 			</div>
+
+      {/* aqui el codigo */}
+      
+      
+
+
 		</>
 	);
 }

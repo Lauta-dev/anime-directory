@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
+
 import { ROUTE } from "../TYPES";
 import { useGlobalInfo } from "../hooks/useAnimeSelected";
 import { Image } from "./infoAnimeAndManga/Image";
 
-import { Link } from "wouter";
-
 import "./css/anime_card.css";
 
-export function CardAnimeAndManga({ animeArray }) {
+export function CardAnimeAndManga({ animeArray, pagination }) {
 	const [selectedAnimeData, setSelectedAnimeData] = useState([]);
-
-	useEffect(() => {
+	
+  useEffect(() => {
 		const fetchData = async () => {
 			const animeData = await Promise.all(
 				animeArray?.map((data) => useGlobalInfo({ data })),
@@ -20,14 +20,15 @@ export function CardAnimeAndManga({ animeArray }) {
 		fetchData();
 	}, [animeArray]);
 
-	return (
-		<div className="cards">
-			{selectedAnimeData?.map(({ globalInfo, image }) => {
-        console.log(globalInfo)
-				const { title, score, type, id } = globalInfo;
-
-				const isAnime =
-					type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
+  const {last_visible_page, current_page} = pagination
+    	
+  return (
+    <>
+      <h2>{current_page}/{last_visible_page}</h2>
+      <div className="cards">
+			  {selectedAnimeData?.map(({ globalInfo, image }) => {
+				  const { title, score, type, id } = globalInfo;
+				  const isAnime = type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
 
 				return (
 					<Link key={id} className="link" to={`/${isAnime}/${ROUTE.id}/${id}`}>
@@ -48,5 +49,6 @@ export function CardAnimeAndManga({ animeArray }) {
 				);
 			})}
 		</div>
+    </>
 	);
 }

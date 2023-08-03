@@ -9,10 +9,10 @@ export default function GetAnimes({ params }) {
 
   if (animeData === null) return <Loading />
 
-  const { data } = animeData
+  const { data, pagination } = animeData
 
-  return data.length > 0 ? (
-		<CardListOfAnimes animeArray={data} />
+  return data?.length > 0 ? (
+		<CardListOfAnimes pagination={pagination} animeArray={data} />
 	) : (
     <h2>No se encontro el anime {params.title}</h2>
 	);
