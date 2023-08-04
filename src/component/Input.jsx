@@ -20,10 +20,6 @@ export function Input() {
 
 	return (
 		<>
-			<ActiveOrDesactiveNSFW />
-			<ChangeAnimeOrManga />
-
-      <Pages /> 
 
 			<div className="conteiner_search">
 				<label htmlFor="search">Search</label>

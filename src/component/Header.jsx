@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import "./css/header.css";
 import { useState } from "react";
+import Filters from "./Filters";
 
 export function Header() {
 	const [checkend, setCheckend] = useState(false);
@@ -51,23 +52,8 @@ export function Header() {
 						</svg>
 					</label>
 					<div className="menu-overlay">
-						<ul className="menu">
-							<li>
-								<a href="#">Inicio</a>
-							</li>
-							<li>
-								<a href="#">Acerca de</a>
-							</li>
-							<li>
-								<a href="#">Servicios</a>
-							</li>
-							<li>
-								<a href="#">Contacto</a>
-							</li>
-							<li>
-								<button onClick={on}>Show</button>
-							</li>
-						</ul>
+						<button onClick={on}>Show</button>
+            <Filters />
 					</div>
 				</li>
 			</ul>
