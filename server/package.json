@@ -5,7 +5,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"db": "sqlite3"
+		"run": "node ./saveData.js",
+    "preview": "sqlite3 audit.db 'SELECT * FROM anime ORDER BY anime_name ASC;' -markdown"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,6 +14,7 @@
 	"dependencies": {
 		"cors": "2.8.5",
 		"express": "4.18.2",
-		"sqlite3": "5.1.6"
+		"sqlite3": "5.1.6",
+		"zod": "3.21.4"
 	}
 }

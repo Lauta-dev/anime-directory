@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { localHost } from '../../server/prefix.js'
 
 export function useIfExistElemetnInDB({ id }) {
 	const [check] = useState(false);
@@ -16,7 +17,7 @@ export function useIfExistElemetnInDB({ id }) {
 				}),
 			};
 
-			const f = await fetch(`http://localhost:8080/data/${id}`, body);
+			const f = await fetch(`${localHost}/${id}`, body);
 			const res = await f.json();
 			return res;
 		} catch (error) {

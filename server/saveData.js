@@ -1,14 +1,18 @@
 import express from "express";
 import sqlite3 from "sqlite3";
 import cors from "cors";
+
+import { z } from "zod";
+
 import {
 	removeItemFromDBWithID,
 	saveData,
 	selectAllForDataBase,
 } from "./sqlFuncions.js";
+import { PORT } from "./port.js";
+import { endPoint } from "./prefix.js";
 
 const app = express();
-const PORT = 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -18,7 +22,8 @@ const db = new sqlite3.Database("./audit.db", (error) => {
 	if (error) throw new Error("Hubo un error al conectarse a la base de datos");
 });
 
-app.post("/data/:id", (req, res) => {
+// Buscar un elemento
+app.post(`${endPoint}/:id`, (req, res) => {
 	const { id } = req.params;
 
 	db.all(selectAllForDataBase(), [id], (error, result) => {
@@ -27,9 +32,12 @@ app.post("/data/:id", (req, res) => {
 	});
 });
 
-app.post("/save", (req) => {
+// Guardar un elemento
+app.post(`/recurso/save`, (req) => {
 	const { name, id, type } = req.body;
 	const arr = [name, id, type];
+
+  console.log(req.body)
 
 	const sql = saveData({ name, id, type });
 
@@ -38,7 +46,8 @@ app.post("/save", (req) => {
 	});
 });
 
-app.delete("/delete/:id", (req) => {
+// Eliminar un elemento
+app.delete(`${endPoint}/:id`, (req) => {
 	const { id } = req.params;
 
 	const sql = removeItemFromDBWithID({ id });

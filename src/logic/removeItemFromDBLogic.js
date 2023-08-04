@@ -6,7 +6,7 @@ export async function removeItemFromDBLogic({ id }) {
 			method: "DELETE",
 		};
 
-		const removeitem = await fetch(`${localHost}/delete/${id}`, body);
+		const removeitem = await fetch(`${localHost}/${id}`, body);
 		const res = await removeitem.json();
 
 		return res;

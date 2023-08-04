@@ -11,7 +11,7 @@ export function useRemoveItem({ id }) {
 					method: "DELETE",
 				};
 
-				const f = await fetch(`${localHost}/delete/${id}`, body);
+				const f = await fetch(`${localHost}/${id}`, body);
 				const res = await f.json();
 				setRes(res);
 			} catch (error) {

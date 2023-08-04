@@ -3,7 +3,7 @@
  * @param  {...string} data Sera las tablas que se pasaran a la base de datos, por defecto es '*'
  */
 export const selectAllForDataBase = (id) =>
-	"SELECT mal_id FROM anime WHERE mal_id = ?;";
+	"SELECT * FROM anime WHERE mal_id = ?;";
 
 /**
  * @param {string} name El nombre del elemento al guardar
@@ -27,4 +27,4 @@ export const selectAllForDataBaseWithWhere = ({ id }) =>
  * @returns
  */
 export const removeItemFromDBWithID = ({ id }) =>
-	"DELETE from anime WHERE mal_id = ?";
+	"DELETE FROM anime WHERE mal_id = ?";

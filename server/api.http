@@ -1,0 +1,8 @@
+POST http://localhost:8080/recurso/save
+Content-Type: application/json
+
+{
+  "name": "DB",
+  "id": 102132,
+  "type": "asd"
+}

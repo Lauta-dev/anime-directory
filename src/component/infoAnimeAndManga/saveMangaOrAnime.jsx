@@ -1,8 +1,8 @@
 import { useSaveInfoInDB } from "../../hooks/saveInfoInDB";
 import "../css/buttonAddItemInDB.css";
 
-export const SaveMangaOrAnime = ({ info, oncheck }) => (
-	<button
+export const SaveMangaOrAnime = ({ info, oncheck }) => {
+  return <button
 		className="globalStyle  addItem"
 		type="button"
 		onClick={() => {
@@ -26,4 +26,4 @@ export const SaveMangaOrAnime = ({ info, oncheck }) => (
 			/>
 		</svg>
 	</button>
-);
+};
