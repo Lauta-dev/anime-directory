@@ -33,7 +33,7 @@ app.post(`${endPoint}/:id`, (req, res) => {
 });
 
 // Guardar un elemento
-app.post(`/recurso/save`, (req) => {
+app.post(`/save`, (req) => {
 	const { name, id, type } = req.body;
 	const arr = [name, id, type];
 
