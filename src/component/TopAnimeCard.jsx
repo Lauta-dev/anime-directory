@@ -5,7 +5,6 @@ function TopAnime({ animeArray }) {
 	return (
 		<Slice>
 			{animeArray?.slice(0, 6).map((data) => {
-        console.log(data)
 				const id = data.mal_id;
 				const { images, title } = data;
 				const { webp } = images;

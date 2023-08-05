@@ -15,7 +15,6 @@ export default function Pages () {
   const param = new URLSearchParams(window.location.search)
   const page = param.get('page')
 
-  console.log({page})
   const num = [1, 2, 3, 4]
   
   return (

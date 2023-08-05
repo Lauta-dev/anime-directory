@@ -5,6 +5,9 @@
 export const selectAllForDataBase = (id) =>
 	"SELECT * FROM anime WHERE mal_id = ?;";
 
+export const selectAll = () =>
+	"SELECT * FROM anime;";
+
 /**
  * @param {string} name El nombre del elemento al guardar
  * @param {number} id el id del elemento

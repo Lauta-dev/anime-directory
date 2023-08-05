@@ -1,4 +1,4 @@
-import { saveData } from "../../server/prefix";
+import { localHost } from "../../server/prefix";
 
 export const useSaveInfoInDB = async ({ info }) => {
   try {
@@ -14,14 +14,8 @@ export const useSaveInfoInDB = async ({ info }) => {
 			}),
 		};
 
-		const save = await fetch('http://localhost:8080/recurso/save', headers);
+		const save = await fetch(localHost, headers);
 		const res = await save.json();
-	  console.log({
-      info,
-      saveData,
-      headers,
-      res
-    })
 
   } catch (error) {
 		throw new Error(`Error al guardar los datos ${error}`);

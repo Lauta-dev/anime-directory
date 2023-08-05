@@ -1,8 +1,20 @@
-POST http://localhost:8080/save
+### ads
+POST http://localhost:8080/recurso/51009
+
+### todos los elementos
+POST http://localhost:8080/all
+Content-Type: application/json
+
+### delete
+DELETE http://localhost:8080/recurso/a2313sdasdsa
+
+###interser
+POST http://localhost:8080/recurso
 Content-Type: application/json
 
 {
-  "name": "DB",
-  "id": 102132,
-  "type": "asd"
+  "name": "asdaaaasdasd",
+  "type": "asdasdasdsadsada",
+  "id": 101112313
+
 }
