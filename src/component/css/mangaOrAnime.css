@@ -1,0 +1,11 @@
+.SelectAnimeOrManga {
+  display: flex;
+  gap: 1rem;
+}
+
+#category {
+  border: none;
+  background: none;
+  border: 1px solid;
+  border-radius: 10px;
+}

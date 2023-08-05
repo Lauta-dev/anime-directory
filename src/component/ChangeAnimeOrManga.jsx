@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { FORMAT_TYPES } from "../TYPES";
+import './css/mangaOrAnime.css'
 
 export const ChangeAnimeOrManga = () => {
 	const { setType } = useContext(SelectAnimeOrMangaContext);

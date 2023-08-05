@@ -5,13 +5,20 @@ import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { ActiveOrDesactiveNSFW } from "./ActiveOrDesactiveNSFW";
 import { ChangeAnimeOrManga } from "./ChangeAnimeOrManga";
 
+import "./css/filters.css";
+
 import "./css/input.css";
 import { searchInput } from "../Routers/paths";
 import Pages from "./Pages";
+import Filters from "./Filters";
 
 export function Input() {
 	const [anime, setAnime] = useState('');
   const ref = useRef(false)
+	const [hideDescription, setHideDescription] = useState(false);
+
+		const [checkend, setCheckend] = useState(false);
+	const on = () => setCheckend(!checkend);
 
 
 	const { type } = useContext(SelectAnimeOrMangaContext);
@@ -74,8 +81,61 @@ export function Input() {
 
       {/* aqui el codigo */}
       
-      
-
+				<section className="conteiner_filters">
+					<h3>Filters</h3>
+					<section className={`f ${hideDescription ? "expanded" : ""}`}>
+						<section className="menu-overlay">
+							<button onClick={on}>Show</button>
+            	<Filters />
+						</section>
+					</section>
+						
+				{hideDescription ? (
+				<button
+					type="button"
+					onClick={() => setHideDescription(!hideDescription)}
+					className="buttonShowInfo btn"
+				>
+					Less{" "}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						strokeWidth="1.5"
+						stroke="currentColor"
+						className="w-6 h-6 less"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+						/>
+					</svg>
+				</button>
+			) : (
+				<button
+					type="button"
+					onClick={() => setHideDescription(!hideDescription)}
+					className="buttonShowInfo btn"
+				>
+					More{" "}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						strokeWidth="1.5"
+						stroke="currentColor"
+						className="w-6 h-6"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+						/>
+					</svg>
+				</button>
+			)}
+				</section>
 
 		</>
 	);

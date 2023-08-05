@@ -4,10 +4,10 @@ import Pages from "./Pages";
 
 export default function Filters () {
   return (
-    <>
+    <section className="filters">
       <ActiveOrDesactiveNSFW />
 			<ChangeAnimeOrManga />
       <Pages />
-    </>
+    </section>
   )
 }

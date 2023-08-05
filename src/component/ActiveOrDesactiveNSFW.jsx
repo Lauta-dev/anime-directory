@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
+import './css/checked.css'
 
 export const ActiveOrDesactiveNSFW = () => {
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);

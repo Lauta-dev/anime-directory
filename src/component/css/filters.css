@@ -1,0 +1,44 @@
+/* Estilos para la transición de altura */
+.f {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 260ms ease-in-out;
+}
+
+.f.expanded {
+  max-height: 600px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  background: none;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: .5rem;
+  font-size: 20px;
+}
+
+.less {
+  rotate: -180deg;
+}
+
+.w-6 {
+  width: 20px;
+}
+
+.conteiner_filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-bottom: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+}

@@ -52,8 +52,6 @@ export function Header() {
 						</svg>
 					</label>
 					<div className="menu-overlay">
-						<button onClick={on}>Show</button>
-            <Filters />
 					</div>
 				</li>
 			</ul>
