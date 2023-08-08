@@ -2,14 +2,13 @@ import { CardAnimeAndManga } from "./CardAnimeAndManga";
 import { useSearchMangaOrAnimeRegex } from "../hooks/useSearchMangaOrAnimeRegex";
 import { useTop } from "../hooks/useTopAnime";
 
-export default function CardListOfAnimes() {
+export default function CardListOfAnimes({ pagination, animeArray }) {
 	const { isAnime } = useSearchMangaOrAnimeRegex();
-	const { top } = useTop({ types: isAnime });
-	const { data, pagination } = top;
+	const { top } = useTop({ type: isAnime });
 
 	return (
 		<section id="top_anime_conteiner">
-			<CardAnimeAndManga animeArray={data} pagination={pagination} />
+			<CardAnimeAndManga animeArray={animeArray} pagination={pagination} />
 		</section>
 	);
 }

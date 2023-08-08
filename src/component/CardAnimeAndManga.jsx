@@ -9,8 +9,8 @@ import "./css/anime_card.css";
 
 export function CardAnimeAndManga({ animeArray, pagination }) {
 	const [selectedAnimeData, setSelectedAnimeData] = useState([]);
-	
-  useEffect(() => {
+
+	useEffect(() => {
 		const fetchData = async () => {
 			const animeData = await Promise.all(
 				animeArray?.map((data) => useGlobalInfo({ data })),
@@ -20,35 +20,37 @@ export function CardAnimeAndManga({ animeArray, pagination }) {
 		fetchData();
 	}, [animeArray]);
 
-  const {last_visible_page, current_page} = pagination
-    	
-  return (
-    <>
-      <h2>{current_page}/{last_visible_page}</h2>
-      <div className="cards">
-			  {selectedAnimeData?.map(({ globalInfo, image }) => {
-				  const { title, score, type, id } = globalInfo;
-				  const isAnime = type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
+	return (
+		<>
+			<div className="cards">
+				{selectedAnimeData?.map(({ globalInfo, image }) => {
+					const { title, score, type, id } = globalInfo;
+					const isAnime =
+						type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
 
-				return (
-					<Link key={id} className="link" to={`/${isAnime}/${ROUTE.id}/${id}`}>
-						<Image
-							className="card_image"
-							type={type}
-							title={title}
-							imageURL={image.webp.imageURL}
-						/>
+					return (
+						<Link
+							key={id}
+							className="link"
+							to={`/${isAnime}/${ROUTE.id}/${id}`}
+						>
+							<Image
+								className="card_image"
+								type={type}
+								title={title}
+								imageURL={image.webp.imageURL}
+							/>
 
-						<section className="conteiner_info">
-							<strong>{title}</strong>
+							<section className="conteiner_info">
+								<strong>{title}</strong>
 
-							<p>Score: {score}</p>
-							<p>Type: {type}</p>
-						</section>
-					</Link>
-				);
-			})}
-		</div>
-    </>
+								<p>Score: {score}</p>
+								<p>Type: {type}</p>
+							</section>
+						</Link>
+					);
+				})}
+			</div>
+		</>
 	);
 }

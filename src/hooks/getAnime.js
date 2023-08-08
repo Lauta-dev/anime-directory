@@ -8,17 +8,19 @@ export function useGetAnime({ params }) {
 	const { nsfw } = useContext(desactiveNSFWContext);
 	const [animeData, setAnimeData] = useState(null);
 
-  const { title } = params;
+	const { title } = params;
 
 	useEffect(() => {
 		const get = async () => {
 			try {
-				const getData = await fetch(JIKAN_API_SEARCH({
-          title,
-          type,
-          nsfw: nsfw.sfw,
-          page: nsfw.page
-        }));
+				const getData = await fetch(
+					JIKAN_API_SEARCH({
+						title,
+						type,
+						nsfw: nsfw.sfw,
+						page: nsfw.page,
+					}),
+				);
 
 				const res = await getData.json();
 				return setAnimeData(res);
@@ -29,6 +31,6 @@ export function useGetAnime({ params }) {
 
 		get();
 	}, [title, nsfw, type]);
-  
+
 	return { animeData };
 }
