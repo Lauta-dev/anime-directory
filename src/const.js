@@ -21,7 +21,7 @@ export const JIKAN_API_MANGA = (manga) =>
 export const JIKAN_API_ANIME = (anime) =>
 	`${urlCompleted}/${type.anime}?q=${anime}&sfw`;
 
-export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) => 
+export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) =>
 	`${urlCompleted}/${type}/${id}`;
 
 export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
@@ -33,10 +33,14 @@ export const JIKAN_API_SEARCH = ({ title, type, nsfw, page }) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
 
 	if (type === "manga") {
-		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${page ?? 1}`;
+		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${
+			page ?? 1
+		}&limit=10`;
 	}
 
-	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}&page=${page ?? 1}`;
+	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}&page=${
+		page ?? 1
+	}&limit=10`;
 };
 /**
  * @param {string} type En que formato es el elemento

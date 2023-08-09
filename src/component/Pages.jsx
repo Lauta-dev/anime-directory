@@ -1,32 +1,38 @@
-import { useLocation } from "wouter"
 import { useContext } from "react";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
 
-export default function Pages () {
-  const { _, setNsfw } = useContext(desactiveNSFWContext);
-  const [l, setL] = useLocation()
-  
-  const handleSelectOption = (e) => {
-    const value = e.target.value
-    setNsfw({ page: value, sfw: false })
-    setL(`${l}?page=${value}`)
-  }
+export default function Pages() {
+	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
 
-  const param = new URLSearchParams(window.location.search)
-  const page = param.get('page')
+	const handleNextPage = () => setNsfw({ sfw: false, page: nsfw.page + 1 });
+	const handleLastPage = () => setNsfw({ sfw: false, page: nsfw.page - 1 });
+	const handleResetPage = () => setNsfw({ sfw: false, page: nsfw.page === 1 });
 
-  const num = [1, 2, 3, 4]
-  
-  return (
-    <label htmlFor="select">
-      <select id="select" onChange={handleSelectOption}>
-        {num.map(num => (
-          <option
-            key={num}
-            value={num}>Page {num}
-          </option>
-        ))}
-      </select>
-    </label>
-  )
+	return (
+		<>
+			<button type="button" onClick={handleNextPage}>
+				Next page
+			</button>
+
+			{nsfw?.page > 1 ? (
+				<button type="button" onClick={handleLastPage}>
+					Last page
+				</button>
+			) : (
+				<button disabled type="button" onClick={handleLastPage}>
+					Last page
+				</button>
+			)}
+
+			{nsfw?.page === 1 ? (
+				<button type="button" disabled onClick={handleResetPage}>
+					Fist page
+				</button>
+			) : (
+				<button type="button" onClick={handleResetPage}>
+					Fist page
+				</button>
+			)}
+		</>
+	);
 }

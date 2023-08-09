@@ -23,7 +23,12 @@ export function useGetAnime({ params }) {
 				);
 
 				const res = await getData.json();
-				return setAnimeData(res);
+
+				return setAnimeData((prev) => ({
+					data: res.data,
+					pagination: res.pagination,
+					prev,
+				}));
 			} catch (error) {
 				throw new Error("Error al obtener la respuesta", error);
 			}
@@ -31,6 +36,8 @@ export function useGetAnime({ params }) {
 
 		get();
 	}, [title, nsfw, type]);
+
+	console.log(animeData);
 
 	return { animeData };
 }
