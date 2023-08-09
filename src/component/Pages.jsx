@@ -6,7 +6,7 @@ export default function Pages() {
 
 	const handleNextPage = () => setNsfw({ sfw: false, page: nsfw.page + 1 });
 	const handleLastPage = () => setNsfw({ sfw: false, page: nsfw.page - 1 });
-	const handleResetPage = () => setNsfw({ sfw: false, page: nsfw.page === 1 });
+	const handleResetPage = () => setNsfw({ sfw: false, page: (nsfw.page = 1) });
 
 	return (
 		<>
