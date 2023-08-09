@@ -4,9 +4,9 @@ import { desactiveNSFWContext } from "../context/desactiveNSFW";
 export default function Pages() {
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
 
-	const handleNextPage = () => setNsfw({ sfw: false, page: nsfw.page + 1 });
-	const handleLastPage = () => setNsfw({ sfw: false, page: nsfw.page - 1 });
-	const handleResetPage = () => setNsfw({ sfw: false, page: (nsfw.page = 1) });
+	const handleNextPage = () => setNsfw({ sfw: true, page: nsfw.page + 1 });
+	const handleLastPage = () => setNsfw({ sfw: true, page: nsfw.page - 1 });
+	const handleResetPage = () => setNsfw({ sfw: true, page: (nsfw.page = 1) });
 
 	return (
 		<>
