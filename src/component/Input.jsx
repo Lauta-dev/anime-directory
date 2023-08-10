@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useMemo } from "react";
 import { Link } from "wouter";
 
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
@@ -75,6 +75,7 @@ export function Input() {
 			</div>
 
 			<section className="conteiner_filters">
+				<h3>Filters</h3>
 				<section className={`f ${hideDescription ? "expanded" : ""}`}>
 					<section className="menu-overlay">
 						<Filters />

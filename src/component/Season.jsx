@@ -13,11 +13,19 @@ export function Season() {
 					return (
 						<Link key={e.mal_id} to={seasonAnimeId(e.mal_id)}>
 							<li className="list">
-								<img className="img" src={e.images.jpg.image_url} alt="" />
+								<img className="img" src={e.images.webp.image_url} alt="" />
 
 								<div className="infoSeason">
 									<b>{e.title}</b>
-									<div className="detail"></div>
+									<div className="detail">
+										<p>
+											Status: <b>{e.status}</b>
+										</p>
+
+										<p>
+											Episodes: <b>{e.episodes ?? "?"}</b>
+										</p>
+									</div>
 								</div>
 							</li>
 						</Link>
