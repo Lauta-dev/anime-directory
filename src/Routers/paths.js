@@ -25,6 +25,6 @@ export const ovaWithId = `/${ova}/${ROUTE.id}/:id`;
 export const specialWithId = `/${special}/${ROUTE.id}/:id`;
 export const movieWithId = `/${movie}/${ROUTE.id}/:id`;
 
-export const searchInput = ({ type, anime }) => `/${type}/search/${anime}`;
+export const searchInput = ({ type, title }) => `/${type}/search/${title}`;
 
 export const seasonAnimeId = (id) => `${anime}/${ROUTE.id}/${id}`;

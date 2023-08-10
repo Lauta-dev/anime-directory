@@ -6,6 +6,7 @@ import { useGlobalInfo } from "../hooks/useAnimeSelected";
 import { Image } from "./infoAnimeAndManga/Image";
 
 import "./css/anime_card.css";
+import Pages from "./Pages";
 
 export function CardAnimeAndManga({ animeArray, pagination }) {
 	const [selectedAnimeData, setSelectedAnimeData] = useState([]);
@@ -22,10 +23,16 @@ export function CardAnimeAndManga({ animeArray, pagination }) {
 
 	return (
 		<>
-			<h2>
-				{pagination?.current_page} from {pagination?.last_visible_page} pages -
-				items for page {pagination?.items?.per_page}
-			</h2>
+			<br />
+			<b>
+				{pagination?.current_page} from {pagination?.last_visible_page} pages{" "}
+				<br />
+				{pagination?.items?.per_page} items for page
+			</b>
+			<br />
+
+			<Pages pagination={pagination} />
+
 			<div className="cards">
 				{selectedAnimeData?.map(({ globalInfo, image }) => {
 					const { title, score, type, id } = globalInfo;

@@ -4,7 +4,7 @@ export const desactiveNSFWContext = createContext();
 
 export const DesactiveNSFWPovider = ({ children }) => {
 	const [nsfw, setNsfw] = useState({
-		sfw: false,
+		sfw: true,
 		page: 1,
 	});
 

@@ -1,5 +1,4 @@
 .conteiner_search {
-  width: 100%;
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -8,9 +7,7 @@
 .input_search {
   color: #000;
   font-size: 1rem;
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 20px;
+  padding: 10px 17px;
 }
 
 .input_conteiner {
@@ -19,18 +16,6 @@
   align-content: center;
   margin: 0 0 2rem 0;
   gap: 21px;
-}
-
-.input_conteiner>svg {
-  width: 4rem;
-  cursor: pointer;
-}
-
-.nsfw {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
 }
 
 
@@ -42,4 +27,20 @@
 
 .onfocus {
   border-color: red;
+}
+
+.input_conteiner>form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.input_conteiner>form>button {
+  background-color: transparent;
+  border: none;
+}
+
+.input_conteiner>form>button>svg {
+  width: 4rem;
 }
