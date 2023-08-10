@@ -9,7 +9,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, .8fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, .8fr));
   gap: 1rem;
   justify-content: center;
   align-content: center;

@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useMemo } from "react";
+import { useContext, useState } from "react";
 
 import { useLocation } from "wouter";
 
@@ -10,7 +10,7 @@ import Filters from "./Filters";
 import { searchInput } from "../Routers/paths";
 import { Loupe } from "./svg/loupe";
 
-const A = () => {
+const Filter = () => {
 	return (
 		<section className="menu-overlay">
 			<Filters />
@@ -19,22 +19,22 @@ const A = () => {
 };
 
 export function Input() {
-	const [location, setLocation] = useLocation();
+	const [, setLocation] = useLocation();
 
-	const [memo, setMeno] = useState(false);
+	const [showFilters, setShowFilters] = useState(false);
 
 	const { type } = useContext(SelectAnimeOrMangaContext);
-
-	const memoa = useMemo(() => {
-		if (memo) {
-			return <A hideDescription={memo} />;
-		}
-	}, [memo]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
 		const { title } = Object.fromEntries(new FormData(e.target));
-		setLocation(searchInput({ title, type }));
+		const newLocation = searchInput({ title, type });
+		setLocation(newLocation);
+		document.title = `Search: ${title}`;
+	}
+
+	function handleShowFilters() {
+		setShowFilters(!showFilters);
 	}
 
 	return (
@@ -46,7 +46,6 @@ export function Input() {
 							minLength={3}
 							maxLength={100}
 							required
-							onFocus={true}
 							autoComplete="off"
 							id="search"
 							className="input_search"
@@ -62,16 +61,11 @@ export function Input() {
 				</section>
 			</section>
 
-			<button
-				type="button"
-				onClick={() => {
-					setMeno(!memo);
-				}}
-			>
+			<button type="button" onClick={handleShowFilters}>
 				Filters
 			</button>
 
-			{memoa}
+			{showFilters && <Filter />}
 		</>
 	);
 }
