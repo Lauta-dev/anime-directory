@@ -3,6 +3,8 @@
   display: flex;
   overflow: scroll;
   gap: 20px;
+
+  padding-bottom: 10px;
 }
 
 .slider>img {

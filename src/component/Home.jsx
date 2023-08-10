@@ -18,9 +18,11 @@ export default function Home() {
 		type: selectAnimeOrManga,
 	});
 
+	document.title = "Home";
+
 	return (
 		<>
-			<div className="conteiner-filters">
+			<div className="toggle_manga_or_anime">
 				<button
 					type="button"
 					className={`changeAnimeOrManga ${
@@ -33,9 +35,7 @@ export default function Home() {
 					Show {showMangaOrAnime ? "manga" : "anime"}
 				</button>
 
-				<Link to={`/${selectAnimeOrManga}/top`}>
-					More #{selectAnimeOrManga}
-				</Link>
+				<Link to={`/${selectAnimeOrManga}/top`}>View all </Link>
 			</div>
 			<br />
 

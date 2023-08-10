@@ -2,24 +2,18 @@ const PREFIX = "https://api.jikan.moe";
 const API_VERSION = "v4";
 const urlCompleted = `${PREFIX}/${API_VERSION}`;
 
-const type = {
+const tipo = {
 	manga: "manga",
 	anime: "anime",
 };
 
-/**
- * TODO: sfw tiene que cambiar cuando se active el boton de nsfw
- * @param {number} limit Limite de elementos que se mostraran
- * @param {number} page Pagina cual va a viajar
- * @returns
- */
 export const SEASON_ANIME_NOW = ({ limit, page }) =>
 	`${urlCompleted}/seasons/now?limit=${limit}&page=${page}&sfw=true`;
 
 export const JIKAN_API_MANGA = (manga) =>
-	`${urlCompleted}/${type.manga}?q=${manga}&sfw`;
+	`${urlCompleted}/${tipo.manga}?q=${manga}&sfw`;
 export const JIKAN_API_ANIME = (anime) =>
-	`${urlCompleted}/${type.anime}?q=${anime}&sfw`;
+	`${urlCompleted}/${tipo.anime}?q=${anime}&sfw`;
 
 export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) =>
 	`${urlCompleted}/${type}/${id}`;
@@ -35,12 +29,12 @@ export const JIKAN_API_SEARCH = ({ title, type, nsfw, page }) => {
 	if (type === "manga") {
 		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${
 			page ?? 1
-		}&limit=10`;
+		}`;
 	}
 
 	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}&page=${
 		page ?? 1
-	}&limit=10`;
+	}`;
 };
 /**
  * @param {string} type En que formato es el elemento

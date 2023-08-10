@@ -20,14 +20,11 @@ export function CardAnimeAndManga({ animeArray, pagination }) {
 		fetchData();
 	}, [animeArray]);
 
-	const { last_visible_page, current_page, items } = pagination;
-	const { count, total, per_page } = items;
-
 	return (
 		<>
 			<h2>
-				{current_page} from {last_visible_page} pages - items for page{" "}
-				{per_page}
+				{pagination?.current_page} from {pagination?.last_visible_page} pages -
+				items for page {pagination?.items?.per_page}
 			</h2>
 			<div className="cards">
 				{selectedAnimeData?.map(({ globalInfo, image }) => {
@@ -50,9 +47,10 @@ export function CardAnimeAndManga({ animeArray, pagination }) {
 
 							<section className="conteiner_info">
 								<strong>{title}</strong>
-
-								<p>Score: {score}</p>
-								<p>Type: {type}</p>
+								<div>
+									<p>Score: {score}</p>
+									<p>Type: {type}</p>
+								</div>
 							</section>
 						</Link>
 					);

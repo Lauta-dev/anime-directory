@@ -25,6 +25,8 @@ export function InfoManga({ infoManga, image, titles }) {
 		type: FORMAT_TYPES.manga.type,
 	});
 
+	document.title = title;
+
 	return (
 		<section className="conteiner">
 			<Info

@@ -8,13 +8,24 @@ import "../css/animeID.css";
 
 export function InfoAnime({ animeInfo, image, titles }) {
 	const { info } = useInfoAnime({ data: animeInfo });
-	const { genres, status, title, type, id, synopsis, episodes, popularity, score } =
-		info;
+	const {
+		genres,
+		status,
+		title,
+		type,
+		id,
+		synopsis,
+		episodes,
+		popularity,
+		score,
+	} = info;
 
 	const { getAnimeCharacters } = useAnimeCharacter({
 		id,
 		type: FORMAT_TYPES.anime.type,
 	});
+
+	document.title = title;
 
 	return (
 		<section className="conteiner">
@@ -30,7 +41,7 @@ export function InfoAnime({ animeInfo, image, titles }) {
 				type={type}
 			>
 				<InfoMangaAndAnime
-          episodes={episodes}
+					episodes={episodes}
 					popularity={popularity}
 					status={status}
 					score={score}

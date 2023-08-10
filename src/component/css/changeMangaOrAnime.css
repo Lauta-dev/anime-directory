@@ -5,23 +5,12 @@
   border-radius: 5px;
 }
 
-.manga {
-  background-color: rgb(232, 255, 0);
-}
-
-.anime {
-  background-color: #ffa941;
-}
-
-.conteiner-filters {
+.toggle_manga_or_anime {
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
 }
-
-
-
-/*dasdasdas*/
 
 .list {
   display: flex;

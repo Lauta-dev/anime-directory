@@ -17,19 +17,7 @@ export function Season() {
 
 								<div className="infoSeason">
 									<b>{e.title}</b>
-									<div className="detail">
-										<p>
-											Aired: <b>{e.aired.string}</b>
-										</p>
-
-										<p>
-											Status: <b>{e.status}</b>
-										</p>
-
-										<p>
-											Episodes: <b>{e.episodes ?? "?"}</b>
-										</p>
-									</div>
+									<div className="detail"></div>
 								</div>
 							</li>
 						</Link>
