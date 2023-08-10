@@ -74,13 +74,9 @@ export function Input() {
 				</div>
 			</div>
 
-			{/* aqui el codigo */}
-
 			<section className="conteiner_filters">
-				<h3>Filters</h3>
 				<section className={`f ${hideDescription ? "expanded" : ""}`}>
 					<section className="menu-overlay">
-						<button onClick={on}>Show</button>
 						<Filters />
 					</section>
 				</section>

@@ -1,37 +1,52 @@
 import { useContext } from "react";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
 
+function Buttons({ title, action, disabled }) {
+	return (
+		<>
+			{disabled ? (
+				<button type="button" disabled>
+					{title}
+				</button>
+			) : (
+				<button type="button" onClick={action}>
+					{title}
+				</button>
+			)}
+		</>
+	);
+}
+
 export default function Pages() {
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
 
-	const handleNextPage = () => setNsfw({ sfw: true, page: nsfw.page + 1 });
-	const handleLastPage = () => setNsfw({ sfw: true, page: nsfw.page - 1 });
-	const handleResetPage = () => setNsfw({ sfw: true, page: (nsfw.page = 1) });
+	const handleNextPage = () =>
+		setNsfw((prev) => ({ sfw: prev.sfw, page: nsfw.page + 1 }));
+
+	const handleLastPage = () =>
+		setNsfw((prev) => ({ sfw: prev.sfw, page: nsfw.page - 1 }));
+
+	const handleResetPage = () =>
+		setNsfw((prev) => ({ sfw: prev.sfw, page: (nsfw.page = 1) }));
 
 	return (
 		<>
-			<button type="button" onClick={handleNextPage}>
-				Next page
-			</button>
+			<Buttons title={"Next page"} disabled={false} action={handleNextPage} />
 
 			{nsfw?.page > 1 ? (
-				<button type="button" onClick={handleLastPage}>
-					Last page
-				</button>
+				<Buttons title={"Last page"} disabled={false} action={handleLastPage} />
 			) : (
-				<button disabled type="button" onClick={handleLastPage}>
-					Last page
-				</button>
+				<Buttons title={"Last page"} disabled={true} />
 			)}
 
-			{nsfw?.page === 1 ? (
-				<button type="button" disabled onClick={handleResetPage}>
-					Fist page
-				</button>
+			{nsfw?.page < 2 ? (
+				<Buttons title={"Fist page"} disabled={true} />
 			) : (
-				<button type="button" onClick={handleResetPage}>
-					Fist page
-				</button>
+				<Buttons
+					title={"Fist page"}
+					disabled={false}
+					action={handleResetPage}
+				/>
 			)}
 		</>
 	);
