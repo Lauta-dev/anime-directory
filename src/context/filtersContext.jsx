@@ -14,8 +14,6 @@ export const filtersContext = createContext();
 -> order_by
   Enum: ["mal_id" "title" "start_date" "end_date" "episodes" "score" "scored_by" "rank" "popularity" "members" "favorites"]
 
--> sort ---> Enum: "desc" "asc"
-
 -> start_date ---> Format: YYYY-MM-DD
 -> end_data ---> Format: YYYY-MM-DD
 
@@ -30,11 +28,11 @@ export const FiltersContextProvider = ({ children }) => {
 		status: "complete",
 		rating: "g",
 		genres: null,
-		genres_exclude: null,
-		order_by: "title",
+		genresExclude: null,
+		orderBy: "title",
 		sort: "asc",
-		start_date: null,
-		end_data: null,
+		startDate: null,
+		endData: null,
 	});
 
 	return (

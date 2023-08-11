@@ -11,7 +11,7 @@ export function useGetAnime({ params }) {
 	const [animeData, setAnimeData] = useState(null);
 
 	const { title } = params;
-	const { status, rating, genres } = filtersAll;
+	const { status, rating, genres, orderBy } = filtersAll;
 
 	useEffect(() => {
 		const get = async () => {
@@ -25,6 +25,7 @@ export function useGetAnime({ params }) {
 						status,
 						rating,
 						genres,
+            orderBy
 					}),
 				);
 
@@ -40,7 +41,7 @@ export function useGetAnime({ params }) {
 		};
 
 		get();
-	}, [title, nsfw, type, status, rating, genres]);
+	}, [title, nsfw, type, status, rating, genres, orderBy]);
 
 	return { animeData };
 }

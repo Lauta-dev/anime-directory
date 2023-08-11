@@ -7,6 +7,10 @@ const tipo = {
 	anime: "anime",
 };
 
+function ifExist () {
+
+}
+
 export const SEASON_ANIME_NOW = ({ limit, page }) =>
 	`${urlCompleted}/seasons/now?limit=${limit}&page=${page}&sfw=true`;
 
@@ -27,25 +31,27 @@ export const JIKAN_API_SEARCH = ({
 	title,
 	type,
 	nsfw,
-	page,
+	page = 1,
 	status,
 	rating,
 	genres,
+  orderBy
 }) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
 	const ifStatusExist = status ? `&status=${status}` : "";
 	const ifRatingExist = rating ? `&rating=${rating}` : "";
 	const ifGenresExist = genres ? `&genres=${genres}` : "";
+  const ifOrderByExist = orderBy ? `&order_by=${orderBy}` : "";
+
+  console.log(rating)
 
 	if (type === "manga") {
 		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${
-			page ?? 1
-		}`;
+			page}`;
 	}
-	1;
 	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}&page=${
-		page ?? 1
-	}${ifStatusExist}${ifRatingExist}${ifGenresExist}`;
+		page
+	}${ifStatusExist}${ifRatingExist}${ifGenresExist}${ifOrderByExist}`;
 };
 /**
  * @param {string} type En que formato es el elemento

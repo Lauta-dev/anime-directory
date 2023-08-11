@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
-
 import { useLocation } from "wouter";
 
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 
 import "./css/input.css";
 
-import Filters from "./Filters";
+import { Filters } from "./Filters";
 import { searchInput } from "../Routers/paths";
 import { Loupe } from "./svg/loupe";
 

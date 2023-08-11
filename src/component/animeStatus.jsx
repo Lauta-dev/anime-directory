@@ -4,7 +4,6 @@ import { Select } from "./ChangeAnimeOrManga";
 
 export function AnimeStatus() {
 	const { filtersAll, setfiltersAll } = useContext(filtersContext);
-	const [stateChosen, setStateChosen] = useState(null);
 	const status = ["", "airing", "complete", "upcoming"];
 
 	function handleChangeOption(data) {

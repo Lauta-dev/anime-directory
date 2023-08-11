@@ -1,10 +1,11 @@
 import { ActiveOrDesactiveNSFW } from "./ActiveOrDesactiveNSFW";
 import { ChangeAnimeOrManga } from "./ChangeAnimeOrManga";
 import { Genres } from "./Genres";
+import { OrderBy } from "./OrderBy";
 import { Rating } from "./Rating";
 import { AnimeStatus } from "./animeStatus";
 
-export default function Filters() {
+export function Filters() {
 	return (
 		<>
 			<ActiveOrDesactiveNSFW />
@@ -12,6 +13,7 @@ export default function Filters() {
 			<AnimeStatus />
 			<Rating />
 			<Genres />
+      <OrderBy />
 		</>
 	);
 }
