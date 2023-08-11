@@ -2,13 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { JIKAN_API_SEARCH } from "../const";
+import { filtersContext } from "../context/filtersContext";
 
 export function useGetAnime({ params }) {
 	const { type } = useContext(SelectAnimeOrMangaContext);
 	const { nsfw } = useContext(desactiveNSFWContext);
+	const { filtersAll } = useContext(filtersContext);
 	const [animeData, setAnimeData] = useState(null);
 
 	const { title } = params;
+	const { status, rating, genres } = filtersAll;
 
 	useEffect(() => {
 		const get = async () => {
@@ -19,15 +22,17 @@ export function useGetAnime({ params }) {
 						type,
 						nsfw: nsfw.sfw,
 						page: nsfw.page,
+						status,
+						rating,
+						genres,
 					}),
 				);
 
 				const res = await getData.json();
 
-				return setAnimeData((prev) => ({
+				return setAnimeData(() => ({
 					data: res.data,
 					pagination: res.pagination,
-					prev,
 				}));
 			} catch (error) {
 				throw new Error("Error al obtener la respuesta", error);
@@ -35,7 +40,7 @@ export function useGetAnime({ params }) {
 		};
 
 		get();
-	}, [title, nsfw, type]);
+	}, [title, nsfw, type, status, rating, genres]);
 
 	return { animeData };
 }

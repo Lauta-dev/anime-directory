@@ -23,18 +23,29 @@ export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 
 export const JIKAN_API_TOP = ({ type }) => `${urlCompleted}/top/${type}`;
 
-export const JIKAN_API_SEARCH = ({ title, type, nsfw, page }) => {
+export const JIKAN_API_SEARCH = ({
+	title,
+	type,
+	nsfw,
+	page,
+	status,
+	rating,
+	genres,
+}) => {
 	const isTypeAnime = type === "anime" ? "tv" : type;
+	const ifStatusExist = status ? `&status=${status}` : "";
+	const ifRatingExist = rating ? `&rating=${rating}` : "";
+	const ifGenresExist = genres ? `&genres=${genres}` : "";
 
 	if (type === "manga") {
 		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${
 			page ?? 1
 		}`;
 	}
-
+	1;
 	return `${urlCompleted}/anime?q=${title}&sfw=${nsfw}&type=${isTypeAnime}&page=${
 		page ?? 1
-	}`;
+	}${ifStatusExist}${ifRatingExist}${ifGenresExist}`;
 };
 /**
  * @param {string} type En que formato es el elemento

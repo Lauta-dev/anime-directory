@@ -5,17 +5,20 @@ import { Input } from "./component/Input";
 import { DesactiveNSFWPovider } from "./context/desactiveNSFW";
 import { SelectAnimeOrMangaContextProvider } from "./context/selectAnimeOrManga";
 import { Header } from "./component/Header";
+import { FiltersContextProvider } from "./context/filtersContext";
 
 const Home = lazy(() => import("./component/Home"));
 
 export default function App() {
 	return (
-		<Suspense fallback={<h1></h1>}>
+		<Suspense fallback={<h1>Cargando</h1>}>
 			<DesactiveNSFWPovider>
 				<SelectAnimeOrMangaContextProvider>
-          <Header />
-					<Input />
-					<Routers />
+					<Header />
+					<FiltersContextProvider>
+						<Input />
+						<Routers />
+					</FiltersContextProvider>
 					<Route path="/" component={Home} />
 				</SelectAnimeOrMangaContextProvider>
 			</DesactiveNSFWPovider>
