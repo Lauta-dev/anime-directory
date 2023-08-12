@@ -9,7 +9,7 @@ import "./css/anime_card.css";
 import Pages from "./Pages";
 
 export function CardAnimeAndManga({ animeArray, pagination }) {
-	const [selectedAnimeData, setSelectedAnimeData] = useState([]);
+	const [selectedAnimeData, setSelectedAnimeData] = useState(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -21,15 +21,12 @@ export function CardAnimeAndManga({ animeArray, pagination }) {
 		fetchData();
 	}, [animeArray]);
 
+  if (selectedAnimeData === null) return <b>Loading...</b>
+
 	return (
 		<>
-			<br />
-			<b>
-				{pagination?.current_page} from {pagination?.last_visible_page} pages{" "}
-				<br />
-				{pagination?.items?.per_page} items for page
-			</b>
-			<br />
+			<p>{pagination?.current_page} from {pagination?.last_visible_page} pages</p>
+      <p>{pagination?.items?.per_page} items for page</p>
 
 			<Pages pagination={pagination} />
 

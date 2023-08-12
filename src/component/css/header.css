@@ -1,8 +1,5 @@
-.menu-overlay {
+ul > li > a {
   display: flex;
-  padding: 5px;
-  gap: 10px;
-  background: #0045ff0f;
-  margin: 20px 0;
-  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }

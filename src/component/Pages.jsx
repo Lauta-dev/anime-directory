@@ -1,16 +1,19 @@
 import { useContext } from "react";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
-import "./css/pages.css";
+import { Arrow } from './svg/Arrow.jsx'
 
-function Buttons({ title, action, disabled }) {
+import "./css/pages.css";
+import "./css/buttonsPage.css"
+
+function Buttons({ title, action, disabled, className }) {
 	return (
 		<>
 			{disabled ? (
-				<button type="button" disabled>
+				<button className={className} type="button" disabled>
 					{title}
 				</button>
 			) : (
-				<button type="button" onClick={action}>
+				<button className={className} type="button" onClick={action}>
 					{title}
 				</button>
 			)}
@@ -22,13 +25,13 @@ export default function Pages({ pagination }) {
 	const { nsfw, setNsfw } = useContext(desactiveNSFWContext);
 
 	const handleNextPage = () =>
-		setNsfw((prev) => ({ sfw: prev.sfw, page: nsfw.page + 1 }));
+		setNsfw((prev) => ({ ...prev, page: nsfw.page + 1 }));
 
 	const handleLastPage = () =>
-		setNsfw((prev) => ({ sfw: prev.sfw, page: nsfw.page - 1 }));
+		setNsfw((prev) => ({ ...prev, page: nsfw.page - 1 }));
 
 	const handleResetPage = () =>
-		setNsfw((prev) => ({ sfw: prev.sfw, page: (nsfw.page = 1) }));
+		setNsfw((prev) => ({ ...prev, page: (nsfw.page = 1) }));
 
 	const nextPage =
 		pagination?.last_visible_page === 1 ||
@@ -40,15 +43,16 @@ export default function Pages({ pagination }) {
 	return (
 		<section className="toggle_pages">
 			{lastPage ? (
-				<Buttons title={"Last page"} disabled={false} action={handleLastPage} />
+        <Buttons className={'last_page'} title={<Arrow />} disabled={false} action={handleLastPage} />
 			) : (
-				<Buttons title={"Last page"} disabled={true} />
+          <Buttons className={'last_page'} title={<Arrow />} disabled={true} />
 			)}
 
 			{firsPage ? (
-				<Buttons title={"Fist page"} disabled={true} />
+				<Buttons className={'first_page'} title={"Fist page"} disabled={true} />
 			) : (
 				<Buttons
+          className={'first_page'}
 					title={"Fist page"}
 					disabled={false}
 					action={handleResetPage}
@@ -56,9 +60,9 @@ export default function Pages({ pagination }) {
 			)}
 
 			{nextPage ? (
-				<Buttons title={"Next page"} disabled={true} action={handleNextPage} />
+        <Buttons className={'next_page'} title={<Arrow />} disabled={true} />
 			) : (
-				<Buttons title={"Next page"} disabled={false} action={handleNextPage} />
+          <Buttons className={'next_page'} title={<Arrow />} disabled={false} action={handleNextPage} />
 			)}
 		</section>
 	);

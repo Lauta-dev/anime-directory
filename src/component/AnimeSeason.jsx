@@ -7,11 +7,7 @@ export default function AnimeSeason() {
 
 	return (
 		<>
-			{data?.length ? (
-				<CardListOfAnimes pagination={pagination} animeArray={data} />
-			) : (
-				<h2>Cargando</h2>
-			)}
+      <CardListOfAnimes pagination={pagination} animeArray={data} />
 		</>
 	);
 }

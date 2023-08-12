@@ -1,9 +1,9 @@
-import "./css/loading.css";
+import "./css/loaderBar.css";
 
 export function Loading() {
 	return (
-		<div className="loading">
-			<h2>Loading</h2>
-		</div>
+    <section className="section_loader_page">
+		  <div className="loader"></div>
+    </section>
 	);
 }

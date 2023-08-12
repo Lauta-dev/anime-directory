@@ -1,0 +1,29 @@
+.list {
+  display: flex;
+  background: rgba(201, 11, 254, 0.22);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.img {
+  width: 6rem;
+  object-fit: cover;
+}
+
+.infoSeason {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 10px;
+}
+
+.season_conteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.season_conteiner>a {
+  text-align: center;
+}

@@ -7,10 +7,6 @@ const tipo = {
 	anime: "anime",
 };
 
-function ifExist () {
-
-}
-
 export const SEASON_ANIME_NOW = ({ limit, page }) =>
 	`${urlCompleted}/seasons/now?limit=${limit}&page=${page}&sfw=true`;
 
@@ -25,7 +21,12 @@ export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) =>
 export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 	`${urlCompleted}/${type}/${id}/characters`;
 
-export const JIKAN_API_TOP = ({ type }) => `${urlCompleted}/top/${type}`;
+export const JIKAN_API_TOP = ({ type, page }) => {
+  if (type === 'manga') return `${urlCompleted}/top/${tipo.manga}?page=${page}`
+
+  const isAnime = type === 'anime' ? 'tv' : type; 
+  return `${urlCompleted}/top/${tipo.anime}?type=${isAnime}&page=${page}`
+};
 
 export const JIKAN_API_SEARCH = ({
 	title,

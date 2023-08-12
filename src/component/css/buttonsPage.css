@@ -1,0 +1,29 @@
+.last_page > svg:active {
+  animation: moveButton .3s ease-in-out;
+}
+
+.next_page > svg:active {
+  animation: moveButton .3s ease-in-out;
+}
+
+@keyframes moveButton {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.last_page {
+  transform: rotate(180deg);
+}
+
+.last_page > svg, .next_page > svg {
+  width: 20px;
+}
+
+

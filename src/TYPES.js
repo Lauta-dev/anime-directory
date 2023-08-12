@@ -23,11 +23,6 @@ export const FORMAT_TYPES = {
 		type: "ova",
 		id: crypto.randomUUID(),
 	},
-
-	doujinshi: {
-		type: "doujinshi",
-		id: crypto.randomUUID(),
-	},
 };
 
 export const ROUTE = {

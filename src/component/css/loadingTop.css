@@ -1,0 +1,10 @@
+.loading_top {
+  background-color: #f4f4f4;
+  width: 140px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  border-radius: 20px;
+}

@@ -1,11 +1,8 @@
 import { Link } from "wouter";
 import "./css/header.css";
-import { useState } from "react";
 
 export function Header() {
-	const [checkend, setCheckend] = useState(false);
-
-	return (
+  return (
 		<header>
 			<ul>
 				<li>
