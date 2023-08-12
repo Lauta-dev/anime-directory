@@ -24,6 +24,8 @@ export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 export const JIKAN_API_TOP = ({ type, page }) => {
   if (type === 'manga') return `${urlCompleted}/top/${tipo.manga}?page=${page}`
 
+  console.log(type)
+
   const isAnime = type === 'anime' ? 'tv' : type; 
   return `${urlCompleted}/top/${tipo.anime}?type=${isAnime}&page=${page}`
 };
@@ -43,8 +45,6 @@ export const JIKAN_API_SEARCH = ({
 	const ifRatingExist = rating ? `&rating=${rating}` : "";
 	const ifGenresExist = genres ? `&genres=${genres}` : "";
   const ifOrderByExist = orderBy ? `&order_by=${orderBy}` : "";
-
-  console.log(rating)
 
 	if (type === "manga") {
 		return `${urlCompleted}/manga?q=${title}&sfw=${nsfw}&type=manga&page=${

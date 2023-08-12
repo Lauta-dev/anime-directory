@@ -10,6 +10,9 @@ export const animeSeasonPath = `/${anime}/season`;
 
 export const topAnimePath = `/${anime}/top`;
 export const topMangaPath = `/${manga}/top`;
+export const topMoviePath = `/${movie}/top`
+export const topSpecialPath = `/${special}/top`
+export const topOvaPath = `/${ova}/top`
 
 export const topAnimeAndMangaPath = ({ select }) => `/${select}/top/${select}`;
 

@@ -14,6 +14,9 @@ import {
 	specialWithId,
 	topAnimePath,
 	topMangaPath,
+  topMoviePath,
+  topSpecialPath,
+  topOvaPath
 } from "./paths";
 
 const Tops = lazy(() => import("../component/TopManga.jsx"));
@@ -26,8 +29,11 @@ export function Routers() {
 		<>
 			<Route path={animeSeasonPath} component={AnimeSeason} />
 
+			<Route path={topOvaPath} component={Tops} />
 			<Route path={topAnimePath} component={Tops} />
 			<Route path={topMangaPath} component={Tops} />
+			<Route path={topMoviePath} component={Tops} />
+			<Route path={topSpecialPath} component={Tops} />
 
 			<Route path={mangaWithId} component={GetAnimeForID} />
 			<Route path={animeWithId} component={GetAnimeForID} />
