@@ -1,4 +1,4 @@
-export function useGlobalInfo({ data }) {
+export function formatGlobalInfo({ data }) {
 	const globalInfo = {
 		mal: data.url,
 		id: data.mal_id,

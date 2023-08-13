@@ -5,7 +5,7 @@ import { OrderBy } from "./OrderBy";
 import { Rating } from "./Rating";
 import { AnimeStatus } from "./animeStatus";
 
-export function Filters() {
+export default function Filters() {
 	return (
 		<>
 			<ActiveOrDesactiveNSFW />

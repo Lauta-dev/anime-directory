@@ -1,19 +1,17 @@
+import { newObjet } from "./TYPES";
+
 const PREFIX = "https://api.jikan.moe";
 const API_VERSION = "v4";
 const urlCompleted = `${PREFIX}/${API_VERSION}`;
-
-const tipo = {
-	manga: "manga",
-	anime: "anime",
-};
 
 export const SEASON_ANIME_NOW = ({ limit, page }) =>
 	`${urlCompleted}/seasons/now?limit=${limit}&page=${page}&sfw=true`;
 
 export const JIKAN_API_MANGA = (manga) =>
-	`${urlCompleted}/${tipo.manga}?q=${manga}&sfw`;
+	`${urlCompleted}/${newObjet.manga}?q=${manga}&sfw`;
+
 export const JIKAN_API_ANIME = (anime) =>
-	`${urlCompleted}/${tipo.anime}?q=${anime}&sfw`;
+	`${urlCompleted}/${newObjet.anime}?q=${anime}&sfw`;
 
 export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) =>
 	`${urlCompleted}/${type}/${id}`;
@@ -22,12 +20,10 @@ export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
 	`${urlCompleted}/${type}/${id}/characters`;
 
 export const JIKAN_API_TOP = ({ type, page }) => {
-  if (type === 'manga') return `${urlCompleted}/top/${tipo.manga}?page=${page}`
+  if (type === 'manga') return `${urlCompleted}/top/${newObjet.manga}?page=${page}`
 
-  console.log(type)
-
-  const isAnime = type === 'anime' ? 'tv' : type; 
-  return `${urlCompleted}/top/${tipo.anime}?type=${isAnime}&page=${page}`
+  const isAnime = type === 'anime' ? 'tv' : type;
+  return `${urlCompleted}/top/${newObjet.anime}?type=${isAnime}&page=${page}`
 };
 
 export const JIKAN_API_SEARCH = ({

@@ -1,7 +1,7 @@
-import { useGlobalInfo } from "./useAnimeSelected";
+import { formatGlobalInfo } from "./useAnimeSelected";
 
 export function useInfoAnime({ data }) {
-	const { globalInfo } = useGlobalInfo({ data });
+	const { globalInfo } = formatGlobalInfo({ data });
 
 	const info = {
 		...globalInfo,

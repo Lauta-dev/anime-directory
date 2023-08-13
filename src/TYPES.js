@@ -29,3 +29,10 @@ export const ROUTE = {
 	id: "id",
 };
 
+export const newObjet = {
+  ova: FORMAT_TYPES.ova.type,
+  anime: FORMAT_TYPES.anime.type,
+  manga: FORMAT_TYPES.manga.type,
+  movie: FORMAT_TYPES.movie.type,
+  special: FORMAT_TYPES.special.type
+}

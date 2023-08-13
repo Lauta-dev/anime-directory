@@ -1,7 +1,7 @@
 import { useTop } from "../hooks/useTopAnime";
 import { AnimeCard } from "./TopAnimeCard";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Season } from "./Season";
 import { Slice } from "./Slice";
 
@@ -29,17 +29,16 @@ function Select ({ set }) {
 export default function Home() {
 	const [showMangaOrAnime, setShowMangaOrAnime] = useState('anime');
 	const { setType } = useContext(SelectAnimeOrMangaContext);
-  setType(showMangaOrAnime)
+  
+  useEffect(() => setType(showMangaOrAnime), [showMangaOrAnime])
 
 	const { top } = useTop({
 		type: showMangaOrAnime,
 	});
 
-	document.title = "Home";
-
   const loadingTop = top.data?.length
   const data = top.data
-  
+
   return (
     <section style={{ display: 'flex', gap: '20px', flexDirection: 'column' }}>
       
@@ -48,7 +47,7 @@ export default function Home() {
           <HeaderSectionHome
             value={`top`}
             select={<Select set={setShowMangaOrAnime} />}
-            path={`/${showMangaOrAnime}/top`}
+            path={`/${showMangaOrAnime}/top/`}
           />
 			    <AnimeCard
             animeArray={data}
@@ -65,7 +64,6 @@ export default function Home() {
           <div className="loading_top"></div>
         </Slice>
       )}
-
 			<Season />
 		</section>
 	);

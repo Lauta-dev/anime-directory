@@ -1,23 +1,8 @@
 import { lazy } from "react";
 import { Route } from "wouter";
-import {
-	animeSearchPath,
-	animeSeasonPath,
-	animeWithId,
-	mangaSearchPath,
-	mangaWithId,
-	movieSearchPath,
-	movieWithId,
-	ovaSearchPath,
-	ovaWithId,
-	specialSearchPath,
-	specialWithId,
-	topAnimePath,
-	topMangaPath,
-  topMoviePath,
-  topSpecialPath,
-  topOvaPath
-} from "./paths";
+
+import { animeSeasonPath, topPaths, idPaths, searchPaths } from "./paths";
+import { newObjet } from "../TYPES";
 
 const Tops = lazy(() => import("../component/TopManga.jsx"));
 const GetAnimeForID = lazy(() => import("../component/getAnimeForID.jsx"));
@@ -29,25 +14,23 @@ export function Routers() {
 		<>
 			<Route path={animeSeasonPath} component={AnimeSeason} />
 
-			<Route path={topOvaPath} component={Tops} />
-			<Route path={topAnimePath} component={Tops} />
-			<Route path={topMangaPath} component={Tops} />
-			<Route path={topMoviePath} component={Tops} />
-			<Route path={topSpecialPath} component={Tops} />
+      <Route path={topPaths({ type: newObjet.ova })} component={Tops} />
+      <Route path={topPaths({ type: newObjet.anime })} component={Tops} />
+      <Route path={topPaths({ type: newObjet.manga })} component={Tops} />
+      <Route path={topPaths({ type: newObjet.movie })} component={Tops} />
+      <Route path={topPaths({ type: newObjet.special })} component={Tops} />
 
-			<Route path={mangaWithId} component={GetAnimeForID} />
-			<Route path={animeWithId} component={GetAnimeForID} />
+      <Route path={idPaths({ type: newObjet.ova })} component={GetAnimeForID} />
+      <Route path={idPaths({ type: newObjet.anime })} component={GetAnimeForID} />
+      <Route path={idPaths({ type: newObjet.manga })} component={GetAnimeForID} />
+      <Route path={idPaths({ type: newObjet.movie })} component={GetAnimeForID} />
+      <Route path={idPaths({ type: newObjet.special })} component={GetAnimeForID} />
 
-			<Route path={specialWithId} component={GetAnimeForID} />
-
-			<Route path={movieWithId} component={GetAnimeForID} />
-			<Route path={ovaWithId} component={GetAnimeForID} />
-
-			<Route path={animeSearchPath} component={GetAnimes} />
-			<Route path={mangaSearchPath} component={GetAnimes} />
-			<Route path={specialSearchPath} component={GetAnimes} />
-			<Route path={movieSearchPath} component={GetAnimes} />
-			<Route path={ovaSearchPath} component={GetAnimes} />
+      <Route path={searchPaths({ type: newObjet.ova })} component={GetAnimes} />
+      <Route path={searchPaths({ type: newObjet.anime })} component={GetAnimes} />
+      <Route path={searchPaths({ type: newObjet.manga })} component={GetAnimes} />
+      <Route path={searchPaths({ type: newObjet.movie })} component={GetAnimes} />
+      <Route path={searchPaths({ type: newObjet.special })} component={GetAnimes} />
 		</>
 	);
 }

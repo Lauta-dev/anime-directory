@@ -1,11 +1,12 @@
 .toggle_pages {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
   margin: 15px 0;
+  gap: 10px;
 }
 
 .toggle_pages>button {
-  padding: 15px;
+  padding: 7px;
   border: 1px solid;
   border-radius: 27px;
 }

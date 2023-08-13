@@ -1,37 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 
 import { ROUTE } from "../TYPES";
-import { useGlobalInfo } from "../hooks/useAnimeSelected";
+import { formatGlobalInfo } from "../hooks/useAnimeSelected";
 import { Image } from "./infoAnimeAndManga/Image";
 
 import "./css/anime_card.css";
 import Pages from "./Pages";
+import Filters from "./Filters";
 
 export function CardAnimeAndManga({ animeArray, pagination }) {
-	const [selectedAnimeData, setSelectedAnimeData] = useState(null);
+  const [showFilters, setShowFilters] = useState(false)
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const animeData = await Promise.all(
-				animeArray?.map((data) => useGlobalInfo({ data })),
-			);
-			setSelectedAnimeData(animeData);
-		};
-		fetchData();
-	}, [animeArray]);
-
-  if (selectedAnimeData === null) return <b>Loading...</b>
+  if (animeArray === null || animeArray === undefined) return <b>Loading...</b>
+  const newArray = animeArray.map(data => formatGlobalInfo({ data }))
 
 	return (
 		<>
-			<p>{pagination?.current_page} from {pagination?.last_visible_page} pages</p>
-      <p>{pagination?.items?.per_page} items for page</p>
+      <button type="button" onClick={() => setShowFilters(!showFilters)}>Show filters</button> 
+      {showFilters && <Filters />}
 
 			<Pages pagination={pagination} />
 
 			<div className="cards">
-				{selectedAnimeData?.map(({ globalInfo, image }) => {
+				{newArray.map(({ globalInfo, image }) => {
 					const { title, score, type, id } = globalInfo;
 					const isAnime =
 						type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();

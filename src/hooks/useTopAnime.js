@@ -10,7 +10,6 @@ export function useTop() {
 	const { nsfw } = useContext(desactiveNSFWContext);
   const { page } = nsfw
 
-
 	useEffect(() => {
 		const getTop = async () => {
 			const res = await fetch(JIKAN_API_TOP({ type, page }));
