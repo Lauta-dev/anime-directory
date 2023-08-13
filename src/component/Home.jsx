@@ -17,8 +17,13 @@ function Select ({ set }) {
     set(e.target.value)
   }
 
+  const style = {
+    border: 'none',
+    backgroundColor: 'transparent'
+  }
+
   return (
-    <select onChange={type}>
+    <select style={style} onChange={type}>
       {types.map(({ id, type }) => (
         <option key={id} value={type}> {type.toUpperCase()} </option>
       ))}

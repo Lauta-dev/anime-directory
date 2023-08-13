@@ -8,6 +8,8 @@
   color: #000;
   font-size: 1rem;
   padding: 10px 17px;
+  border: 1px solid #000;
+  border-radius: 50px;
 }
 
 .input_conteiner {
