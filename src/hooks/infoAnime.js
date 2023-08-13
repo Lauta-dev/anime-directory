@@ -7,7 +7,7 @@ export function useInfoAnime({ data }) {
 		...globalInfo,
 		source: data.source,
 		episodes: data.episodes,
-		studios: data.studios, // []
+		studios: data.studios,
 		duration: data.duration,
 		rating: data.rating,
 	};

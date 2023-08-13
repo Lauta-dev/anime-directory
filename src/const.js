@@ -16,14 +16,15 @@ export const JIKAN_API_ANIME = (anime) =>
 export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) =>
 	`${urlCompleted}/${type}/${id}`;
 
-export const JIKAN_API_ANIME_CHARACTERS = ({ id, type }) =>
-	`${urlCompleted}/${type}/${id}/characters`;
+export const JIKAN_API_CHARACTERS = ({ id, type }) => `${urlCompleted}/${type}/${id}/characters`;
 
-export const JIKAN_API_TOP = ({ type, page }) => {
-  if (type === 'manga') return `${urlCompleted}/top/${newObjet.manga}?page=${page}`
+export const JIKAN_API_TOP = ({ type, page, limit }) => {
+  const limitInHome = limit ? `&limit=${limit}` : ''
+  
+  if (type === 'manga') return `${urlCompleted}/top/${newObjet.manga}?page=${page}${limitInHome}`
 
   const isAnime = type === 'anime' ? 'tv' : type;
-  return `${urlCompleted}/top/${newObjet.anime}?type=${isAnime}&page=${page}`
+  return `${urlCompleted}/top/${newObjet.anime}?type=${isAnime}&page=${page}${limitInHome}`
 };
 
 export const JIKAN_API_SEARCH = ({

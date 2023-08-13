@@ -37,9 +37,7 @@ export default function Home() {
   
   useEffect(() => setType(showMangaOrAnime), [showMangaOrAnime])
 
-	const { top } = useTop({
-		type: showMangaOrAnime,
-	});
+  const { top } = useTop({ topInHome: 6 });
 
   const loadingTop = top.data?.length
   const data = top.data

@@ -3,7 +3,7 @@ import { JIKAN_API_TOP } from "../const";
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { desactiveNSFWContext } from "../context/desactiveNSFW";
 
-export function useTop() {
+export function useTop({ topInHome }) {
 	const [top, setTop] = useState([]);
   
 	const { type } = useContext(SelectAnimeOrMangaContext);
@@ -12,7 +12,7 @@ export function useTop() {
 
 	useEffect(() => {
 		const getTop = async () => {
-			const res = await fetch(JIKAN_API_TOP({ type, page }));
+      const res = await fetch(JIKAN_API_TOP({ type, page, limit: topInHome }));
 			const data = await res.json();
 
 			setTop(data);
