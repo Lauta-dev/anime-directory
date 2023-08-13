@@ -4,6 +4,8 @@ const PREFIX = "https://api.jikan.moe";
 const API_VERSION = "v4";
 const urlCompleted = `${PREFIX}/${API_VERSION}`;
 
+export const OBTEND_INFO_OF_CHARACTERS = ({ id }) => `${urlCompleted}/characters/${id}`
+
 export const SEASON_ANIME_NOW = ({ limit, page }) =>
 	`${urlCompleted}/seasons/now?limit=${limit}&page=${page}&sfw=true`;
 

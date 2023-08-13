@@ -19,7 +19,7 @@ export function Info({
 }) {
 	return (
 		<>
-			<Image type={type} title={title} imageURL={image.jpg.imageURL} />
+			<Image type={type} title={title} imageURL={image.jpg.largeImageURL} />
 			<CheckIfExist id={id} infoMangaFormatter={infoFormatter} />
 			<Titles titles={titles} />
 			{children}
