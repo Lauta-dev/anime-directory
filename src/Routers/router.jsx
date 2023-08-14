@@ -8,11 +8,13 @@ const Tops = lazy(() => import("../component/TopManga.jsx"));
 const GetAnimeForID = lazy(() => import("../component/getAnimeForID.jsx"));
 const GetAnimes = lazy(() => import("../component/getAnime.jsx"));
 const AnimeSeason = lazy(() => import("../component/AnimeSeason.jsx"));
+const Characters = lazy(() => import("../component/characters.jsx"))
 
 export function Routers() {
 	return (
 		<>
 			<Route path={animeSeasonPath} component={AnimeSeason} />
+			<Route path='/ch' component={Characters} />
 
       <Route path={topPaths({ type: newObjet.ova })} component={Tops} />
       <Route path={topPaths({ type: newObjet.anime })} component={Tops} />
