@@ -4,13 +4,12 @@ import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
 import { JIKAN_API_SEARCH } from "../const";
 import { filtersContext } from "../context/filtersContext";
 
-export function useGetAnime({ params }) {
+export function useGetAnime({ title }) {
 	const { type } = useContext(SelectAnimeOrMangaContext);
 	const { nsfw } = useContext(desactiveNSFWContext);
 	const { filtersAll } = useContext(filtersContext);
 	const [animeData, setAnimeData] = useState(null);
 
-	const { title } = params;
 	const { status, rating, genres, orderBy } = filtersAll;
 
 	useEffect(() => {

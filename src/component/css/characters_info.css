@@ -1,0 +1,64 @@
+.view_pic {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.about_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+.name_kanji > b {
+  color: red;
+
+}
+
+.about_section > header {
+  padding: 12px 0;
+  color: #6e6e6e;
+}
+
+.voices {
+  display: flex;
+  gap: 1rem;
+}
+
+.voices > section > a {
+  color: #767676;
+  text-decoration: underline;
+}
+
+.voices > section > a:visited {
+  color: #000;
+}
+
+.voices_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* SECTION ANIME OR MANGA  */
+
+.section_product {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.manga_or_anime {
+  display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 1rem;
+}

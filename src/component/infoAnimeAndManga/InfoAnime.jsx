@@ -6,7 +6,7 @@ import { useAnimeCharacter } from "../../hooks/useAnimeCharacter";
 import { Info } from "./info";
 import "../css/animeID.css";
 
-export function InfoAnime({ animeInfo, image, titles }) {
+export default function InfoAnime({ animeInfo, image, titles }) {
 	const { info } = useInfoAnime({ data: animeInfo });
 	const {
 		genres,

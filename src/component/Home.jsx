@@ -22,6 +22,8 @@ function Select ({ set }) {
     backgroundColor: 'transparent'
   }
 
+  document.title = 'Anime Directory'
+
   return (
     <select style={style} onChange={type}>
       {types.map(({ id, type }) => (
