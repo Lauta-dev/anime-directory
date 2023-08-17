@@ -1,0 +1,28 @@
+.relation_conteiner {
+  font-size: 13px;
+}
+
+.relation_conteiner_section {
+      display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 12px;
+    background: #ffdddd;
+}
+
+.relation_conteiner > a {
+      display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.relation_conteiner > a > b {
+  color: red;
+}
+
+.relation_conteiner > a > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

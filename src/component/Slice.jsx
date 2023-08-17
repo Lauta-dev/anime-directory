@@ -1,5 +1,5 @@
 import "./css/slider.css";
 
-export function Slice({ children }) {
-	return <div className="slider">{children}</div>;
+export function Slice({ children, className }) {
+	return <div className={`slider ${className}`}>{children}</div>;
 }

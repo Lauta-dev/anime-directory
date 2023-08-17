@@ -1,0 +1,14 @@
+.trailer {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 10px;
+  background: #ededed;
+  border-radius: 1rem;
+}
+
+.trailer > h2 {
+  color: red;
+}

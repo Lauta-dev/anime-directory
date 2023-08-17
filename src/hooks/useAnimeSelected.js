@@ -11,7 +11,7 @@ export function formatGlobalInfo({ data }) {
 		genres: data.genres,
 		status: data.status,
 		popularity: data.popularity,
-    anime: true
+    relations: data.relations,
 	};
 
 	const image = {

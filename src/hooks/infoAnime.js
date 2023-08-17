@@ -10,6 +10,8 @@ export function useInfoAnime({ data }) {
 		studios: data.studios,
 		duration: data.duration,
 		rating: data.rating,
+    trailer: data.trailer,
+    youtubeId: data.trailer.youtube_id
 	};
 
 	return { info };

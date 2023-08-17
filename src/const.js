@@ -16,7 +16,7 @@ export const JIKAN_API_ANIME = (anime) =>
 	`${urlCompleted}/${newObjet.anime}?q=${anime}&sfw`;
 
 export const JIKAN_API_ANIME_AND_MANGA_ID = ({ id, type }) =>
-	`${urlCompleted}/${type}/${id}`;
+	`${urlCompleted}/${type}/${id}/full`;
 
 export const JIKAN_API_CHARACTERS = ({ id, type }) => `${urlCompleted}/${type}/${id}/characters`;
 

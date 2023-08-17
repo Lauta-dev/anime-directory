@@ -18,6 +18,7 @@ export default function InfoManga({ infoManga, image, titles }) {
 		status,
 		score,
 		type,
+    relations
 	} = info;
 
 	const { getAnimeCharacters } = useAnimeCharacter({
@@ -39,7 +40,7 @@ export default function InfoManga({ infoManga, image, titles }) {
 				infoFormatter={info}
 				synopsis={synopsis}
 				type={type}
-			>
+        relations={relations}>
 				<InfoMangaAndAnime
 					popularity={popularity}
 					chapters={chapters}

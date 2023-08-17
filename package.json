@@ -21,6 +21,7 @@
 		"vite": "4.3.9"
 	},
 	"dependencies": {
+		"lite-youtube-embed": "^0.2.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"wouter": "2.11.0"
