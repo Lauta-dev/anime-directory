@@ -12,8 +12,7 @@ function TopAnime({ animeArray }) {
         const { image, globalInfo } = formatGlobalInfo({ data })
         const { id, title, type } = globalInfo
         const { webp } = image
-        const isAnime = type === 'TV' ? newObjet.anime : newObjet.manga
-
+        const isAnime = type === 'TV' ? newObjet.anime : type.toLowerCase()
         return (
           <Link key={id} to={`/${isAnime}/${ROUTE.id}/${id}`}>
             <img
