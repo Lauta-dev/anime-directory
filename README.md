@@ -2,6 +2,8 @@
 Projecto creado con la API no oficial de [MyAnimeList](https://myanimelist.net/): [Jikan.moe](https://jikan.moe/).
 Usando **React** + **ExpressJS** para el **backend** y como base de datos **SQLite**.
 
+--> [asd](https://anime-directory-nu.vercel.app/)
+
 Lugar donde consultar tus Anime/Manga favoritos.
 
 ## Este proyecto tiene:
