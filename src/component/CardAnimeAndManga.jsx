@@ -10,17 +10,25 @@ import Filters from "./Filters";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { tipos } from "../const";
 
-export function CardAnimeAndManga({ animeArray, pagination }) {
+export function ShowFilters() {
   const [showFilters, setShowFilters] = useState(false)
+
+  return (
+    <>
+      <button type="button" onClick={() => setShowFilters(!showFilters)}>Show filters</button>
+      {showFilters && <Filters />}
+    </>
+  )
+}
+
+export function CardAnimeAndManga({ animeArray, pagination }) {
 
   if (animeArray === null || animeArray === undefined) return <b>Loading...</b>
   const newArray = animeArray.map(data => formatGlobalInfo({ data }))
 
   return (
     <>
-      <button type="button" onClick={() => setShowFilters(!showFilters)}>Show filters</button>
-      {showFilters && <Filters />}
-
+      <ShowFilters />
       <Pages pagination={pagination} />
 
       <div className="cards">

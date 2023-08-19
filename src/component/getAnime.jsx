@@ -1,5 +1,5 @@
 import { useGetAnime } from "../hooks/getAnime";
-import { CardAnimeAndManga } from "./CardAnimeAndManga";
+import { CardAnimeAndManga, ShowFilters } from "./CardAnimeAndManga";
 
 import "./css/slider.css";
 
@@ -18,8 +18,11 @@ export default function GetAnimes({ params }) {
     </>
   ) : (
       <>
+        <ShowFilters />
         <h2>No se encontro el anime {params.title}</h2>
-        <a href='/'>Back home</a>
+        <p>Pruebe cambiando los filtros o buscando otra cosa</p>
+        <p>Como por ejemplo: Hunter X Hunter</p>
+        <a href="/">Home</a>
       </>
   );
 }

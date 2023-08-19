@@ -12,6 +12,8 @@ export function useGetAnime({ title }) {
 
 	const { status, rating, genres, orderBy } = filtersAll;
 
+  localStorage.setItem('filtersAll', JSON.stringify(filtersAll))
+
 	useEffect(() => {
 		const get = async () => {
 			try {
