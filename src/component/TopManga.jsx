@@ -1,6 +1,6 @@
 import { useSearchMangaOrAnimeRegex } from "../hooks/useSearchMangaOrAnimeRegex";
 import { useTop } from "../hooks/useTopAnime";
-import CardListOfAnimes from "./CardListOfAnimes";
+import { CardAnimeAndManga } from "./CardAnimeAndManga";
 
 export default function Top() {
 	const { isAnime } = useSearchMangaOrAnimeRegex();
@@ -8,5 +8,5 @@ export default function Top() {
 	const { top } = useTop({ type: isAnime });
 	const { data, pagination } = top;
 
-	return <CardListOfAnimes pagination={pagination} animeArray={data} />;
+  return <CardAnimeAndManga pagination={pagination} animeArray={data} />
 }
