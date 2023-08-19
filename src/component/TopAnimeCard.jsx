@@ -4,6 +4,7 @@ import "./css/image.css";
 import { ROUTE, newObjet } from "../TYPES";
 import { formatGlobalInfo } from "../hooks/useAnimeSelected";
 import { tipos } from "../const";
+import { characterPaths } from "../Routers/paths";
 
 function TopAnime({ animeArray }) {
   return (
@@ -30,11 +31,12 @@ function TopAnime({ animeArray }) {
 function AnimeCharacter({ animeArray }) {
   return (
     <Slice>
-      {animeArray.map((data) => {
+      {animeArray.slice(0, 6).map((data) => {
         const { character } = data;
         const id = character.mal_id;
+        const name = character.name.replaceAll(' ', '-').toLowerCase()
         return (
-          <Link key={id} to={`/ch/${id}`}>
+          <Link key={id} to={characterPaths({ name, id })}>
             <img
               className="imageCover"
               key={id}
@@ -42,7 +44,6 @@ function AnimeCharacter({ animeArray }) {
               alt={`Character: ${character.name}`}
             />
           </Link>
-
         );
       })}
     </Slice>

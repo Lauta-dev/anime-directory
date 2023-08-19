@@ -9,3 +9,13 @@ export const idPaths = ({ type }) => `/${type}/${ROUTE.id}/:id`;
 
 export const searchInput = ({ type, title }) => `/${type}/search/${title}`;
 export const seasonAnimeId = (id) => `${newObjet.anime}/${ROUTE.id}/${id}`;
+
+// Charactes
+// Example --> /character/full-matal/123
+export const characterPaths = ({  name, id }) => {
+  const nameAndIdExist = name && id ? `${name}/${id}` : ':name/:id'
+
+  return `/character/${nameAndIdExist}`
+}
+
+

@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Route } from "wouter";
 
-import { animeSeasonPath, topPaths, idPaths, searchPaths } from "./paths";
+import { animeSeasonPath, topPaths, idPaths, searchPaths, characterPaths } from "./paths";
 import { newObjet } from "../TYPES";
 
 const Tops = lazy(() => import("../component/TopManga.jsx"));
@@ -10,12 +10,15 @@ const GetAnimes = lazy(() => import("../component/getAnime.jsx"));
 const AnimeSeason = lazy(() => import("../component/AnimeSeason.jsx"));
 const Characters = lazy(() => import("../component/characters.jsx"))
 
+const FullCharacters = lazy(() => import('../component/FullCharacters.jsx'))
+
 export function Routers() {
   return (
     <>
       <Suspense>
         <Route path={animeSeasonPath} component={AnimeSeason} />
-        <Route path='/ch/:id' component={Characters} />
+        <Route path={characterPaths({})} component={Characters} />
+        <Route path={`/:type/id/:id/allcharacters`} component={FullCharacters} />
 
         <Route path={topPaths({ type: newObjet.ova })} component={Tops} />
         <Route path={topPaths({ type: newObjet.anime })} component={Tops} />
@@ -35,7 +38,6 @@ export function Routers() {
         <Route path={searchPaths({ type: newObjet.movie })} component={GetAnimes} />
         <Route path={searchPaths({ type: newObjet.special })} component={GetAnimes} />
       </Suspense>
-
     </>
   );
 }
