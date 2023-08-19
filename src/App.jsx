@@ -6,6 +6,8 @@ import { SelectAnimeOrMangaContextProvider } from "./context/selectAnimeOrManga"
 import { Header } from "./component/Header";
 import { FiltersContextProvider } from "./context/filtersContext";
 import Home from "./component/Home";
+import '../node_modules/lite-youtube-embed/src/lite-yt-embed.js'
+
 
 export default function App() {
 	return (
