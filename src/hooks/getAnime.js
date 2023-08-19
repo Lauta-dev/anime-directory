@@ -5,44 +5,48 @@ import { JIKAN_API_SEARCH } from "../const";
 import { filtersContext } from "../context/filtersContext";
 
 export function useGetAnime({ title }) {
-	const { type } = useContext(SelectAnimeOrMangaContext);
-	const { nsfw } = useContext(desactiveNSFWContext);
-	const { filtersAll } = useContext(filtersContext);
-	const [animeData, setAnimeData] = useState(null);
+  const { type } = useContext(SelectAnimeOrMangaContext);
+  const { nsfw } = useContext(desactiveNSFWContext);
+  const { filtersAll } = useContext(filtersContext);
+  const [animeData, setAnimeData] = useState(null);
 
-	const { status, rating, genres, orderBy } = filtersAll;
+  const { status, rating, genres, orderBy } = filtersAll;
 
   localStorage.setItem('filtersAll', JSON.stringify(filtersAll))
 
-	useEffect(() => {
-		const get = async () => {
-			try {
-				const getData = await fetch(
-					JIKAN_API_SEARCH({
-						title,
-						type,
-						nsfw: nsfw.sfw,
-						page: nsfw.page,
-						status,
-						rating,
-						genres,
+  console.log(filtersAll)
+
+  useEffect(() => {
+    const get = async () => {
+      try {
+        const getData = await fetch(
+          JIKAN_API_SEARCH({
+            title,
+            type,
+            nsfw: nsfw.sfw,
+            page: nsfw.page,
+            status,
+            rating,
+            genres,
             orderBy
-					}),
-				);
+          }),
+        );
 
-				const res = await getData.json();
+        if (!getData.ok) { return console.log('Error') }
 
-				return setAnimeData(() => ({
-					data: res.data,
-					pagination: res.pagination,
-				}));
-			} catch (error) {
-				throw new Error("Error al obtener la respuesta", error);
-			}
-		};
+        const res = await getData.json();
 
-		get();
-	}, [title, nsfw, type, status, rating, genres, orderBy]);
+        return setAnimeData(() => ({
+          data: res.data,
+          pagination: res.pagination,
+        }));
+      } catch (error) {
+        throw new Error("Error al obtener la respuesta", error);
+      }
+    };
 
-	return { animeData };
+    get();
+  }, [title, nsfw, type, status, rating, genres, orderBy]);
+
+  return { animeData };
 }

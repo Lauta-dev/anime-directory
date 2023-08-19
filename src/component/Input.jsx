@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "wouter";
 
 import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
@@ -11,6 +11,7 @@ import { Loupe } from "./svg/loupe";
 export function Input() {
   const [, setLocation] = useLocation();
   const { type } = useContext(SelectAnimeOrMangaContext);
+  const [text, setText] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,27 +21,39 @@ export function Input() {
     document.title = `Search: ${title}`;
   }
 
+  useEffect(() => {
+    const getItem = localStorage.getItem('input_value')
+    if (getItem) setText(getItem)
+  }, [])
+
+  function handleChange(e) {
+    const value = e.target.value
+    localStorage.setItem('input_value', value)
+    setText(value)
+  }
+
   return (
     <>
-      <section className="conteiner_search">
-        <section className="input_conteiner">
-          <form onSubmit={handleSubmit}>
-            <input
-              minLength={3}
-              maxLength={100}
-              required
-              autoComplete="off"
-              id="search"
-              className="input_search"
-              type="text"
-              placeholder="Dragon Ball, Hunter X Hunter, Vinland Saga..."
-              name="title"
-            />
-            <button id="submit" type="submit">
-              <Loupe />
-            </button>
-          </form>
-        </section>
+      <section className="input_conteiner conteiner_search">
+        <form onSubmit={handleSubmit}>
+          <input
+            minLength={3}
+            maxLength={100}
+            required
+            autoComplete="off"
+            id="search"
+            className="input_search"
+            type="text"
+            placeholder="Dragon Ball, Hunter X Hunter, Vinland Saga..."
+            name="title"
+
+            value={text}
+            onChange={handleChange}
+          />
+          <button id="submit" type="submit">
+            <Loupe />
+          </button>
+        </form>
       </section>
     </>
   );
