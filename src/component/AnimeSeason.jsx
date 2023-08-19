@@ -1,5 +1,5 @@
 import { getFullSeasonNow } from "../logic/getFullSeasonNow";
-import CardListOfAnimes from "./CardListOfAnimes";
+import { CardAnimeAndManga } from "./CardAnimeAndManga";
 
 export default function AnimeSeason() {
 	const { seasonFullNow } = getFullSeasonNow({ limit: 25 });
@@ -7,7 +7,7 @@ export default function AnimeSeason() {
 
 	return (
 		<>
-      <CardListOfAnimes pagination={pagination} animeArray={data} />
+      <CardAnimeAndManga animeArray={data} pagination={pagination} />      
 		</>
 	);
 }
