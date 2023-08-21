@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { localHost } from '../../server/prefix.js'
+import { localHost } from "../../server/prefix.js";
 
 export function useIfExistElemetnInDB({ id }) {
 	const [check] = useState(false);
@@ -13,7 +13,7 @@ export function useIfExistElemetnInDB({ id }) {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					id: id,
+					id,
 				}),
 			};
 
