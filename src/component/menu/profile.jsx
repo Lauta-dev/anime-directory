@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy } from "react";
 
 import "../css/table.css";
 import { localHost } from "../../../server/prefix.js";
-import ListItems from "./Table";
+
+const ListItems = lazy(() => import("./Table.jsx"));
 
 const Profile = () => {
 	const [item, setItem] = useState(null);
@@ -118,18 +119,45 @@ const Profile = () => {
 		}
 	}
 
+	async function removeAllItems() {
+		try {
+			const body = {
+				method: "DELETE",
+			};
+
+			const res = await fetch(`${localHost}/remove/all`, body);
+			const ok = res.ok;
+
+			if (!ok) return console.log("asd");
+			await res.json();
+			setItem([]);
+		} catch (error) {
+			throw new Error(`Error al eliminar el elemento ${error}`);
+		}
+	}
+
 	return (
 		<>
-			{!loading && !error && <h2>Cargando</h2>}
+			{!loading && !error && (
+				<div>
+					<h2>Cargando</h2>
+				</div>
+			)}
 			{loading && error ? JSON.stringify(error) : null}
+			{loading && !error && !item?.length && (
+				<div>
+					<h2>No hay datos</h2>
+				</div>
+			)}
 
-			{item?.length && !error && loading && (
+			{item?.length > 0 && !error && loading && (
 				<ListItems
 					btn={btn}
 					changeTitle={changeTitle}
 					data={item}
 					hadleType={hadleType}
 					removeFromDataBase={removeFromDataBase}
+					removeAllItems={removeAllItems}
 				/>
 			)}
 		</>

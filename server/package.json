@@ -6,7 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"watch": "node --watch ./server.js",
-    "preview": "sqlite3 audit.db 'SELECT * FROM anime ORDER BY anime_name ASC;' -markdown"
+		"preview": "sqlite3 audit.db 'SELECT * FROM anime ORDER BY anime_name ASC;' -markdown"
 	},
 	"keywords": [],
 	"author": "",

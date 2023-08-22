@@ -7,10 +7,11 @@ import { removeItemFromDBWithID } from "../sqlFuncions.js";
  */
 export function removeItem(req, res) {
 	const { id } = req.params;
+
 	const idIsNumber = parseInt(Object.values(id));
 	if (isNaN(idIsNumber)) return res.json({ error: "No es un numero" });
 
-	const sql = removeItemFromDBWithID({ id });
+	const sql = removeItemFromDBWithID();
 
 	db.run(sql, [id], (e) => {
 		if (e) console.log(res.status(404).json(e));

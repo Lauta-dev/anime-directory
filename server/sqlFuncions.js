@@ -43,5 +43,7 @@ export const selectAllForDataBaseWithWhere = ({ id }) =>
  * @param {number} id id el cual se identifica en la tabla, para posterio eliminal el elemento que coincida con el id
  * @returns
  */
-export const removeItemFromDBWithID = ({ id }) =>
+export const removeItemFromDBWithID = () =>
 	"DELETE FROM anime WHERE mal_id = ?";
+
+export const removeAllItem = () => "DELETE FROM anime";
