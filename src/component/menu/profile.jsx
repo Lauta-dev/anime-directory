@@ -103,15 +103,16 @@ const Profile = () => {
 			const res = await fetch(`${localHost}/${id}`, body);
 			const ok = res.ok;
 
-			if (!ok) return;
+			if (!ok) return console.log("asd");
 			const json = await res.json();
-			console.log(json);
 
-			setBtn(true);
-			setTimeout(() => {
-				getItems();
-				setBtn(false);
-			}, 1000);
+			if (json.message) {
+				setBtn(true);
+				setTimeout(() => {
+					getItems();
+					setBtn(false);
+				}, 1000);
+			}
 		} catch (error) {
 			throw new Error(`Error al eliminar el elemento ${error}`);
 		}
