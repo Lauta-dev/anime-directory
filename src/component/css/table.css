@@ -1,0 +1,25 @@
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  border: 1px solid #0000003d;
+}
+
+th {
+  padding: 10px;
+}
+
+.row {
+  padding: 10px;
+  border: 1px solid #0000003d;
+  text-align: center;
+}
+
+.title {
+  text-align: left;
+}
+
+.icon_table {
+  width: 22px;
+}

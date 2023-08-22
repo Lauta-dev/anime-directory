@@ -1,12 +1,26 @@
-/**
- *
- * @param  {...string} data Sera las tablas que se pasaran a la base de datos, por defecto es '*'
- */
 export const selectAllForDataBase = (id) =>
 	"SELECT * FROM anime WHERE mal_id = ?;";
 
-export const selectAll = () =>
-	"SELECT * FROM anime;";
+export const selectAll = () => {
+	const base = "SELECT * FROM anime";
+
+	const orderBy = (option, column) => {
+		return `${base} ORDER BY ${column} ${option}`;
+	};
+
+	const a = {
+		all: base,
+		/**
+		 * Método para agregar una cláusula ORDER BY a la consulta.
+		 * @param {string} option - El tipo de ordenamiento (ASC o DESC).
+		 * @param {string} column - Columna que se quiere usar para ordenar los elementos
+		 * @returns {string} - Consulta SQL completa con cláusula ORDER BY.
+		 */
+		orderBy: ({ option, column }) => orderBy(option, column),
+	};
+
+	return a;
+};
 
 /**
  * @param {string} name El nombre del elemento al guardar

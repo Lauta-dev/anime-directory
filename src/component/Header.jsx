@@ -2,8 +2,7 @@ import { Link } from "wouter";
 import "./css/header.css";
 
 export function Header() {
-
-  return (
+	return (
 		<header>
 			<ul>
 				<li>
@@ -16,6 +15,9 @@ export function Header() {
 						/>
 						<h2>Anime directory</h2>
 					</Link>
+				</li>
+				<li>
+					<Link to="/profile">profile</Link>
 				</li>
 			</ul>
 		</header>
