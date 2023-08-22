@@ -1,124 +1,57 @@
 import { useEffect, useState } from "react";
 
 import "../css/table.css";
-import { Link } from "wouter";
 import { localHost } from "../../../server/prefix.js";
-
-const ListItems = ({
-	data,
-	changeTitle,
-	hadleType,
-	btn,
-	removeFromDataBase,
-}) => {
-	return (
-		<table width={"100%"}>
-			<thead>
-				<th onClick={changeTitle}>Title</th>
-				<th onClick={hadleType}>Type</th>
-				<th>Remove</th>
-			</thead>
-			<tbody>
-				{data?.map((data) => {
-					const title = data.anime_name;
-					const isAnime =
-						data.type === "TV" ? "anime" : data.type.toLowerCase();
-
-					return (
-						<tr key={data.id}>
-							<td className="row title">
-								<Link to={`/${isAnime}/id/${data.mal_id}`}>{title}</Link>
-							</td>
-							<td className="row">{data.type}</td>
-							<td className="row">
-								{btn ? (
-									<button
-										disabled
-										onClick={() => removeFromDataBase({ id: data.mal_id })}
-									>
-										Remove
-									</button>
-								) : (
-									<button
-										onClick={() => removeFromDataBase({ id: data.mal_id })}
-									>
-										Remove
-									</button>
-								)}
-							</td>
-						</tr>
-					);
-				})}
-			</tbody>
-		</table>
-	);
-};
-
-const getDataFromDB = async ({ setData }) => {
-	const body = {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-	};
-
-	try {
-		const res = await fetch("http://localhost:8080/all", body);
-		const ok = res.ok; // <-- devuelve TRUE si la respuesta es exitosa
-
-		if (!ok) {
-			const error = {
-				messaje: "not fount",
-				errorCode: res.status,
-			};
-
-			return setData(error);
-		}
-
-		const json = await res.json();
-		setData(json);
-	} catch (error) {
-		throw new Error(error);
-	}
-};
+import ListItems from "./Table";
 
 const Profile = () => {
-	const [data, setData] = useState(null);
+	const [item, setItem] = useState(null);
 	const [se, setSe] = useState(true);
 	const [btn, setBtn] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
+
+	const getItems = async () => {
+		try {
+			const body = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			};
+
+			const res = await fetch("http://localhost:8080/all", body);
+			const ok = res.ok; // <-- devuelve TRUE si la respuesta es exitosa
+
+			if (!ok) {
+				const error = {
+					messaje: "not fount",
+					errorCode: res.status,
+				};
+
+				setLoading(true);
+
+				return setError(error);
+			}
+
+			const json = await res.json();
+
+			setError(null);
+			setItem(json);
+			setLoading(true);
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
 
 	useEffect(() => {
-		getDataFromDB({ setData });
+		getItems();
 	}, []);
-
-	const changeMalId = async () => {
-		/*
-		const body = {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-				data: se ? "ASC" : "DESC",
-			}),
-		};
-
-		const red = await fetch("http://localhost:8080/orderby", body);
-		const json = await red.json();
-		setData(json);
-		setSe(!se);
-    */
-
-		// console.log(a.sort((a, b) => a.mal_id - b.mal_id))
-
-		setSe(!se);
-		se
-			? setData((prev) => prev.sort((a, b) => a.id - b.id))
-			: setData((prev) => prev.sort((a, b) => b.id - a.id));
-	};
 
 	const hadleType = () => {
 		setSe(!se);
 		se
-			? setData((prev) =>
+			? setItem((prev) =>
 					prev.sort((a, b) => {
 						const aOption = a.type.toUpperCase();
 						const bOption = b.type.toUpperCase();
@@ -127,7 +60,7 @@ const Profile = () => {
 						if (aOption > bOption) return -1;
 					}),
 			  )
-			: setData((prev) =>
+			: setItem((prev) =>
 					prev.sort((a, b) => {
 						const aOption = a.type.toUpperCase();
 						const bOption = b.type.toUpperCase();
@@ -141,7 +74,7 @@ const Profile = () => {
 	const changeTitle = () => {
 		setSe(!se);
 		se
-			? setData((prev) =>
+			? setItem((prev) =>
 					prev.sort((a, b) => {
 						const aOption = a.anime_name.toUpperCase();
 						const bOption = b.anime_name.toUpperCase();
@@ -150,7 +83,7 @@ const Profile = () => {
 						if (aOption > bOption) return -1;
 					}),
 			  )
-			: setData((prev) =>
+			: setItem((prev) =>
 					prev.sort((a, b) => {
 						const aOption = a.anime_name.toUpperCase();
 						const bOption = b.anime_name.toUpperCase();
@@ -167,32 +100,36 @@ const Profile = () => {
 				method: "DELETE",
 			};
 
-			await fetch(`${localHost}/${id}`, body);
+			const res = await fetch(`${localHost}/${id}`, body);
+			const ok = res.ok;
+
+			if (!ok) return;
+			const json = await res.json();
+			console.log(json);
+
+			setBtn(true);
+			setTimeout(() => {
+				getItems();
+				setBtn(false);
+			}, 1000);
 		} catch (error) {
 			throw new Error(`Error al eliminar el elemento ${error}`);
 		}
-
-		setBtn(true);
-		setTimeout(() => {
-			getDataFromDB({ setData });
-			setBtn(false);
-		}, 1000);
 	}
 
 	return (
 		<>
-			{data?.length ? (
+			{!loading && !error && <h2>Cargando</h2>}
+			{loading && error ? JSON.stringify(error) : null}
+
+			{item?.length && !error && loading && (
 				<ListItems
 					btn={btn}
 					changeTitle={changeTitle}
-					data={data}
+					data={item}
 					hadleType={hadleType}
 					removeFromDataBase={removeFromDataBase}
 				/>
-			) : (
-				<>
-					<h2>adssa</h2>
-				</>
 			)}
 		</>
 	);
