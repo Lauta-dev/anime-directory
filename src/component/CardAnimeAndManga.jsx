@@ -11,46 +11,52 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { tipos } from "../const";
 
 export function ShowFilters() {
-  const [showFilters, setShowFilters] = useState(false)
+	const [showFilters, setShowFilters] = useState(false);
 
-  return (
-    <>
-      <button type="button" onClick={() => setShowFilters(!showFilters)}>Show filters</button>
-      {showFilters && <Filters />}
-    </>
-  )
+	return (
+		<>
+			<button type="button" onClick={() => setShowFilters(!showFilters)}>
+				Show filters
+			</button>
+			{showFilters && <Filters />}
+		</>
+	);
 }
 
-export function CardAnimeAndManga({ animeArray, pagination }) {
+export default function CardAnimeAndManga({ animeArray, pagination }) {
+	if (animeArray === null || animeArray === undefined) return <b>Loading...</b>;
+	const newArray = animeArray.map((data) => formatGlobalInfo({ data }));
 
-  if (animeArray === null || animeArray === undefined) return <b>Loading...</b>
-  const newArray = animeArray.map(data => formatGlobalInfo({ data }))
+	return (
+		<>
+			<ShowFilters />
+			<Pages pagination={pagination} />
 
-  return (
-    <>
-      <ShowFilters />
-      <Pages pagination={pagination} />
+			<div className="cards">
+				{newArray.map(({ globalInfo, image }) => {
+					const { title, type, id } = globalInfo;
+					const isAnime =
+						type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
 
-      <div className="cards">
-        {newArray.map(({ globalInfo, image }) => {
-          const { title, type, id } = globalInfo;
-          const isAnime =
-            type === "OVA" || type === "TV" ? "anime" : type.toLowerCase();
+					return (
+						<Link
+							key={id}
+							className="link"
+							to={`/${isAnime}/${ROUTE.id}/${id}`}
+						>
+							<LazyLoadImage
+								className="card_image"
+								alt={tipos(type, title)}
+								src={image.webp.imageURL}
+							/>
 
-          return (
-            <Link
-              key={id}
-              className="link"
-              to={`/${isAnime}/${ROUTE.id}/${id}`}>
-              <LazyLoadImage className="card_image" alt={tipos(type, title)} src={image.webp.imageURL} />
-
-              <section className="conteiner_info">
-                <b>{title}</b>
-              </section>
-            </Link>
-          );
-        })}
-      </div>
-    </>
-  );
+							<section className="conteiner_info">
+								<b>{title}</b>
+							</section>
+						</Link>
+					);
+				})}
+			</div>
+		</>
+	);
 }

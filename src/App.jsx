@@ -13,17 +13,17 @@ const Home = lazy(() => import("./component/Home.jsx"));
 
 export default function App() {
 	return (
-		<DesactiveNSFWPovider>
-			<SelectAnimeOrMangaContextProvider>
-				<Header />
-				<FiltersContextProvider>
-					<Input />
-					<Routers />
-				</FiltersContextProvider>
-				<Suspense>
+		<Suspense>
+			<DesactiveNSFWPovider>
+				<SelectAnimeOrMangaContextProvider>
+					<Header />
+					<FiltersContextProvider>
+						<Input />
+						<Routers />
+					</FiltersContextProvider>
 					<Route path="/" component={Home} />
-				</Suspense>
-			</SelectAnimeOrMangaContextProvider>
-		</DesactiveNSFWPovider>
+				</SelectAnimeOrMangaContextProvider>
+			</DesactiveNSFWPovider>
+		</Suspense>
 	);
 }
