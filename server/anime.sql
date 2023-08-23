@@ -4,5 +4,6 @@ CREATE TABLE anime (
 	anime_name	VARCHAR(255) NOT NULL UNIQUE,
 	mal_id	INTEGER NOT NULL UNIQUE,
 	type	VARCHAR(255) NOT NULL,
-	PRIMARY KEY("id" ASC)
+	date_created datetime default current_timestamp,
+	PRIMARY KEY(id)
 );
