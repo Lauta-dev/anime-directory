@@ -5,14 +5,15 @@ import { desactiveNSFWContext } from "../context/desactiveNSFW";
 
 export function useTop({ topInHome }) {
 	const [top, setTop] = useState([]);
-  
+
 	const { type } = useContext(SelectAnimeOrMangaContext);
+
 	const { nsfw } = useContext(desactiveNSFWContext);
-  const { page } = nsfw
+	const { page } = nsfw;
 
 	useEffect(() => {
 		const getTop = async () => {
-      const res = await fetch(JIKAN_API_TOP({ type, page, limit: topInHome }));
+			const res = await fetch(JIKAN_API_TOP({ type, page, limit: topInHome }));
 			const data = await res.json();
 
 			setTop(data);

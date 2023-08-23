@@ -1,7 +1,8 @@
+import { lazy } from "react";
 import { formatGlobalInfo } from "../hooks/useAnimeSelected";
 
-import InfoAnime from "./infoAnimeAndManga/InfoAnime";
-import InfoManga from "./infoAnimeAndManga/InfoManga";
+const InfoManga = lazy(() => import("./infoAnimeAndManga/InfoManga.jsx"));
+const InfoAnime = lazy(() => import("./infoAnimeAndManga/InfoAnime.jsx"));
 
 export function Order({ data }) {
 	const { titles, image } = formatGlobalInfo({ data });

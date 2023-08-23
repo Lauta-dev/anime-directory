@@ -1,15 +1,14 @@
-import { useTop } from "../hooks/useTopAnime";
-import { AnimeCard } from "./TopAnimeCard";
-
 import { useContext, useEffect, useState } from "react";
-import { Season } from "./Season";
-import { Slice } from "./Slice";
+import { Season } from "../Season";
+import { Slice } from "../Slice";
+import { AnimeCard } from "../TopAnimeCard";
+import { HeaderSectionHome } from "../HeaderSectionHome";
+import { FORMAT_TYPES } from "../../TYPES";
+import { SelectAnimeOrMangaContext } from "../../context/selectAnimeOrManga";
+import { useTop } from "../../hooks/useTopAnime";
 
-import "./css/changeMangaOrAnime.css";
-import "./css/loadingTop.css";
-import { HeaderSectionHome } from "./HeaderSectionHome";
-import { SelectAnimeOrMangaContext } from "../context/selectAnimeOrManga";
-import { FORMAT_TYPES } from "../TYPES";
+import "../css/changeMangaOrAnime.css";
+import "../css/loadingTop.css";
 
 function Select({ set }) {
 	const types = Object.values(FORMAT_TYPES);
@@ -35,7 +34,7 @@ function Select({ set }) {
 	);
 }
 
-export default function Home() {
+export default function Tops() {
 	const [showMangaOrAnime, setShowMangaOrAnime] = useState("anime");
 	const { setType } = useContext(SelectAnimeOrMangaContext);
 

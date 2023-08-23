@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const desactiveNSFWContext = createContext();
 
-export const DesactiveNSFWPovider = ({ children }) => {
+export default function DesactiveNSFWPovider({ children }) {
 	const [nsfw, setNsfw] = useState({
 		sfw: true,
 		page: 1,
@@ -18,4 +18,4 @@ export const DesactiveNSFWPovider = ({ children }) => {
 			{children}
 		</desactiveNSFWContext.Provider>
 	);
-};
+}
