@@ -18,10 +18,6 @@ export const useGetSession = () => {
 				data: { session },
 			} = await supabase.auth.getSession();
 
-			console.log({
-				session,
-			});
-
 			useSession({
 				error,
 				session,
