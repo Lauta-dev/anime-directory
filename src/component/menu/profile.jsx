@@ -1,16 +1,25 @@
 import { useEffect, useState, lazy } from "react";
-
+import supabase from "../../supabase/supabase";
 import "../css/table.css";
 import { localHost } from "../../../server/prefix.js";
+import { useGetSession } from "../../supabase/getSession";
 
 const ListItems = lazy(() => import("./Table.jsx"));
 
 const Profile = () => {
+	const { session } = useGetSession();
+
+	if (session?.session === null) {
+		const origin = window.location.origin;
+		return (window.location.href = origin);
+	}
+
 	const [item, setItem] = useState(null);
 	const [se, setSe] = useState(true);
 	const [btn, setBtn] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
+	const [us, setUs] = useState(null);
 
 	const getItems = async () => {
 		try {
@@ -136,31 +145,15 @@ const Profile = () => {
 		}
 	}
 
-	return (
-		<>
-			{!loading && !error && (
-				<div>
-					<h2>Cargando</h2>
-				</div>
-			)}
-			{loading && error ? JSON.stringify(error) : null}
-			{loading && !error && !item?.length && (
-				<div>
-					<h2>No hay datos</h2>
-				</div>
-			)}
+	useEffect(() => {
+		const a = async () => {
+			const { data: animes, error } = await supabase.from("animes").select("*");
+			setUs(animes);
+		};
 
-			{item?.length > 0 && !error && loading && (
-				<ListItems
-					btn={btn}
-					changeTitle={changeTitle}
-					data={item}
-					hadleType={hadleType}
-					removeFromDataBase={removeFromDataBase}
-					removeAllItems={removeAllItems}
-				/>
-			)}
-		</>
-	);
+		a();
+	}, []);
+
+	return <>{JSON.stringify(us)}</>;
 };
 export default Profile;

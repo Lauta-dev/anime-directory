@@ -3,3 +3,26 @@ ul>li>a {
   align-items: center;
   gap: 1rem;
 }
+
+.menu_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.button_sign_in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background-color: #fff;
+}
+
+.menu_expand {
+  padding: 1rem;
+  margin: 1rem 0px;
+  border-radius: 10px;
+  border: 1px solid;
+}
