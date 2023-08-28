@@ -1,10 +1,10 @@
 import supabase from "./supabase";
 
-const authWithGoogle = () => {
-	supabase.auth.signInWithOAuth({
+const authWithGoogle = async () => {
+	await supabase.auth.signInWithOAuth({
 		provider: import.meta.env.VITE_SUPABASE_PROVIDER_GOOGLE,
 		options: {
-			redirectTo: "/",
+			redirectTo: window.location.origin,
 		},
 	});
 };

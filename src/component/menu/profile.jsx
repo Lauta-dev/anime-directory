@@ -7,10 +7,12 @@ import { useGetSession } from "../../supabase/getSession";
 const ListItems = lazy(() => import("./Table.jsx"));
 
 const Profile = () => {
-	const { session } = useGetSession();
+	const { session, connect, useConnect } = useGetSession();
+	console.log(session);
 
 	if (session?.session === null) {
 		const origin = window.location.origin;
+		useConnect(!connect);
 		return (window.location.href = origin);
 	}
 
