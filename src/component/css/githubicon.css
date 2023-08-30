@@ -1,0 +1,27 @@
+.github_link {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.github_link_profile {
+  background-color: #fff;
+  color: #000;
+}
+
+.github_link_contener {
+  display: flex;
+}
+
+.github_link_contener>footer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

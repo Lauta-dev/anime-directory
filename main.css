@@ -7,6 +7,10 @@
   outline: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 main {
   padding: 1rem;
 }
@@ -15,5 +19,3 @@ a {
   text-decoration: none;
   color: #000;
 }
-
-

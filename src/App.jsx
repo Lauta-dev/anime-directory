@@ -4,7 +4,7 @@ import { Route } from "wouter";
 import { Routers } from "./Routers/router";
 import { Input } from "./component/Input";
 import { SelectAnimeOrMangaContextProvider } from "./context/selectAnimeOrManga";
-import { Header } from "./component/Header";
+import { Header } from "./component/header/Header";
 
 const Home = lazy(() => import("./component/Home/Home.jsx"));
 

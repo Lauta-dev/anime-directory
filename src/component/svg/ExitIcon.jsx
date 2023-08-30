@@ -1,10 +1,5 @@
-const MenuIcon = ({ expand }) => (
-	<svg
-		width="3.5rem"
-		height="3.5rem"
-		viewBox="0 0 24 24"
-		xmlns="http://www.w3.org/2000/svg"
-	>
+const IconComponent = () => (
+	<svg width="16px" viewBox="0 0 24 24">
 		<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
 		<g
 			id="SVGRepo_tracerCarrier"
@@ -12,21 +7,20 @@ const MenuIcon = ({ expand }) => (
 			strokeLinejoin="round"
 		></g>
 		<g id="SVGRepo_iconCarrier">
-			<rect width="24" height="24" fill="white"></rect>
 			<path
-				d="M6 12H18"
+				d="M19.2854 12.0002L11.2727 12.0002"
 				stroke="#000000"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			></path>
 			<path
-				d="M6 15.5H18"
+				d="M16.5101 15.6364L19.9999 12L16.5101 8.36363"
 				stroke="#000000"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			></path>
 			<path
-				d="M6 8.5H18"
+				d="M13.4545 7V4H4V20H13.4545V17"
 				stroke="#000000"
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -35,4 +29,4 @@ const MenuIcon = ({ expand }) => (
 	</svg>
 );
 
-export default MenuIcon;
+export default IconComponent;

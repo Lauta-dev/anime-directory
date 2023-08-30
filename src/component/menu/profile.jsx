@@ -156,6 +156,6 @@ const Profile = () => {
 		a();
 	}, []);
 
-	return <>{JSON.stringify(us)}</>;
+	return <ListItems data={us} />;
 };
 export default Profile;

@@ -26,7 +26,7 @@ const ListItems = ({
 				</thead>
 				<tbody>
 					{data?.map((data) => {
-						const title = data.anime_name;
+						const title = data.title;
 						const isAnime =
 							data.type === "TV" ? "anime" : data.type.toLowerCase();
 
