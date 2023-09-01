@@ -10,7 +10,7 @@ export function CheckIfExist({ id, infoMangaFormatter }) {
 	useEffect(() => {
 		const searchElement = async ({ id }) => {
 			let { data: animes, error } = await supabase
-				.from("animes")
+				.from("items")
 				.select("*")
 				.eq("mal_id", id);
 

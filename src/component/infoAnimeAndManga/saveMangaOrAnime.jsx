@@ -1,4 +1,3 @@
-import { useSaveInfoInDB } from "../../hooks/saveInfoInDB";
 import insertRow from "../../supabase/addItem";
 import "../css/buttonAddItemInDB.css";
 

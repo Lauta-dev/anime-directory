@@ -25,4 +25,9 @@ ul>li>a {
   margin: 1rem 0px;
   border-radius: 10px;
   border: 1px solid;
+
+  display: flex;
+  gap: 1rem;
+
+  flex-direction: column;
 }

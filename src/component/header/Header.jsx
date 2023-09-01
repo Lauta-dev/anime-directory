@@ -1,20 +1,20 @@
 import { Link } from "wouter";
 import "../css/header.css";
-import { useGetSession } from "../../supabase/getSession";
+import { useGetUser } from "../../supabase/getUser";
 import authWithGoogle from "../../supabase/authWithGoogle";
 import { useState } from "react";
 import MenuIcon from "../svg/menu";
 import supabase from "../../supabase/supabase";
 import GoogleIcon from "../svg/GoogleIcon";
 import ListIfExistSession from "./ListIfExistSession";
-import metadata from "../../metadata";
-import GithubIcon from "../svg/GithubIcon";
-
-import "../css/githubicon.css";
+import { webPage } from "../../metadata";
 
 export function Header() {
 	const [expand, useExpand] = useState(false);
-	const { session, connect, useConnect } = useGetSession();
+
+	const { session } = useGetUser();
+
+	const viewUser = session?.user;
 
 	const handleClick = () => {
 		useExpand(!expand);
@@ -22,7 +22,6 @@ export function Header() {
 
 	const signOut = async () => {
 		await supabase.auth.signOut();
-		useConnect(!connect);
 	};
 
 	const auth = () => {
@@ -33,7 +32,7 @@ export function Header() {
 		<header>
 			<ul className="menu_header">
 				<li>
-					<Link to="/">
+					<Link to={webPage.origin}>
 						<img
 							width="60rem"
 							id="logo"
@@ -50,43 +49,22 @@ export function Header() {
 				</li>
 			</ul>
 
-			<ul
+			<section
 				className="menu_expand"
 				style={{ display: expand ? "flex" : "none", justifyContent: "center" }}
 			>
-				<li>
-					{session?.session === null ? (
-						<>
+				<ul>
+					{!viewUser ? (
+						<li>
 							<button className="button_sign_in" onClick={auth}>
 								Sign in with <GoogleIcon />
 							</button>
-						</>
+						</li>
 					) : (
-						<ListIfExistSession />
+						<ListIfExistSession signOut={signOut} />
 					)}
-				</li>
-
-				<li className="github_link_contener">
-					<footer>
-						<a
-							style={{ fontFamily: "Roboto-google-normal" }}
-							target="_blank"
-							className="github_link"
-							href={metadata.githubProject}
-						>
-							Source code <GithubIcon />
-						</a>
-
-						<a
-							target="_blank"
-							className="github_link github_link_profile"
-							href={metadata.github}
-						>
-							My GitHub <GithubIcon isMyProfileComponent={true} />
-						</a>
-					</footer>
-				</li>
-			</ul>
+				</ul>
+			</section>
 		</header>
 	);
 }

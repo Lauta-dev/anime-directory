@@ -1,0 +1,22 @@
+.footer {
+  padding: 1rem;
+  margin-top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background-color: #dcfffebf;
+  border-radius: 10px;
+}
+
+.credict>li {
+  display: flex;
+  gap: 10px;
+}
+
+.credict {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

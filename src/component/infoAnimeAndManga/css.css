@@ -1,12 +1,12 @@
 /* Estilos para la transición de altura */
 .description {
-  max-height: 100px;
+  max-height: 200px;
   overflow: hidden;
   transition: max-height 260ms ease-in-out;
 }
 
 .description.expanded {
-  max-height: 600px;
+  max-height: 100vh;
 }
 
 .btn {

@@ -26,6 +26,8 @@ const FullCharacters = lazy(() => import("../component/FullCharacters.jsx"));
 export function Routers() {
 	return (
 		<>
+			<Route path={`/profile`} component={Profile} />
+
 			<Suspense>
 				<Route
 					path={idPaths({ type: newObjet.ova })}
@@ -62,7 +64,6 @@ export function Routers() {
 					path={`/:type/id/:id/allcharacters`}
 					component={FullCharacters}
 				/>
-				<Route path={`/profile`} component={Profile} />
 				<Route path={animeSeasonPath} component={AnimeSeason} />
 				<Route path={characterPaths({})} component={Characters} />
 

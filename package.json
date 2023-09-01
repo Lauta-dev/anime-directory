@@ -1,5 +1,7 @@
 {
 	"name": "jikan-api",
+	"author": "Lauta-dev",
+	"keywords": ["anime", "project"],
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {

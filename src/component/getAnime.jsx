@@ -1,4 +1,5 @@
 import { useGetAnime } from "../hooks/getAnime";
+import { webPage } from "../metadata";
 import { ShowFilters } from "./CardAnimeAndManga";
 import CardAnimeAndManga from "./CardAnimeAndManga";
 
@@ -23,7 +24,7 @@ export default function GetAnimes({ params }) {
 			<h2>No se encontro el anime {params.title}</h2>
 			<p>Pruebe cambiando los filtros o buscando otra cosa</p>
 			<p>Como por ejemplo: Hunter X Hunter</p>
-			<a href="/">Home</a>
+			<a href={webPage.origin}>Home</a>
 		</>
 	);
 }

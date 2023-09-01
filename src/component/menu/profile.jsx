@@ -1,161 +1,39 @@
 import { useEffect, useState, lazy } from "react";
 import supabase from "../../supabase/supabase";
 import "../css/table.css";
-import { localHost } from "../../../server/prefix.js";
-import { useGetSession } from "../../supabase/getSession";
+import { useGetUser } from "../../supabase/getUser";
+import { webPage } from "../../metadata";
 
 const ListItems = lazy(() => import("./Table.jsx"));
 
 const Profile = () => {
-	const { session, connect, useConnect } = useGetSession();
-	console.log(session);
-
-	if (session?.session === null) {
-		const origin = window.location.origin;
-		useConnect(!connect);
-		return (window.location.href = origin);
-	}
-
-	const [item, setItem] = useState(null);
-	const [se, setSe] = useState(true);
-	const [btn, setBtn] = useState(false);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
+	const { session } = useGetUser();
 	const [us, setUs] = useState(null);
 
-	const getItems = async () => {
-		try {
-			const body = {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			};
-
-			const res = await fetch("http://localhost:8080/all", body);
-			const ok = res.ok; // <-- devuelve TRUE si la respuesta es exitosa
-
-			if (!ok) {
-				const error = {
-					messaje: "not fount",
-					errorCode: res.status,
-				};
-
-				setLoading(true);
-
-				return setError(error);
-			}
-
-			const json = await res.json();
-
-			setError(null);
-			setItem(json);
-			setLoading(true);
-		} catch (error) {
-			throw new Error(error);
-		}
-	};
-
-	useEffect(() => {
-		getItems();
-	}, []);
-
-	const hadleType = () => {
-		setSe(!se);
-		se
-			? setItem((prev) =>
-					prev.sort((a, b) => {
-						const aOption = a.type.toUpperCase();
-						const bOption = b.type.toUpperCase();
-
-						if (aOption < bOption) return 1;
-						if (aOption > bOption) return -1;
-					}),
-			  )
-			: setItem((prev) =>
-					prev.sort((a, b) => {
-						const aOption = a.type.toUpperCase();
-						const bOption = b.type.toUpperCase();
-
-						if (aOption > bOption) return 1;
-						if (aOption < bOption) return -1;
-					}),
-			  );
-	};
-
-	const changeTitle = () => {
-		setSe(!se);
-		se
-			? setItem((prev) =>
-					prev.sort((a, b) => {
-						const aOption = a.anime_name.toUpperCase();
-						const bOption = b.anime_name.toUpperCase();
-
-						if (aOption < bOption) return 1;
-						if (aOption > bOption) return -1;
-					}),
-			  )
-			: setItem((prev) =>
-					prev.sort((a, b) => {
-						const aOption = a.anime_name.toUpperCase();
-						const bOption = b.anime_name.toUpperCase();
-
-						if (aOption > bOption) return 1;
-						if (aOption < bOption) return -1;
-					}),
-			  );
-	};
-
-	async function removeFromDataBase({ id }) {
-		try {
-			const body = {
-				method: "DELETE",
-			};
-
-			const res = await fetch(`${localHost}/${id}`, body);
-			const ok = res.ok;
-
-			if (!ok) return console.log("asd");
-			const json = await res.json();
-
-			if (json.message) {
-				setBtn(true);
-				setTimeout(() => {
-					getItems();
-					setBtn(false);
-				}, 1000);
-			}
-		} catch (error) {
-			throw new Error(`Error al eliminar el elemento ${error}`);
-		}
-	}
-
-	async function removeAllItems() {
-		try {
-			const body = {
-				method: "DELETE",
-			};
-
-			const res = await fetch(`${localHost}/remove/all`, body);
-			const ok = res.ok;
-
-			if (!ok) return console.log("asd");
-			await res.json();
-			setItem([]);
-		} catch (error) {
-			throw new Error(`Error al eliminar el elemento ${error}`);
-		}
+	if (session?.name) {
+		return (window.location.href = webPage.origin);
 	}
 
 	useEffect(() => {
-		const a = async () => {
-			const { data: animes, error } = await supabase.from("animes").select("*");
-			setUs(animes);
+		const selectRowForUsers = async () => {
+			const { data: animes, error } = await supabase
+				.from("items")
+				.select("*, users(*)")
+				.eq("user_id", session?.miData?.userId);
+
+			setUs({ animes, error });
 		};
 
-		a();
-	}, []);
+		if (!session || session?.name) return;
 
-	return <ListItems data={us} />;
+		selectRowForUsers();
+	}, [session]);
+
+	return (
+		<>
+			{session && !us?.error && <ListItems data={us?.animes} />}
+			{us?.error && JSON.stringify(us)}
+		</>
+	);
 };
 export default Profile;

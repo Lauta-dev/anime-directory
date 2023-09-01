@@ -1,6 +1,3 @@
-/* src/styles/fonts.css */
-
-/* Import each variant with its specific 'font-weight' and 'font-style' */
 @font-face {
   font-family: 'Roboto-google-normal';
   src: url('./roboto/Roboto-Regular.ttf') format('truetype');
@@ -9,7 +6,7 @@
 }
 
 @font-face {
-  font-family: 'Roboto-google-bold';
+  font-family: 'Roboto-google-b';
   src: url('./roboto/Roboto-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
@@ -28,5 +25,3 @@
   font-weight: bold;
   font-style: italic;
 }
-
-/* Import other variants similarly */
