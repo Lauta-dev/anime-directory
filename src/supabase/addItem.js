@@ -1,19 +1,18 @@
 import supabase from "./supabase";
 
 const insertRow = async ({ title, type, malId }) => {
+	const {
+		data: { user },
+	} = await supabase.auth.getUser();
+
 	const dataOnInsert = {
 		title,
 		type,
 		mal_id: malId,
+		user_id: user.identities[0].user_id,
 	};
 
-	const { error, data, count, status, statusText } = await supabase
-		.from("items")
-		.insert([dataOnInsert]);
-
-	console.log({ error, data, count, status, statusText });
-
-	return { error };
+	await supabase.from("items").insert([dataOnInsert]);
 };
 
 export default insertRow;

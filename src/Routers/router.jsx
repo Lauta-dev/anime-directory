@@ -7,6 +7,7 @@ import {
 	idPaths,
 	searchPaths,
 	characterPaths,
+	profilePath,
 } from "./paths";
 import { newObjet } from "../TYPES";
 import { SelectAnimeOrMangaContextProvider } from "../context/selectAnimeOrManga";
@@ -26,7 +27,7 @@ const FullCharacters = lazy(() => import("../component/FullCharacters.jsx"));
 export function Routers() {
 	return (
 		<>
-			<Route path={`/profile`} component={Profile} />
+			<Route path={profilePath} component={Profile} />
 
 			<Suspense>
 				<Route

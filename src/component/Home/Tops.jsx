@@ -34,6 +34,17 @@ function Select({ set }) {
 	);
 }
 
+const Loading = () => (
+	<Slice>
+		<div className="loading_top"></div>
+		<div className="loading_top"></div>
+		<div className="loading_top"></div>
+		<div className="loading_top"></div>
+		<div className="loading_top"></div>
+		<div className="loading_top"></div>
+	</Slice>
+);
+
 export default function Tops() {
 	const [showMangaOrAnime, setShowMangaOrAnime] = useState("anime");
 	const { setType } = useContext(SelectAnimeOrMangaContext);
@@ -42,8 +53,10 @@ export default function Tops() {
 
 	const { top } = useTop({ topInHome: 6 });
 
-	const loadingTop = top.data?.length;
-	const data = top.data;
+	console.log(top.top);
+
+	const loadingTop = top.top?.data?.length;
+	const data = top.top?.data;
 
 	return (
 		<section style={{ display: "flex", gap: "20px", flexDirection: "column" }}>
@@ -57,14 +70,7 @@ export default function Tops() {
 					<AnimeCard animeArray={data} isCharacterAnime={false} />
 				</>
 			) : (
-				<Slice>
-					<div className="loading_top"></div>
-					<div className="loading_top"></div>
-					<div className="loading_top"></div>
-					<div className="loading_top"></div>
-					<div className="loading_top"></div>
-					<div className="loading_top"></div>
-				</Slice>
+				<Loading />
 			)}
 			<Season />
 		</section>

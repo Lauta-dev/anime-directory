@@ -11,11 +11,17 @@ export function useTop({ topInHome }) {
 	const { nsfw } = useContext(desactiveNSFWContext);
 	const { page } = nsfw;
 
+	const local = JSON.parse(localStorage.getItem(type));
+
 	useEffect(() => {
 		const getTop = async () => {
+			if (local) {
+				return setTop(JSON.parse(localStorage.getItem(type)));
+			}
 			const res = await fetch(JIKAN_API_TOP({ type, page, limit: topInHome }));
 			const data = await res.json();
 
+			localStorage.setItem(type, JSON.stringify({ top: data }));
 			setTop(data);
 		};
 

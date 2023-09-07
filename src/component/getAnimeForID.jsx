@@ -6,8 +6,6 @@ export default function GetAnimeForID({ params }) {
 	const { isAnime } = useSearchMangaOrAnimeRegex();
 	const { animeID, loading } = useGetAnime({ params, type: isAnime });
 
-	console.log({ loading, animeID });
-
 	return (
 		<>
 			{!loading ? (

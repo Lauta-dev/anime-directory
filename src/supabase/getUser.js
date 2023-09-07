@@ -1,28 +1,17 @@
 import { useEffect, useState } from "react";
 import supabase from "./supabase";
 
-/**
- * @returns session {
- *   error,
- *   session
- * }
- */
 export const useGetUser = () => {
-	const [session, useSession] = useState(null);
+	const [session, useSession] = useState({});
 
 	useEffect(() => {
-		const getUser = async () => {
-			const {
-				error,
-				data: { user },
-			} = await supabase.auth.getUser();
-
+		supabase.auth.getUser().then(({ data, error }) => {
 			if (error) {
-				useSession(error);
-				return;
+				return useSession({ error });
 			}
 
-			const userId = user?.identities[0]?.user_id;
+			const user = data.user;
+			const userId = user.id;
 
 			useSession({
 				user,
@@ -30,10 +19,10 @@ export const useGetUser = () => {
 					userId,
 				},
 			});
-		};
-
-		getUser();
+		});
 	}, []);
+
+	console.log(session);
 
 	return { session };
 };
